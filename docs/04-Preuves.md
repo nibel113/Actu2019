@@ -51,14 +51,46 @@ Deux cas possibles:
 Donc la portion $(E[X\times\mathrm{1}_{\{X=\text{VaR}_k(X)\}}]+P(X>\text{VaR}_k(X))\times\text{VaR}_k(X))=  \text{VaR}_k(X)[1-\frac{P(X\ge\text{VaR}_k(X))}{(1-k)}]$</div>\EndKnitrBlock{proof}
 
 
+##Biais moyenne échantillonale (voir \@ref(stats:criteres:biais))
+\label{preuves:biais:xn}
+\BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{}\begin{gather*}
+B(\hat{\theta}_n)=E[\bar{X}_n]-E[X]\\
+=E[x]-E[X]=0
+\end{gather*}</div>\EndKnitrBlock{proof}
 
+##Biais variance échantillonale (voir \@ref(stats:criteres:biais))
+\label{preuves:biais:sn}
+\BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{}\begin{gather*}
+S_n^2= \frac{1}{n-1}(\sum_{i=1}^n {(X_i-\bar{X}_n)}^2)\\
+=\frac{1}{n-1}(\sum_{i=1}^n (X_i^2-2X_i\bar{X}_n+\bar{X}_n^2))\\
+=\frac{1}{n-1}[(\sum_{i=1}^n X_i^2)  -\frac{2}{n-1}(\bar{X}_n\sum_{i=1}^n X_i) +\frac{n}{(n-1)}((\bar{X}_n)^2)]\\
+= \frac{1}{n-1}(\sum_{i=1}^n X_i^2) - \frac{n}{(n-1)}(\bar{X}_n^2)
+\end{gather*}
 
+\begin{gather*}
+E[S_n^2]=E[\frac{1}{n-1}(\sum_{i=1}^n)]-E[\frac{n}{(n-1)}(\bar{X}_n)]\\
+=\frac{n}{n-1}((Var(X)+E^2[X])) - \frac{1}{(n-1)}(Var(X))-\frac{n}{n-1}(E[X^2])\\
+=Var(X)
+\end{gather*}
 
+\begin{gather*}
+B(S^2_n)= Var(X)-\sigma^2 = 0
+\end{gather*}</div>\EndKnitrBlock{proof}
 
-
-
-
-
+##Convergence (voir \@ref(stats:convergence))
+\label{preuves:convergence}
+\BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{}On prouve avec Tchebycheff  
+Un estimateur sans biais est convergent si:
+$$
+\lim_{n\to \infty} Var(\hat{\theta}_n) =0
+$$
+\begin{gather*}
+\text{On fixe}\; \epsilon>0,\\
+P(|\hat{\theta}_n-\theta|>\epsilon)= P(|\hat{\theta}_n-E[\hat{\theta}_n]|>\epsilon)\\
+=P(|\hat{\theta}_n-E[\hat{\theta}_n]|>\frac{\epsilon\times \sqrt{Var(\hat{\theta}_n)}}{\sqrt{Var(\hat{\theta}_n)}})\\
+\le \frac{Var(\hat{\theta}_n)}{\epsilon^2}
+\end{gather*}
+Donc si $Var(\hat{\theta}_n)\to 0$ quand $n \to \infty$, $\hat{\theta}_n$ est convergent</div>\EndKnitrBlock{proof}
 
 
 

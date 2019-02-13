@@ -16,18 +16,35 @@
 \contentsline {subsection}{\numberline {1.6.3}Expression alternative 3}{9}{subsection.1.6.3}% 
 \contentsline {chapter}{\numberline {2}Stats}{11}{chapter.2}% 
 \contentsline {section}{\numberline {2.1}Définitions}{11}{section.2.1}% 
-\contentsline {section}{\numberline {2.2}Formules}{11}{section.2.2}% 
-\contentsline {subsection}{\numberline {2.2.1}Moyenne échantilonnale:}{11}{subsection.2.2.1}% 
-\contentsline {subsection}{\numberline {2.2.2}Variance échantillonale:}{11}{subsection.2.2.2}% 
-\contentsline {subsection}{\numberline {2.2.3}Loi faible des grands nombres:}{11}{subsection.2.2.3}% 
-\contentsline {subsection}{\numberline {2.2.4}Statistiques d'ordre d'un échantillon:}{12}{subsection.2.2.4}% 
-\contentsline {subsection}{\numberline {2.2.5}Distribution de \(\mathaccentV {bar}016{X}\):}{12}{subsection.2.2.5}% 
-\contentsline {subsection}{\numberline {2.2.6}Somme de normales au carré}{12}{subsection.2.2.6}% 
-\contentsline {chapter}{\numberline {3}Technical Details}{13}{chapter.3}% 
-\contentsline {chapter}{\numberline {4}Preuves}{15}{chapter.4}% 
-\contentsline {section}{\numberline {4.1}Théorème (\ref {thm:fn-quantile}) de la fonction quantile}{15}{section.4.1}% 
-\contentsline {section}{\numberline {4.2}Fonction Stop-Loss(\ref {intro:fn-stop})}{15}{section.4.2}% 
-\contentsline {section}{\numberline {4.3}Tvar}{15}{section.4.3}% 
-\contentsline {subsection}{\numberline {4.3.1}Expresion alternative 1(\ref {intro:tvar:alt1})}{15}{subsection.4.3.1}% 
-\contentsline {subsection}{\numberline {4.3.2}Expression alternative 2(\ref {intro:tvar:alt2})}{16}{subsection.4.3.2}% 
-\contentsline {subsection}{\numberline {4.3.3}Expression alternative 3(\ref {intro:tvar:alt3})}{16}{subsection.4.3.3}% 
+\contentsline {section}{\numberline {2.2}Moyenne échantilonnale:}{11}{section.2.2}% 
+\contentsline {section}{\numberline {2.3}Variance échantillonale:}{11}{section.2.3}% 
+\contentsline {section}{\numberline {2.4}Loi faible des grands nombres:}{11}{section.2.4}% 
+\contentsline {section}{\numberline {2.5}Statistiques d'ordre d'un échantillon:}{12}{section.2.5}% 
+\contentsline {section}{\numberline {2.6}Distribution de \(\mathaccentV {bar}016{X}\):}{12}{section.2.6}% 
+\contentsline {section}{\numberline {2.7}Somme de normales au carré}{12}{section.2.7}% 
+\contentsline {section}{\numberline {2.8}Statistique Student}{12}{section.2.8}% 
+\contentsline {section}{\numberline {2.9}Distribution de la Statistique Student}{13}{section.2.9}% 
+\contentsline {section}{\numberline {2.10}Distribution Student}{13}{section.2.10}% 
+\contentsline {section}{\numberline {2.11}Statistique F}{13}{section.2.11}% 
+\contentsline {section}{\numberline {2.12}Distribution F}{13}{section.2.12}% 
+\contentsline {section}{\numberline {2.13}Comparer variance échantionnale}{13}{section.2.13}% 
+\contentsline {section}{\numberline {2.14}Lemme de Slutsky}{14}{section.2.14}% 
+\contentsline {section}{\numberline {2.15}Théorème Central Limite}{14}{section.2.15}% 
+\contentsline {section}{\numberline {2.16}Distribution Statistique Student lorsqu'on ne connait pas la variance et X ne provient pas d'une loi Normale}{14}{section.2.16}% 
+\contentsline {section}{\numberline {2.17}Aproximation de la loi Binomiale avec la loi Normale}{14}{section.2.17}% 
+\contentsline {section}{\numberline {2.18}Critères pour évaluer la performance d'un estimateur}{14}{section.2.18}% 
+\contentsline {subsection}{\numberline {2.18.1}Critère 1: Biais}{14}{subsection.2.18.1}% 
+\contentsline {subsection}{\numberline {2.18.2}Critère 2: Variance}{15}{subsection.2.18.2}% 
+\contentsline {subsection}{\numberline {2.18.3}Critère 3: Convergence}{15}{subsection.2.18.3}% 
+\contentsline {section}{\numberline {2.19}Efficacité relative}{15}{section.2.19}% 
+\contentsline {chapter}{\numberline {3}Technical Details}{17}{chapter.3}% 
+\contentsline {chapter}{\numberline {4}Preuves}{19}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Théorème (\ref {thm:fn-quantile}) de la fonction quantile}{19}{section.4.1}% 
+\contentsline {section}{\numberline {4.2}Fonction Stop-Loss(\ref {intro:fn-stop})}{19}{section.4.2}% 
+\contentsline {section}{\numberline {4.3}Tvar}{19}{section.4.3}% 
+\contentsline {subsection}{\numberline {4.3.1}Expresion alternative 1(\ref {intro:tvar:alt1})}{19}{subsection.4.3.1}% 
+\contentsline {subsection}{\numberline {4.3.2}Expression alternative 2(\ref {intro:tvar:alt2})}{20}{subsection.4.3.2}% 
+\contentsline {subsection}{\numberline {4.3.3}Expression alternative 3(\ref {intro:tvar:alt3})}{20}{subsection.4.3.3}% 
+\contentsline {section}{\numberline {4.4}Biais moyenne échantillonale (voir \ref {stats:criteres:biais})}{20}{section.4.4}% 
+\contentsline {section}{\numberline {4.5}Biais variance échantillonale (voir \ref {stats:criteres:biais})}{21}{section.4.5}% 
+\contentsline {section}{\numberline {4.6}Convergence (voir \ref {stats:convergence})}{21}{section.4.6}% 

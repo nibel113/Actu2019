@@ -10,20 +10,28 @@ Observation: réalisation d'une variable aléatoire
 
 Statistiques: fonction d'un échantillon aléatoire et de constantes connues  
 
-##Formules  
 
-###Moyenne échantilonnale:
+Paramêtres: quantité d'intérêt($E[X],\;Var(x),\;etc$) ou le paramêtre $\theta$ d'un modèle paramétrique. 
+
+
+Estimateur: Statistique $S(X_1,\dots,X_n)$ qui prend des valeurs qu'on espère proche de $\theta$ noté $\hat{\theta}_n$(Variable aléatoire)  
+
+
+Estimation de $\theta$: données observées $x_1,x_2,\dots$ de la valeur observée $\hat{\theta}$, $s(x_1,x_2,\dots)$(réalisations)  
+
+
+##Moyenne échantilonnale:
 $$
 \bar{X}_n=\frac{1}{n}\sum_{i=1}^n x_i
 $$
 
-###Variance échantillonale:
+##Variance échantillonale:
 
 $$
 S^2_n= \frac{1}{n-1}\sum^n_{i=1}(X_i-\bar{X}_n)^2
 $$  
 
-###Loi faible des grands nombres:  
+##Loi faible des grands nombres:  
 
 
 Soit $X_1,X_2,...,$ une suite de V.A. iid. On suppose $var(X_i)< \infty$ et $E[X] = \mu$, lorsque $n \to \infty$  
@@ -41,7 +49,7 @@ $$
 P(|\bar{X}_n-\mu|>\epsilon)\leq\frac{var(X_i)}{n\epsilon^2}
 $$
 
-###Statistiques d'ordre d'un échantillon:
+##Statistiques d'ordre d'un échantillon:
 \begin{gather*}
     X_{(1)}=\min(X_1,\dots, X_n) \\  
     F_{X_{(1)}} (x)= 1 -{(1- F_X (x))}^n \\  
@@ -53,7 +61,7 @@ $$
 \end{gather*}
 
 
-###Distribution de $\bar{X}$:
+##Distribution de $\bar{X}$:
 
 Soit $X_1,\dots,X_n$, un échantillon de $N(\mu,\frac{\sigma^2}{n})$,
 
@@ -63,13 +71,14 @@ Soit $X_1,\dots,X_n$, un échantillon de $N(\mu,\frac{\sigma^2}{n})$,
     Z_n=\frac{\bar{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\,\sim N(0,1)
 \end{gather*}
 
-utilisation de la distribution d'échantillonage de $\bar{X}_n$:
-*Vérifier une affirmation 
-*Trouver un interval plausibe
-*Déterminer une taille d'échantillon minimal
+Utilisation de la distribution d'échantillonage de $\bar{X}_n$:
+
+1. Vérifier une affirmation 
+2. Trouver un interval plausibe
+3. Déterminer une taille d'échantillon minimal
 
 
-###Somme de normales au carré
+##Somme de normales au carré
 Soit $Z_1,\dots,Z_n\sim N(0,1)$
 $$
 \sum_{i=1}^n Z_i^2\sim \chi^2_n
@@ -77,18 +86,161 @@ $$
 
 Soit $X_1,\dots,X_n\sim N(\mu,\sigma^2)$
 $$
-\frac{(n-1)S^2_n}{\sigma^2}= \frac{1}{\sigma^2}sum^n_{i=1}(X_i-\bar{X}_n)^2\sim \chi^2_{(n-1)}
+\frac{(n-1)S^2_n}{\sigma^2}= \frac{1}{\sigma^2}\sum^n_{i=1}(X_i-\bar{X}_n)^2\sim \chi^2_{(n-1)}
 $$
-$S^2_n\bot\bar{X}_n$ 
+$S^2_n\bot\,\bar{X}_n$ 
 $$
 E[S^2_n]= \frac{\sigma^2}{(n-1)}E[\frac{(n-1)}{\sigma^2}S^2_n]=\frac{\sigma^2}{(n-1)}(n-1)=\sigma^2
 $$
 
+##Statistique Student {#stats:stats:student}
+
+$$
+\text{T}_n= \sqrt{n}\frac{\bar{X}_n-\mu}{\sqrt{S_n^2}}
+$$
+
+## Distribution de la Statistique Student {#stats:dist:student}
+
+\begin{gather*}
+    \text{T}_n =\sqrt{n} \frac{\bar{X}_n -\mu}{\sqrt{S^2_n}}\sim t(n-1)\\
+    \text{T}_n=\frac{\bar{X}_n-\mu}{\sqrt{\frac{\sigma^2}{n}}}\times\sqrt{\frac{\sigma^2}{S^2_n}}\\
+    =\underbrace{\frac{\bar{X}_n-\mu}{\sqrt{\frac{\sigma^2}{n}}}}_{\sim N(0,1)}\times\underbrace{\sqrt{\frac{(n-1)}{(n-1)\frac{S^2_n}{\sigma^2}}}}_{\sim \chi_{(n-1)}^2}
+\end{gather*}
+
+## Distribution Student
+Soit $Z\sim N(0,1)$ et $W\sim \chi^2_(v)$ 
+$Z\bot W$
+$$
+T=\frac{Z}{\sqrt{\frac{W}{n}}}\sim t(v)
+$$
+Propriété
+
+Si $v>1$: 
+$E[T]=0$  
+
+Si $v>2$: 
+$Var(T)=\frac{v}{v-2}$   
+Si $v\rightarrow \infty,\;t(v)\;\text{converge vers}\;N(0,1)$
+
+##Statistique F {#stats:stats:f}
+
+Soit $X_i,\dots,X_n\sim N(\mu_1,\sigma^2_1)$ et $Y_1,\dots,Y_n \sim N(\mu_2,\sigma_2^2)$  
+Pour comparer: $\sigma_1^2$ et $\sigma^2_2$
+$$
+\frac{S_n^2}{S_m^2}=\frac{\frac{1}{n-1}\sum_{i=1}^n(X_i-\bar{X}_n)^2}{\frac{1}{m-1}\sum_{i=1}^m(Y_i-\bar{Y}_m)^2}
+$$
+
+##Distribution F {#stats:dist:f}
+Soit $W_1\sim\chi^2_{(v_1)},\;W_2\sim\chi^2_{(v_2)}$ 
+
+$W_1 \bot\, W_2$ 
+
+$$
+F=\frac{\dfrac{W_1}{v_1}}{\dfrac{W_2}{v_2}}\quad
+F\sim F(v_1,v_2)
+$$
+
+Si $X \sim F(v_1,v_2)$ et $v_2>2$ 
+$E[X =\frac{v_2}{v_2-2}]$
+
+##Comparer variance échantionnale {#stats:stats:f:varéchan}
+
+Soit $X_1,\dots,X_n\sim N(\mu_1,\sigma^2_1)$ et $Y_1,\dots,Y_m\sim N(\mu_2,\sigma^2_2)$ 
+$$
+\frac{\dfrac{S^2_n}{\sigma^2_1}}{\dfrac{S_m^2}{\sigma^2_2}}\sim F(n-1,m-1)
+$$
+
+##Lemme de Slutsky
+
+Soit $X_1,X_2,\dots$ et $Y_1,Y_2,\dots$ 
+Lorsque $n \rightarrow \infty$ et $X_n \rightsquigarrow X$ et $Y_n \rightsquigarrow c$
+ 
+1. $X_n+Y_n \rightsquigarrow X+c$
+2. $X_n\times Y_n \rightsquigarrow X\times c$
+3. Si $c>0,\; \frac{X_n}{Y_n} \rightsquigarrow \frac{X}{c}$
+
+##Théorème Central Limite {#stats:tcl}
+
+\BeginKnitrBlock{theorem}<div class="theorem"><span class="theorem" id="thm:unnamed-chunk-1"><strong>(\#thm:unnamed-chunk-1) </strong></span>Soit $X_1,\dots,X_n$, un échantillon de V.A. quelconque:
+$$
+Z_n=\sqrt{n}\times\frac{\bar{X}_n-\mu}{\sigma}
+$$
+quand $n \to \infty$: 
+$$
+P(Z_n\le X)\to\phi(X)
+$$
+Convergence en distribution:
+$$
+Z_n\rightsquigarrow N(0,1)
+$$</div>\EndKnitrBlock{theorem}
+
+##Distribution Statistique Student lorsqu'on ne connait pas la variance et X ne provient pas d'une loi Normale
+
+$T \not\sim t(n-1)$   
+Soit $X_1,\dots,X_n$, un échantillon d'une V.A quelconque:   
+$E[X^4]<\infty$, lorsque $n\to\infty$:
+$$
+T_n = \sqrt{n}\frac{\bar{X}_n-\mu}{S_n}\rightsquigarrow N(0,1)
+$$
 
 
+##Aproximation de la loi Binomiale avec la loi Normale
+
+$$
+Z=\sqrt{n}\times \frac{\bar{X}_n-p}{\sqrt{p(1-p)}}\approx N(0,1)
+$$
+Correction de la continuité: 
+$$
+P(Y\le y)\approx P(Z \le y+0.5 )
+$$
 
 
+##Critères pour évaluer la performance d'un estimateur {#stats:criteres}
 
+###Critère 1: Biais {#stats:criteres:biais}
+
+\begin{gather*}
+B(\hat{\theta}_n)= E[\hat{\theta}_n-\theta]=E[\hat{\theta}_n]-\theta\\
+\intertext{Estimateur sans biais:}\\
+B(\hat{\theta}_n)=0\\
+\intertext{Estimateur asymptotiquement sans biais:}\\
+\lim_{n\to \infty} B(\hat{\theta}_n)=0
+\end{gather*}
+
+Voir preuve \@ref(preuves:biais:xn) et \@ref(preuves:biais:sn) pour le développement des biais de $\bar{X}_n$ et $S_n^2$ 
+
+###Critère 2: Variance {#stats:criteres:variance}
+
+Parmi 2 estimateurs sans biais, on préfère celui avec une plus petite variance.  
+
+Pour deux estimateur avec biais, on préfère celui avec la plus petite Erreur quadratique moyenne(EQM):
+$$
+EQM(\hat{\theta}_n)= E[(\hat{\theta}_n-\theta)^2]= Var(\hat{\theta}_n)+[B(\hat{\theta}_n)]^2
+$$
+
+###Critère 3: Convergence  {#stats:convergence}
+
+L'estimateur $\hat{\theta}_n$ est un estimateur convergent de $\theta$ si, quand $n\to \infty$,
+$$
+\hat{\theta}_n\xrightarrow{P}\theta
+$$
+ce qui signifie que pour tout $\epsilon>0$,
+$$
+\lim_{n\to\infty}P(|\hat{\theta}-\theta|>\epsilon)=0
+$$
+
+Voir \@ref(preuves:convergence) pour prouver la convergence
+
+
+##Efficacité relative {#stats:effrela}
+
+Soit $\hat{\theta}_n$ et $\tilde{\theta}_n$, 2 estimateurs sans biais et convergent.
+
+$$
+eff(\hat{\theta}_n,\tilde{\theta}_n)= \frac{Var(\tilde{\theta}_n)}{Var(\hat{\theta}_n)}
+$$
+Si $eff(\hat{\theta}_n,\tilde{\theta}_n)>1$, $\hat{\theta}_n$ est préférable, sinon $\tilde{\theta}_n$ est préférable.
+ 
 
 
 
