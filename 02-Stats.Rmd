@@ -1,0 +1,96 @@
+# Stats
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+##Définitions  
+Observation: réalisation d'une variable aléatoire  
+
+
+Échantillon aléatoire de F: ensemble de V.A. iid  
+
+
+Statistiques: fonction d'un échantillon aléatoire et de constantes connues  
+
+##Formules  
+
+###Moyenne échantilonnale:
+$$
+\bar{X}_n=\frac{1}{n}\sum_{i=1}^n x_i
+$$
+
+###Variance échantillonale:
+
+$$
+S^2_n= \frac{1}{n-1}\sum^n_{i=1}(X_i-\bar{X}_n)^2
+$$  
+
+###Loi faible des grands nombres:  
+
+
+Soit $X_1,X_2,...,$ une suite de V.A. iid. On suppose $var(X_i)< \infty$ et $E[X] = \mu$, lorsque $n \to \infty$  
+
+
+$$ 
+P(|(\bar{X}_n-\mu)|>\epsilon)\to\infty\quad \forall\epsilon>0
+$$
+$\bar{X}_n$ converge en probabilité vers $\mu$
+$$
+\bar{X}_n\overset{p}\to\mu\\  
+$$
+Preuve par Tchebycheff:
+$$
+P(|\bar{X}_n-\mu|>\epsilon)\leq\frac{var(X_i)}{n\epsilon^2}
+$$
+
+###Statistiques d'ordre d'un échantillon:
+\begin{gather*}
+    X_{(1)}=\min(X_1,\dots, X_n) \\  
+    F_{X_{(1)}} (x)= 1 -{(1- F_X (x))}^n \\  
+    \\
+    X_{(n)}= \max(X_1,\dots,X_n) \\  
+    F_{X_{(n)}}(x)={F_X(x)}^n\\
+    \\
+    f_{X_{(k)}}(x)= \frac{{n!}}{{(k-1)!}1{(n-k)!}}{F_X(x)}^{k-1}{(1-F_X(x))}^{n-k}f_X(x)
+\end{gather*}
+
+
+###Distribution de $\bar{X}$:
+
+Soit $X_1,\dots,X_n$, un échantillon de $N(\mu,\frac{\sigma^2}{n})$,
+
+\begin{gather*}
+    \bar{X}_n=\frac{1}{n}\sum_{i=1}^n X_i\, \sim N(\mu,\frac{\sigma^2}{n})\\
+    \\
+    Z_n=\frac{\bar{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\,\sim N(0,1)
+\end{gather*}
+
+utilisation de la distribution d'échantillonage de $\bar{X}_n$:
+*Vérifier une affirmation 
+*Trouver un interval plausibe
+*Déterminer une taille d'échantillon minimal
+
+
+###Somme de normales au carré
+Soit $Z_1,\dots,Z_n\sim N(0,1)$
+$$
+\sum_{i=1}^n Z_i^2\sim \chi^2_n
+$$
+
+Soit $X_1,\dots,X_n\sim N(\mu,\sigma^2)$
+$$
+\frac{(n-1)S^2_n}{\sigma^2}= \frac{1}{\sigma^2}sum^n_{i=1}(X_i-\bar{X}_n)^2\sim \chi^2_{(n-1)}
+$$
+$S^2_n\bot\bar{X}_n$ 
+$$
+E[S^2_n]= \frac{\sigma^2}{(n-1)}E[\frac{(n-1)}{\sigma^2}S^2_n]=\frac{\sigma^2}{(n-1)}(n-1)=\sigma^2
+$$
+
+
+
+
+
+
+
+
+

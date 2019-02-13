@@ -1,6 +1,6 @@
 book_filename: "Formules et notes"
 chapter_name: "Chapitre "
-repo: https://github.com/seankross/bookdown-start
+repo: https://github.com/nibel113/Projet-1
 output_dir: docs
 rmd_files: 
 clean: [packages.bib, bookdown.bbl]

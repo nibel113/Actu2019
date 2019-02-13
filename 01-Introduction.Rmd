@@ -1,4 +1,124 @@
-# Introduction
+# Introduction actuariat 2
 
-This is the first real chapter.
+##Théorème de la fonction quantile
+```{theorem, fn-quantile}
+\begin{align*}
+U &\sim Unif(0,1)\\
+Y &=F_x^{-1}(u) \Rightarrow Y \sim X\\
+F_y(x) &=F_{F_X^{-1}(u)}(x)=F_X(x)\, \text{pour}\, x \in \mathbb{R}\\
+\intertext{ainsi:}\\
+X &=F_x^{-1}(u)
+\end{align*}
+Voir preuve \ref{preuves:fn-quantile}
+```
+
+##Espérance tronqué {#intro:espétron}
+
+\begin{gather*}
+\begin{align*}
+E[X \times \mathrm{1}_{ \{ X \ge x \} }]& =\int_{-\infty}^\infty y \times \mathrm{1}_{ \{ y \ge x\}}f_X(y)\, dy \notag \\ 
+& =\int_{-\infty}^x 0\times f_X(y) dy + \int_x^\infty y f_x(y)\,dy \notag \\
+& =\int_x^\infty y f_x(y)\,dy 
+\end{align*}
+\end{gather*}
+
+
+
+
+
+##Fonction Stop-Loss {#intro:fn-stop}
+
+$$
+    \Pi_X(d) = E[\max(X-d,0)]\quad\text{pour}\,d \,\in \mathbb{R}
+$$
+Voir preuve \ref{preuves:fn-stop}
+
+###Variable continue
+
+$$
+    \Pi_X(d) = \int_0^\infty \max(X-d, 0)f_X(x)\,dx
+$$
+
+
+###Variable discrète sur $({0,1h,2h,\dots})$
+
+\begin{gather*}
+    f_X(kh) =P(X-kh),\, k\in \mathrm{N},\, h > 0,\, d =k_0 h\\
+    \Pi_X(k_0 h) = E[\max(X-k_0 h, 0)]
+     =\sum_{k=0}^\infty \max(kh-k_0 h, 0) P(X=kh)
+     =\sum_{k_0=k+1}^\infty (kh-k_0 h) P(X=kh)
+\end{gather*}
+
+
+###Propriété
+
+$$
+    \Pi_X(0) = \lim_{d \to 0} \Pi_X(d)\\
+     =\lim_{d \to 0} E[\max(X-d, 0)]\\
+     =E[X]
+$$
+
+##Fonction quantile {#intro:fn-quantile}
+###Première forme {#intro:fn-quantile:1}
+\begin{gather*}
+\begin{align*}
+\int_k^1 F_X^{-1}(u)\,du& =\int_k^1 [F_X^{-1}(u)-F_X^{-1}(k)+F_X^{-1}(k)]\,du\\
+& =\int_k^1(F_X^{-1}(u)-F_X^{-1}(k))\,du + F_X^{-1}(k)\int_k^1 (1)\,du\\
+& =\int_0^1\max(F_x^{-1}(u)-F_X^{-1}(k),\, 0)\, du + F_X^{-1}(k)(1-k)\\
+& = E[\max(F_X^{-1}-F_x^{-1}(k),\, 0)]+(1-k)F_X^{-1}(k)\\
+& = E[\max(X-F_X^{-1},\, 0)]+(1-k)F_X^{-1}(k)
+\end{align*}
+\end{gather*}
+
+###Deuxième forme {#intro:fn-quantile:2}
+\begin{gather*}
+\begin{align*}
+\int_k^1 F_X^{-1}(u)\, du& =\Pi_X(F_X^{-1}(k))+(1-k)F_X^{-1}(k)\\
+\text{En remplaçant $\Pi_X(F_X^{-1}(k))$ par}\; \ref{preuves:fn-stop}\;\text{on obtient:}\\
+& =E[X \times \mathrm{1}_{\{X > F_X^{-1}(k)\}}]-F_X^{-1}(k)\bar{F}_X(F_X^{-1}(k))+(1-k)F_x^{-1}(k)\\
+& =E[X \times \mathrm{1}_{\{X > F_X^{-1}(k)\}}]+F_X^{-1}(k)(F_X(F_X^{-1}(k))-k)
+\end{align*}
+\end{gather*}
+
+## Fonction quantile et espérance {#fn-et-Ex}
+
+
+\begin{gather*}
+\int_0^1 F_X^{-1}(u)\,du =E[F_X^{-1}(x)]\\
+\int_0^1 F_X^{-1} (u)(1)\,du = E[X]\\
+\intertext{Généralisation:}\\
+\int_0^1 \phi(F_X^{-1}(u))\,du =E[\phi(F_X^{-1}(u))] =E[\phi(X)]
+\end{gather*}
+
+##TVaR {#intro:tvar}
+
+$$
+\text{VaR}_k(X)= F_X^{-1}(k)
+$$
+
+$$
+\text{TVaR}_k(X)= \frac{1}{1-k}\int_k^1\text{VaR}_u(X)\,du
+$$
+
+###Expression alternative 1 {#intro:tvar:alt1}
+$$
+\text{TVaR}_k(X)= \frac{1}{1-k}\Pi_X(\text{VaR}_k(X))+\text{VaR}_k(X)
+$$
+Voir preuve \@ref(preuves:tvar:1)
+
+###Expression alternative 2 {#intro:tvar:alt2}
+$$
+\text{TVaR}_k(X)= \frac{1}{1-k}(E[X\times\mathrm{1}_{\{X>{\text{VaR}_k(X)}\}}]+\text{VaR}_k(X)\times(F_X[\text{VaR}_k(X)]-k))
+$$
+Voir preuve \@ref(preuves:tvar:2)
+
+###Expression alternative 3 {#intro:tvar:alt3}
+$$
+\text{TVaR}_k(X)= \frac{P(X\ge \text{VaR}_k(X))}{(1-k)} \times E[X|X \ge \text{VaR}_k(X)]+(1-\frac{P(X\ge \text{VaR}_k(X))}{(1-k)})\times\text{VaR}_k(X),\quad k\in (0,1)
+$$
+Voir preuve \@ref(preuves:tvar:3)
+
+
+
+
 
