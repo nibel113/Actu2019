@@ -4,9 +4,9 @@
 \BeginKnitrBlock{theorem}<div class="theorem"><span class="theorem" id="thm:fn-quantile"><strong>(\#thm:fn-quantile) </strong></span>\begin{align*}
 U &\sim Unif(0,1)\\
 Y &=F_x^{-1}(u) \Rightarrow Y \sim X\\
-F_y(x) &=F_{F_X^{-1}(u)}(x)=F_X(x)\, \text{pour}\, x \in \mathbb{R}\\
+F_Y(x) &=F_{F_X^{-1}(u)}(x)=F_X(x)\, \text{pour}\, x \in \mathbb{R}\\
 \intertext{ainsi:}\\
-X &=F_x^{-1}(u)
+X &=F_X^{-1}(u)
 \end{align*}
 Voir preuve \ref{preuves:fn-quantile}</div>\EndKnitrBlock{theorem}
 
@@ -15,8 +15,8 @@ Voir preuve \ref{preuves:fn-quantile}</div>\EndKnitrBlock{theorem}
 \begin{gather*}
 \begin{align*}
 E[X \times \mathrm{1}_{ \{ X \ge x \} }]& =\int_{-\infty}^\infty y \times \mathrm{1}_{ \{ y \ge x\}}f_X(y)\, dy \notag \\ 
-& =\int_{-\infty}^x 0\times f_X(y) dy + \int_x^\infty y f_x(y)\,dy \notag \\
-& =\int_x^\infty y f_x(y)\,dy 
+& =\int_{-\infty}^x 0\times f_X(y) dy + \int_x^\infty y f_X(y)\,dy \notag \\
+& =\int_x^\infty y f_X(y)\,dy 
 \end{align*}
 \end{gather*}
 
@@ -62,9 +62,9 @@ $$
 \begin{align*}
 \int_k^1 F_X^{-1}(u)\,du& =\int_k^1 [F_X^{-1}(u)-F_X^{-1}(k)+F_X^{-1}(k)]\,du\\
 & =\int_k^1(F_X^{-1}(u)-F_X^{-1}(k))\,du + F_X^{-1}(k)\int_k^1 (1)\,du\\
-& =\int_0^1\max(F_x^{-1}(u)-F_X^{-1}(k),\, 0)\, du + F_X^{-1}(k)(1-k)\\
-& = E[\max(F_X^{-1}-F_x^{-1}(k),\, 0)]+(1-k)F_X^{-1}(k)\\
-& = E[\max(X-F_X^{-1},\, 0)]+(1-k)F_X^{-1}(k)
+& =\int_0^1\max(F_X^{-1}(u)-F_X^{-1}(k),\, 0)\, du + F_X^{-1}(k)(1-k)\\
+& = E[\max(F_X^{-1}(u)-F_X^{-1}(k),\, 0)]+(1-k)F_X^{-1}(k)\\
+& = E[\max(X-F_X^{-1}(k),\, 0)]+(1-k)F_X^{-1}(k)
 \end{align*}
 \end{gather*}
 
@@ -73,7 +73,7 @@ $$
 \begin{align*}
 \int_k^1 F_X^{-1}(u)\, du& =\Pi_X(F_X^{-1}(k))+(1-k)F_X^{-1}(k)\\
 \text{En remplaçant $\Pi_X(F_X^{-1}(k))$ par}\; \ref{preuves:fn-stop}\;\text{on obtient:}\\
-& =E[X \times \mathrm{1}_{\{X > F_X^{-1}(k)\}}]-F_X^{-1}(k)\bar{F}_X(F_X^{-1}(k))+(1-k)F_x^{-1}(k)\\
+& =E[X \times \mathrm{1}_{\{X > F_X^{-1}(k)\}}]-F_X^{-1}(k)\bar{F}_X(F_X^{-1}(k))+(1-k)F_X^{-1}(k)\\
 & =E[X \times \mathrm{1}_{\{X > F_X^{-1}(k)\}}]+F_X^{-1}(k)(F_X(F_X^{-1}(k))-k)
 \end{align*}
 \end{gather*}
@@ -116,6 +116,23 @@ $$
 $$
 Voir preuve \@ref(preuves:tvar:3)
 
+##Transformée de Laplace
+
+Existe pour toute loi de X.   
+
+Lien avec $E[X]$: 
+\begin{align*}
+\text{V.A. X positive tel que}\; E[X]<\infty& \\ 
+(-1)\frac{d}{dt}\mathcal{L}_X(t)\vert_{t=0}& =(-1)\frac{d}{dt}E[e^{-tX}]\vert_{t=0}\\
+& =(-1)E[\frac{d}{dt}e^{-tX}]\vert_{t=0}\\
+& =(-1)E[-Xe^{-tX}]\vert_{t=0}\\
+& =(-1)E[-X] = E[X]
+\end{align*}  
+
+Lien avec$E[X^m]$:
+$$
+E[X^m]=(-1)^m\frac{d^m}{dt^m}\mathcal{L}_X(t)\vert_{t=0}
+$$
 
 
 

@@ -3,7 +3,7 @@
 ##Théorème (\@ref(thm:fn-quantile)) de la fonction quantile 
 \label{preuves:fn-quantile}
 \BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{}\begin{align*}
-F_{F_x^{-1}(u)}(x)& =P(F_X^{-1} \le x)\\
+F_{F_X^{-1}(u)}(x)& =P(F_X^{-1} \le x)\\
 & =P(U \le F_X(x))\\
 & =F_X(x)
 \end{align*}</div>\EndKnitrBlock{proof}
@@ -12,8 +12,8 @@ F_{F_x^{-1}(u)}(x)& =P(F_X^{-1} \le x)\\
 \label{preuves:fn-stop}
 \BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{}\begin{align*}
 \Pi_X(d)& = E[\max(X-d, 0)]\\
-& =E[X  \mathrm{1}_{ \{X > d\} } -d\times \mathrm{1}_{\{X > d\}}]\\
-& =E[X \mathrm{1}_{\{X > d\}}]-d \bar{F}(d)\\
+& =E[X \times \mathrm{1}_{ \{X > d\} } -d\times \mathrm{1}_{\{X > d\}}]\\
+& =E[X \times \mathrm{1}_{\{X > d\}}]-d \bar{F}(d)\\
 \end{align*}</div>\EndKnitrBlock{proof}
 
 ##Tvar
@@ -29,7 +29,7 @@ F_{F_x^{-1}(u)}(x)& =P(F_X^{-1} \le x)\\
 \label{preuves:tvar:2}
 \BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{}On remplace $\Pi_X(\text{VaR}_k(X))$ dans \@ref(preuves:tvar:2) par sa définition \@ref(intro:fn-stop)
 \begin{align*}
-\text{TVaR}_k(X)& = \text{VaR}_k(X)+\frac{1}{(1-k)}(E[X\times\mathrm{1}_{\{X>\text{VaR}_k(X)\}}]-\text{VaR}_k(X)\bar{F}(\text{VaR}_k(X)))\\
+\text{TVaR}_k(X)& = \text{VaR}_k(X)+\frac{1}{(1-k)}(E[X\times\mathrm{1}_{\{X>\text{VaR}_k(X)\}}]-\text{VaR}_k(X)\bar{F}_X(\text{VaR}_k(X)))\\
 & =\frac{1}{(1-k)}[E[X\times\mathrm{1}_{\{X>\text{VaR}_k(X)\}}]-\text{Var}_k(X)(\bar{F}_X(\text{VaR}_k(X))-(1-k))]\\
 & =\frac{1}{(1-k)}[E[X\times\mathrm{1}_{\{X>\text{VaR}_k(X)\}}]-\text{Var}_k(X)(F_X(\text{VaR}_k(X))-k)]
 \end{align*}</div>\EndKnitrBlock{proof}
@@ -40,14 +40,16 @@ $$\text{TVaR}_k(X)= \frac{E[X\times\mathrm{1}_{\{X>\text{VaR}_k(X)\}}]}{P(X>\tex
 \label{preuves:tvar:3}
 On fait la preuve à partir de l'expression alternative 2:
 \BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{}\begin{align*}
-\text{TVaR}_k(X)& =\frac{1}{(1-k)}[E[X\times\mathrm{1}_{\{X>\text{VaR}_k(X)\}}]-\text{Var}_k(X)(F_X(\text{VaR}_k(X))-k)]\\
-& =\frac{1}{(1-k)}[E[X\times\mathrm{1}_{\{X>\text{VaR}_k(X)\}}+X\times\mathrm{1}_{\{X=\text{VaR}_k(X)\}}-X\times\mathrm{1}_{\{X=\text{VaR}_k(X)\}}]-\text{Var}_k(X)(1-\bar{F}_X(\text{VaR}_k(X))-(1-(1-k)))\\
+\text{TVaR}_k(X)& =\frac{1}{(1-k)}[E[X\times\mathrm{1}_{\{X>\text{VaR}_k(X)\}}]-\text{VaR}_k(X)(F_X(\text{VaR}_k(X))-k)]\\
+& =\frac{1}{(1-k)}[E[X\times\mathrm{1}_{\{X>\text{VaR}_k(X)\}}+X\times\mathrm{1}_{\{X=\text{VaR}_k(X)\}}-X\times\mathrm{1}_{\{X=\text{VaR}_k(X)\}}]\\
+& -\text{VaR}_k(X)(1-\bar{F}_X(\text{VaR}_k(X))-(1-(1-k)))\\
 & =\frac{1}{(1-k)}\{E[X\times\mathrm{1}_{\{X\ge\text{VaR}_k(X)\}}]-E[X\times\mathrm{1}_{\{X=\text{VaR}_k(X)\}}]+\text{VaR}_k(X)[(1-k)-P(X>\text{VaR}_k(X))]\}\\
 & =\frac{1}{(1-k)}\{E[X\times\mathrm{1}_{\{X\ge\text{VaR}_k(X)\}}]-(E[X\times\mathrm{1}_{\{X=\text{VaR}_k(X)\}}]+P(X>\text{VaR}_k(X))\times\text{VaR}_k(X))\}
 \end{align*}
 Deux cas possibles: 
-1)V.A. discrète $P(X=\text{VaR}_k(X))>0$ 
-2)V.A. continue $P(X=\text{VaR}_k(X))=0$ 
+1. V.A. discrète $P(X=\text{VaR}_k(X))>0$ 
+2. V.A. continue $P(X=\text{VaR}_k(X))=0$  
+
 Donc la portion $(E[X\times\mathrm{1}_{\{X=\text{VaR}_k(X)\}}]+P(X>\text{VaR}_k(X))\times\text{VaR}_k(X))=  \text{VaR}_k(X)[1-\frac{P(X\ge\text{VaR}_k(X))}{(1-k)}]$</div>\EndKnitrBlock{proof}
 
 
@@ -55,7 +57,7 @@ Donc la portion $(E[X\times\mathrm{1}_{\{X=\text{VaR}_k(X)\}}]+P(X>\text{VaR}_k(
 \label{preuves:biais:xn}
 \BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{}\begin{gather*}
 B(\hat{\theta}_n)=E[\bar{X}_n]-E[X]\\
-=E[x]-E[X]=0
+=E[X]-E[X]=0
 \end{gather*}</div>\EndKnitrBlock{proof}
 
 ##Biais variance échantillonale (voir \@ref(stats:criteres:biais))
