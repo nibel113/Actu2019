@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Introduction actuariat 2
 
 ##Théorème de la fonction quantile

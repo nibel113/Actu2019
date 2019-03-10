@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2019.1.17)  17 FEB 2019 21:42
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2019.1.17)  9 MAR 2019 11:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -638,55 +638,74 @@ Package: titling 2009/09/04 v2.1d maketitle typesetting
 \thanksmarkwidth=\skip59
 \thanksmargin=\skip60
 \droptitle=\skip61
+) (c:/texlive/2018/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2016/02/03 v2.11b `tabularx' package (DPC)
+(c:/texlive/2018/texmf-dist/tex/latex/tools/array.sty
+Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
+\col@sep=\dimen176
+\ar@mcellbox=\box49
+\extrarowheight=\dimen177
+\NC@list=\toks25
+\extratabsurround=\skip62
+\backup@length=\skip63
+\ar@cellbox=\box50
+)
+\TX@col@width=\dimen178
+\TX@old@table=\dimen179
+\TX@old@col=\dimen180
+\TX@target=\dimen181
+\TX@delta=\dimen182
+\TX@cols=\count293
+\TX@ftn=\toks26
 ) (c:/texlive/2018/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2017/10/31 v2.20.4
-\thm@style=\toks25
-\thm@bodyfont=\toks26
-\thm@headfont=\toks27
-\thm@notefont=\toks28
-\thm@headpunct=\toks29
-\thm@preskip=\skip62
-\thm@postskip=\skip63
-\thm@headsep=\skip64
-\dth@everypar=\toks30
+\thm@style=\toks27
+\thm@bodyfont=\toks28
+\thm@headfont=\toks29
+\thm@notefont=\toks30
+\thm@headpunct=\toks31
+\thm@preskip=\skip64
+\thm@postskip=\skip65
+\thm@headsep=\skip66
+\dth@everypar=\toks32
 )
-\c@theorem=\count293
-\c@lemma=\count294
-\c@corollary=\count295
-\c@proposition=\count296
-\c@conjecture=\count297
-\c@definition=\count298
-\c@example=\count299
-\c@exercise=\count300
+\c@theorem=\count294
+\c@lemma=\count295
+\c@corollary=\count296
+\c@proposition=\count297
+\c@conjecture=\count298
+\c@definition=\count299
+\c@example=\count300
+\c@exercise=\count301
 (./Formules_et_notes.aux)
 \openout1 = `Formules_et_notes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 108.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 108.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 109.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 109.
 
 (c:/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Info: Redefining \microtypecontext on input line 108.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Info: Redefining \microtypecontext on input line 109.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -730,18 +749,18 @@ ern Roman (RS)
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box49
-Package hyperref Info: Link coloring OFF on input line 108.
+\AtBeginShipoutBox=\box51
+Package hyperref Info: Link coloring OFF on input line 109.
 (c:/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (c:/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count301
+\c@section@level=\count302
 )
-LaTeX Info: Redefining \ref on input line 108.
-LaTeX Info: Redefining \pageref on input line 108.
-LaTeX Info: Redefining \nameref on input line 108.
+LaTeX Info: Redefining \ref on input line 109.
+LaTeX Info: Redefining \pageref on input line 109.
+LaTeX Info: Redefining \nameref on input line 109.
 (./Formules_et_notes.out) (./Formules_et_notes.out)
 \@outlinefile=\write3
 \openout3 = `Formules_et_notes.out'.
@@ -789,34 +808,34 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 3.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (c:/texlive/2018/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-))
+) [3])
 \tf@toc=\write4
 \openout4 = `Formules_et_notes.toc'.
 
-[3] [4] [5
+[4] [5
 
 ] [6
 
 ]
 Chapter 1.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 160.
+(Font)              <12> on input line 161.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 160.
+(Font)              <8> on input line 161.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 160.
+(Font)              <6> on input line 161.
 [7]
-Overfull \hbox (10.01492pt too wide) detected at line 200
+Overfull \hbox (10.01492pt too wide) detected at line 201
 []
  []
 
 
-Overfull \hbox (10.01492pt too wide) detected at line 200
+Overfull \hbox (10.01492pt too wide) detected at line 201
 []
  []
 
 
-Overfull \hbox (10.01492pt too wide) detected at line 200
+Overfull \hbox (10.01492pt too wide) detected at line 201
 []
  []
 
@@ -826,45 +845,96 @@ Overfull \hbox (10.01492pt too wide) detected at line 200
 Chapter 2.
 [11]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 317.
-[12] [13] [14] [15] [16
+(Font)              <14.4> on input line 321.
+[12] [13] [14] [15] [16] [17] [18
 
 ]
 Chapter 3.
-[17] [18
-
-]
-Chapter 4.
 [19]
-Overfull \hbox (16.12122pt too wide) detected at line 619
-[]
+Underfull \hbox (badness 10000) in paragraph at lines 834--835
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 837--838
+
  []
 
 [20]
-No file Formules_et_notes.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 690.
+File: 03-GRF-2_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file (type pdf)
 
-LaTeX Warning: Reference `STATS:CRITERES:BIAIS' on page 21 undefined on input l
-ine 690.
-
+<use 03-GRF-2_files/figure-latex/unnamed-chunk-1-1.pdf>
 [21]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 690.
+File: 03-GRF-2_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
+
+<use 03-GRF-2_files/figure-latex/unnamed-chunk-2-1.pdf>
+
+Underfull \vbox (badness 4266) has occurred while \output is active []
+
+[22]
+File: 03-GRF-2_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
+
+<use 03-GRF-2_files/figure-latex/unnamed-chunk-3-1.pdf>
+File: 03-GRF-2_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
+
+<use 03-GRF-2_files/figure-latex/unnamed-chunk-4-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[23]
+File: 03-GRF-2_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (type pdf)
+
+<use 03-GRF-2_files/figure-latex/unnamed-chunk-5-1.pdf>
+File: 03-GRF-2_files/figure-latex/unnamed-chunk-6-1.pdf Graphic file (type pdf)
+
+<use 03-GRF-2_files/figure-latex/unnamed-chunk-6-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 1024--1026
+[][]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[24]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[25] [26]
+Chapter 4.
+[27
+
+]
+Overfull \hbox (16.12122pt too wide) detected at line 1103
+[]
+ []
+
+[28]
+
+LaTeX Warning: Reference `STATS:CRITERES:BIAIS' on page 29 undefined on input l
+ine 1181.
+
+[29]
+No file Formules_et_notes.bbl.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1197.
+[30]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1197.
 (./Formules_et_notes.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 690.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 690.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1197.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1197.
+
 Package rerunfilecheck Info: File `Formules_et_notes.out' has not changed.
-(rerunfilecheck)             Checksum: 20950C5B39BF0783D0799E25477E8EA4.
+(rerunfilecheck)             Checksum: 2818CC29FD5E362120B1C5482ECCAF70.
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 23628 strings out of 492933
- 431531 string characters out of 6136537
- 582325 words of memory out of 5000000
- 27430 multiletter control sequences out of 15000+600000
+ 23775 strings out of 492933
+ 434510 string characters out of 6136537
+ 586748 words of memory out of 5000000
+ 27564 multiletter control sequences out of 15000+600000
  561142 words of font info for 78 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  45i,21n,68p,814b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Formules_et_notes.pdf (21 pages).
+Output written on Formules_et_notes.pdf (30 pages).

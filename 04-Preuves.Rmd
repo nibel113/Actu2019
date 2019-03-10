@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Preuves 
 
 ##Théorème (\@ref(thm:fn-quantile)) de la fonction quantile 
@@ -110,7 +115,28 @@ P(|\hat{\theta}_n-\theta|>\epsilon)= P(|\hat{\theta}_n-E[\hat{\theta}_n]|>\epsil
 Donc si $Var(\hat{\theta}_n)\to 0$ quand $n \to \infty$, $\hat{\theta}_n$ est convergent
 ```
 
-
+##Téorème de Rao-Blackwell (voir \autoref{stats:rao})
+\label{preuves:rao}
+Puisque $T$ est exhaustive pour $\theta$, la distribution conditionnelle de $(X_1,\dots,X_n)$ sachant $T$ ne dépend pas de $\theta$. Alors,
+$$
+\theta^{*}_n=E[\hat{\theta}_n|T]
+$$
+ne dépend pas de $\theta$. Donc, $\theta^{*}_n$ est une statistique. Par l'espérance totale,
+$$
+E[\theta^{*}_n]=E[E[\hat{\theta}_n|T]]=E[\hat{\theta}_n]=\theta,
+$$
+$\theta^{*}_n$ est donc sans biais. Par la variance totale,
+\begin{align*}
+var(\hat{\theta}_n) &=var(E[\hat{\theta}_n|T])+E[var(\hat{\theta}_n|T)] \\
+&= var(\theta^{*}_n)+E[var(\hat{\theta}_n|T)]\\
+\end{align*}
+Sachant que
+$$
+E[var(\hat{\theta}_n|T)] \ge 0 
+$$
+$$
+var(\theta^{*}_n)\le var(\hat{\theta}_n)
+$$
 
 
 

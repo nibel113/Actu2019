@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Stats
 
 ```{r setup, include=FALSE}
@@ -13,7 +18,9 @@ Observation: réalisation d'une variable aléatoire
 Statistiques: fonction d'un échantillon aléatoire et de constantes connues  
 
 
-Paramêtres: quantité d'intérêt($E[X],\;Var(x),\;etc$) ou le paramêtre $\theta$ d'un modèle paramétrique. 
+Paramêtres: quantité d'intérêt($E[X],\;Var(x),\;etc$) ou le paramêtre $\theta$ d'un modèle paramétrique.  
+
+Statistique exhaustive: statistique qui contient toue l'informatiin pertinente sur le paramèetre visé. 
 
 
 Estimateur: Statistique $S(X_1,\dots,X_n)$ qui prend des valeurs qu'on espère proche de $\theta$ noté $\hat{\theta}_n$(Variable aléatoire)  
@@ -40,7 +47,7 @@ Soit $X_1,X_2,...,$ une suite de V.A. iid. On suppose $var(X_i)< \infty$ et $E[X
 
 
 $$ 
-P(|(\bar{X}_n-\mu)|>\epsilon)\to\infty\quad \forall\epsilon>0
+P(|(\bar{X}_n-\mu)|>\epsilon)\to 0\quad \forall\epsilon>0
 $$
 $\bar{X}_n$ converge en probabilité vers $\mu$
 $$
@@ -245,6 +252,135 @@ eff(\hat{\theta}_n,\tilde{\theta}_n)= \frac{Var(\tilde{\theta}_n)}{Var(\hat{\the
 $$
 Si $eff(\hat{\theta}_n,\tilde{\theta}_n)>1$, $\hat{\theta}_n$ est préférable, sinon $\tilde{\theta}_n$ est préférable.
  
+
+
+##Définition formelle statistique exhaustive
+
+Une statistique exhaustive est une statistique qui contient toute l'information pertinente sur le paramêtre visé.
+
+Soit $X_1,\dots,X_n$ un échantillon aléatoire d'une distribution avec paramêtre $\theta$ inconnu.Alors, la statistique
+$$
+T=T(X_1,\dots,X_n)
+$$
+est exhaustive pour $\theta$ ssi la distribution conditionnelle de $X_1,\dots,X_n$ sachant $T$ ne dépend pas de $\theta$.
+
+##Théoreme de factorisation de Fischer-Neyman
+
+Soit $X_1,\dots,X_n$ un échantillon aléatoire d'une distribution avec densité $f(\bullet;\theta)$ et paramêtre $\theta$ inconnu.Alors, la statistique
+$$
+T=T(X_1,\dots,X_n)
+$$
+est exhaustive pour $\theta$ ssi, $\forall\;x_1,\dots,x_n\;\in\mathbb{R}$,
+$$
+f(x_1;\theta)\times\dots\times f(x_n;\theta)=g(t;\theta)\times h(x_1,\dots,x_n)
+$$
+où  
+
+- $g(t;\theta)$ ne dépend de $x_1,\dots,x_n$ qu'à travers $t$.
+- $h(x_1,\dots,x_n)$ ne dépend pas de $\theta$.  
+
+Avec plus d'un paramêtre: 
+
+Soit $X_1,\dots,X_n$ un échantillon aléatoire d'une distribution avec densité $f(\bullet;\theta)$ et paramêtres $\theta=\theta_1,\dots,\theta_n$ inconnus.Alors, les statistiques
+$$
+T_1=T_1(X_1,\dots,X_n),\dots,T_k=T_k(X_1,\dots,X_n)
+$$
+sont conjointements exhaustives pour $\theta$ ssi, $\forall\;x_1,\dots,x_n\;\in\mathbb{R}$,
+$$
+f(x_1;\theta)\times\dots\times f(x_n;\theta)=g(t_1,\dots,t_k;\theta)\times h(x_1,\dots,x_n)
+$$
+où  
+
+- $g(t_1,\dots,t_n;\theta)$ ne dépend de $x_1,\dots,x_n$ qu'à travers $t_1,\dots,t_k$.
+- $h(x_1,\dots,x_n)$ ne dépend pas de $\theta$. 
+
+##Critère de Lehmann-Scheffé
+
+Soit $X_1,\dots,X_n$ un échantillon aléatoire d'une distribution avec densité $f(\bullet;\theta)$ et paramêtre $\theta$ inconnu.Alors, la statistique
+$$
+T=T(X_1,\dots,X_n)
+$$
+est exhaustive minimale pour $\theta$ ssi, $\forall\;x_1,\dots,x_n,y_1,\dots,y_n\;\in\mathbb{R}$,
+$$
+\frac{f(x_1;\theta)\times\dots\times f(x_n;\theta)}{f(y_1;\theta)\times\dots\times f(y_n;\theta)}
+$$
+ne dépend pas de $\theta$ ssi
+$$
+T(X_1,\dots,X_n)=T(Y_1,\dots,Y_n)
+$$
+
+##Théorème de Rao-Blackwell
+\label{stats:rao}
+$\hat{\theta}_n$ un estimateur sans biais tel que $var(\hat{\theta}_n)<\infty$. Si $T$ est exhaustive pour $\theta$, la statistique:
+$$
+\theta^{*}_n=E[\hat{\theta}_n|T]
+$$
+est un estimateur sans biais et
+$$
+var(\theta^{*}_n)\le var(\hat{\theta}_n)
+$$
+Voir \autoref{preuves:rao}.
+
+##Estimateur sans biais et de variance minimale(MVUE)
+
+Un estimateur $\hat{\theta_n}$ est sans biais et de variance minimale si:
+
+1. $\hat{\theta_n}$ est sans biais.
+2. $\hat{\theta_n}=g(T)$, où $T$ est une statistique exhaustive (minimale) obtenue avec le théorème Fischer-Neymann.
+
+###Construire un MVUE
+
+1. Trouver une statistique exhaustive (minimale) $T$ avec le théorème Fischer-Neymann.
+2. Trouver une fonction $g$ tel que: $E[g(T)]=\theta$
+3. Poser $\hat{\theta_n}=g(T)$.
+
+##Méthode des moments
+
+Si $t$ paramêtres sont inconnus, on résout le système à $t$ équations:
+$$
+m_k=E[X^k],\quad k=1,\dots,t
+$$
+Les estimateurs obtenus sont appelés les estimateurs des moments.
+
+##Méthode des quantiles
+
+Pour certaine loi, les moments n'existent pas. Pour estimer $t$ paramêtres inconnu, on pourrait résoudre le système à $t$ équations:
+$$
+\hat{\pi}_{\kappa j}=VaR_{\kappa j}(X)\quad j=1,\dots,t
+$$
+
+##Quantile empirique lissé
+
+Pour un échantillon aléatoire $X_1,\dots,X_n$ le quantile empirique de niveau $\kappa\in(0,1)$ est:
+$$
+\hat{\pi}_{\kappa,n}=(1-h)X_{(j)}+hX_{(j+1)}\quad j=\lfloor(n+1)\kappa\rfloor\;et \; h=(n+1)\kappa-j 
+$$
+##Fonction de vraissemblance
+
+Soit $X_1,\dots,X_n$ un échantillon aléatoire d'une distribution avec fmp ou fdd:
+$$
+f(x;\theta),\quad \theta \in \Theta
+$$
+où $\Theta$ est l'ensemble des valeurs possibles du paramêtre. Si $x_1,\dots,x_n$ sont des valeurs observées de l'échantillon, la vraissemblance de $\theta$ basée sur $x_1,\dots,x_n$ est définie comme:
+$$
+L(\theta)=f(x_1;\theta)\times\dots\times f(x_n;\theta)
+$$
+###Observation
+
+- $X$ est discrète: vraisemblance de $\theta$ basée sur $x_1,\dots,x_n$ est exactement la probabilité d'observer $x_1,\dots,x_n$.
+- $X$ est continue: vraisemblance de $\theta$ basée sur $x_1,\dots,x_n$ est la densité et est proportionelle à la probabilité d'observer  $x_1,\dots,x_n$.
+- la vraisemblance est vue comme une fonction réelle déterministe de $\theta$ 
+- La vraisemblance est l'objet dans le théorème de factorisation de Fischer-Neymann
+- la vraisemblance $L(\theta)$ devrait être plus grande pour des valeurs de $\theta$ proche de celle du mécanisme générateur de données.
+- on estimme donc $\theta$ par la valeur $\hat{\theta_n}$ qui maximise $L(\theta)$:
+$$
+\hat{\theta_n}=\underset{\theta\in\Theta}{arg\,max}L(\theta)
+$$
+
+
+
+
+
 
 
 

@@ -38,18 +38,42 @@
 \contentsline {subsection}{\numberline {2.18.2}Critère 2: Variance}{15}{subsection.2.18.2}% 
 \contentsline {subsection}{\numberline {2.18.3}Critère 3: Convergence}{15}{subsection.2.18.3}% 
 \contentsline {section}{\numberline {2.19}Efficacité relative}{15}{section.2.19}% 
-\contentsline {chapter}{\numberline {3}GRF-2}{17}{chapter.3}% 
-\contentsline {section}{\numberline {3.1}Chapitre 1}{17}{section.3.1}% 
-\contentsline {subsection}{\numberline {3.1.1}Produit dérivé}{17}{subsection.3.1.1}% 
-\contentsline {subsection}{\numberline {3.1.2}Étapes d'une transaction}{17}{subsection.3.1.2}% 
-\contentsline {subsection}{\numberline {3.1.3}Mesure d'évaluation taille/activité de la bourse/marché}{17}{subsection.3.1.3}% 
-\contentsline {chapter}{\numberline {4}Preuves}{19}{chapter.4}% 
-\contentsline {section}{\numberline {4.1}Théorème (\ref {thm:fn-quantile}) de la fonction quantile}{19}{section.4.1}% 
-\contentsline {section}{\numberline {4.2}Fonction Stop-Loss(\ref {intro:fn-stop})}{19}{section.4.2}% 
-\contentsline {section}{\numberline {4.3}Tvar}{19}{section.4.3}% 
-\contentsline {subsection}{\numberline {4.3.1}Expresion alternative 1(\ref {intro:tvar:alt1})}{19}{subsection.4.3.1}% 
-\contentsline {subsection}{\numberline {4.3.2}Expression alternative 2(\ref {intro:tvar:alt2})}{20}{subsection.4.3.2}% 
-\contentsline {subsection}{\numberline {4.3.3}Expression alternative 3(\ref {intro:tvar:alt3})}{20}{subsection.4.3.3}% 
-\contentsline {section}{\numberline {4.4}Biais moyenne échantillonale (voir \ref {stats:criteres:biais})}{20}{section.4.4}% 
-\contentsline {section}{\numberline {4.5}Biais variance échantillonale (voir \ref {stats:criteres:biais})}{21}{section.4.5}% 
-\contentsline {section}{\numberline {4.6}Convergence (voir \ref {stats:convergence})}{21}{section.4.6}% 
+\contentsline {section}{\numberline {2.20}Définition formelle statistique exhaustive}{15}{section.2.20}% 
+\contentsline {section}{\numberline {2.21}Théoreme de factorisation de Fischer-Neyman}{15}{section.2.21}% 
+\contentsline {section}{\numberline {2.22}Critère de Lehmann-Scheffé}{16}{section.2.22}% 
+\contentsline {section}{\numberline {2.23}Théorème de Rao-Blackwell}{16}{section.2.23}% 
+\contentsline {section}{\numberline {2.24}Estimateur sans biais et de variance minimale(MVUE)}{16}{section.2.24}% 
+\contentsline {subsection}{\numberline {2.24.1}Construire un MVUE}{16}{subsection.2.24.1}% 
+\contentsline {section}{\numberline {2.25}Méthode des moments}{17}{section.2.25}% 
+\contentsline {section}{\numberline {2.26}Méthode des quantiles}{17}{section.2.26}% 
+\contentsline {section}{\numberline {2.27}Quantile empirique lissé}{17}{section.2.27}% 
+\contentsline {chapter}{\numberline {3}GRF-2}{19}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Chapitre 1}{19}{section.3.1}% 
+\contentsline {subsection}{Produit dérivé}{19}{section*.3}% 
+\contentsline {subsection}{Étapes d'une transaction}{19}{section*.4}% 
+\contentsline {subsection}{Mesure d'évaluation taille/activité de la bourse/marché}{19}{section*.5}% 
+\contentsline {subsection}{Rôle des marchés financiers}{19}{section*.6}% 
+\contentsline {subsection}{Utilité des produits dérivés}{19}{section*.7}% 
+\contentsline {subsection}{3 types d'acteurs}{19}{section*.8}% 
+\contentsline {subsection}{Définitions}{20}{section*.9}% 
+\contentsline {subsection}{\numberline {3.1.1}CAPM(Capital asset pricing management)}{20}{subsection.3.1.1}% 
+\contentsline {subsubsection}{3 postulats:}{20}{section*.10}% 
+\contentsline {subsubsection}{Incohérences du modèle}{20}{section*.11}% 
+\contentsline {subsection}{\numberline {3.1.2}Modèle multifactoriel et l'APT(arbitrage pricing theory)}{21}{subsection.3.1.2}% 
+\contentsline {subsubsection}{\numberline {3.1.2.1}APT}{21}{subsubsection.3.1.2.1}% 
+\contentsline {section}{\numberline {3.2}Chapitre 2}{21}{section.3.2}% 
+\contentsline {subsection}{\numberline {3.2.1}Contrat Foward}{21}{subsection.3.2.1}% 
+\contentsline {subsection}{\numberline {3.2.2}Foward prépayé}{22}{subsection.3.2.2}% 
+\contentsline {subsection}{\numberline {3.2.3}Option d'achat(call)}{23}{subsection.3.2.3}% 
+\contentsline {subsection}{\numberline {3.2.4}Option de vente(put)}{24}{subsection.3.2.4}% 
+\contentsline {chapter}{\numberline {4}Preuves}{27}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Théorème (\ref {thm:fn-quantile}) de la fonction quantile}{27}{section.4.1}% 
+\contentsline {section}{\numberline {4.2}Fonction Stop-Loss(\ref {intro:fn-stop})}{27}{section.4.2}% 
+\contentsline {section}{\numberline {4.3}Tvar}{27}{section.4.3}% 
+\contentsline {subsection}{\numberline {4.3.1}Expresion alternative 1(\ref {intro:tvar:alt1})}{27}{subsection.4.3.1}% 
+\contentsline {subsection}{\numberline {4.3.2}Expression alternative 2(\ref {intro:tvar:alt2})}{28}{subsection.4.3.2}% 
+\contentsline {subsection}{\numberline {4.3.3}Expression alternative 3(\ref {intro:tvar:alt3})}{28}{subsection.4.3.3}% 
+\contentsline {section}{\numberline {4.4}Biais moyenne échantillonale (voir \ref {stats:criteres:biais})}{28}{section.4.4}% 
+\contentsline {section}{\numberline {4.5}Biais variance échantillonale (voir \ref {stats:criteres:biais})}{29}{section.4.5}% 
+\contentsline {section}{\numberline {4.6}Convergence (voir \ref {stats:convergence})}{29}{section.4.6}% 
+\contentsline {section}{\numberline {4.7}Téorème de Rao-Blackwell (voir \autoref {stats:rao})}{29}{section.4.7}% 
