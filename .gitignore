@@ -5,3 +5,9 @@ _bookdown_files
 .DS_Store
 *.rds
 .Rapp.history
+
+# Tex files
+*.aux
+*.log
+*.out
+*.toc
