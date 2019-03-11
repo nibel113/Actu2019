@@ -1,7 +1,7 @@
 --- 
 title: "Formules et notes"
 author: "Nicolas Bellemare"
-date: "2019-03-09"
+date: "2019-03-10"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]

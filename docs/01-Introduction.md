@@ -48,9 +48,9 @@ $$
 \begin{gather*}
 \begin{align*}
 f_X(kh) =& P(X-kh),\, k\in \mathrm{N},\, h > 0,\, d =k_0 h\\
-\Pi_X(k_0 h) =& E[\max(X-k_0 h, 0)]
-=&\sum_{k=0}^\infty \max(kh-k_0 h, 0) P(X=kh)
-=&\sum_{k_0=k+1}^\infty (kh-k_0 h) P(X=kh)
+\Pi_X(k_0 h) =& E[\max(X-k_0 h, 0)]\\
+=&\sum_{k=0}^\infty \max(kh-k_0 h, 0) P(X=kh)\\
+=&\sum_{k_0=k+1}^\infty (kh-k_0 h) P(X=kh)\\
 \end{align*}
 \end{gather*}
 
