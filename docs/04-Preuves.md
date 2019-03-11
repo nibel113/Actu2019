@@ -51,12 +51,69 @@ On fait la preuve à partir de l'expression alternative 2:
 & =\frac{1}{(1-k)}\{E[X\times\mathrm{1}_{\{X\ge\text{VaR}_k(X)\}}]-E[X\times\mathrm{1}_{\{X=\text{VaR}_k(X)\}}]+\text{VaR}_k(X)[(1-k)-P(X>\text{VaR}_k(X))]\}\\
 & =\frac{1}{(1-k)}\{E[X\times\mathrm{1}_{\{X\ge\text{VaR}_k(X)\}}]-(E[X\times\mathrm{1}_{\{X=\text{VaR}_k(X)\}}]+P(X>\text{VaR}_k(X))\times\text{VaR}_k(X))\}
 \end{align*}
-Deux cas possibles: 
-1. V.A. discrète $P(X=\text{VaR}_k(X))>0$ 
-2. V.A. continue $P(X=\text{VaR}_k(X))=0$  
-
+Deux cas possibles:\\ 
+1. V.A. discrète $P(X=\text{VaR}_k(X))>0$ \\
+2. V.A. continue $P(X=\text{VaR}_k(X))=0$  \\
+\\
 Donc la portion $(E[X\times\mathrm{1}_{\{X=\text{VaR}_k(X)\}}]+P(X>\text{VaR}_k(X))\times\text{VaR}_k(X))=  \text{VaR}_k(X)[1-\frac{P(X\ge\text{VaR}_k(X))}{(1-k)}]$</div>\EndKnitrBlock{proof}
 
+###Propriété {-}
+####Sous-additivité {-}
+\label{preuves:tvar:prop:sousadd}
+3 preuves. La première est basée sur les statistiques d'ordre, la deuxième est basée sur la représentation de la $\text{TVaR}$ par la stop-loss.
+\BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{}1er lemme: Soit une V.A. $X$ quelconque, dont $E[X]<\infty$.   
+Soit m réalisations indépendantes de $X$: $X^{(1)},\dots,X^{(m)}$.
+
+$$
+\text{TVaR}_{\kappa}(X) =\frac{\lim_{m\to\infty} \left(\sum^n_{j=\lfloor m\kappa\rfloor +1} X^{[j]} \right)}{\lfloor m(1-\kappa)\rfloor},\;\text{pour}\;\lfloor m\kappa \rfloor <m
+$$  
+
+Où,  
+
+\begin{align*}
+\lfloor x \rfloor& =\text{partie entière de}\;x\\
+X^{[1]}\le X^{[2]}\le \dots \le X^{[m]}& =\text{réalisations triées de} X
+\end{align*}
+ 
+2e lemme:  
+Soit les réalisations : $X^{(1)},\dots,X^{(m)}$  
+On définit $X^{[1]}\le X^{[2]} \le \dots \le X^{[m]}$ comme les réalisations triées de $X$.  
+\begin{align*}
+\sum^m_{j=m-1}X^{[j]}& = \sup\{X^{(j_1)}+X^{(j_2)},\; 1\le j_1 \le j_2 \le m\}\\
+\sum^m_{j=m-2}X^{[j]}& = \sup\{X^{(j_1)}+X^{(j_2)}+X^{(j_3)},\; 1\le j_1 \le j_2 \le j_3 \le m\}\\
+\sum^m_{j=k_0+1}X^{[j]}& = \sup\{X^{(j_1)}+X^{(j_2)}+\dots+X^{(j_{m-k_0})},\; 1\le j_1 \le j_2 \le \dots \le j_{m-k_0} \le m\}
+\end{align*}
+   
+Soit les V.A. $X_1,X_2$ avec $E[X_i]<\infty,\;i=1,2$.   
+$S=X_1+X_2$  
+
+Avec le 1er lemme:   
+
+$$\text{TVaR}_{\kappa}(S) =\frac{\lim_{m\to\infty} \left(\sum^n_{j=\lfloor m\kappa\rfloor +1} S^{[j]} \right)}{\lfloor m(1-\kappa)\rfloor}$$  
+
+On développe $\sum^m_{j=\lfloor m\kappa\rfloor +1} S^{[j]}$ en utilisant le 2e lemme et on pose $\kappa_0=\lfloor m\kappa \rfloor$
+
+
+\begin{align*}
+\sum^m_{j = \lfloor m \kappa\rfloor +1} S^{[j]}& = \sup\{S^{(j_1)}+\dots+S^{(j_{m-\lfloor m\kappa \rfloor})},1\le j_1\le \dots\le j_{m-\lfloor m\kappa \rfloor}\le m\}\\
+& = \sup\{\left(X^{(j_1)}_1+X^{(j_1)}_2\right)+\left(X^{(j_2)}_1+X^{(j_2)}_2\right)+\dots+\left(X^{(j_{m-\kappa_0})}_1+X^{(j_m-\kappa_0)}_2\right)\\
+& ,1\le j_1\le \dots\le j_{m-\kappa_0}\le m\}\\
+& = \sup\{\left( X_1^{(j_1)}+X_1^{(j_2)}+\dots+X_1^{(j_{m-\kappa_0})}\right)+\left( X_2^{(j_1)}+X_2^{(j_2)}+\dots+X_2^{(j_{m-\kappa_0})}\right)\\
+& ,1\le j_1\le \dots\le j_{m-\kappa_0}\le m\}\\
+& \le sup\{\left( X_1^{(j_1)}+X_1^{(j_2)}+\dots+X_1^{(j_{m-\kappa_0})}\right),1\le j_1\le \dots\le j_{m-\kappa_0}\le m\}\\
+& + sup\{\left( X_2^{(j_1)}+X_2^{(j_2)}+\dots+X_2^{(j_{m-\kappa_0})}\right),1 \le j_1 \le \dots\le j_{m - {\kappa_0}} \le m\}\\
+& =\sum^m_{j=\kappa_0 +1} X_1^{[j]}+\sum^m_{j=\kappa_0 +1} X_2^{[j]}
+\end{align*}  
+
+
+
+On applique le 1er lemme de chaque coté de l'innégalité $\sum^m_{j=\kappa_0 +1} S^{[j]}\le\sum^m_{j=\kappa_0 +1} X_1^{[j]}+\sum^m_{j=\kappa_0 +1} X_2^{[j]}$   
+
+\begin{align*}
+\text{TVaR}_\kappa(S)& = \lim_{m\to\infty}\frac{1}{\lfloor m(1-\kappa)\rfloor} \sum^m_{j=\kappa_0 +1} S^{[j]}\\
+& \le \lim_{m\to\infty}\frac{1}{\lfloor m(1-\kappa)\rfloor} \sum^m_{j=\kappa_0 +1} X_1^{[j]} + \lim_{m\to\infty}\frac{1}{\lfloor m(1-\kappa)\rfloor} \sum^m_{j=\kappa_0 +1} X_2^{[j]}\\
+& =\text{TVaR}_\kappa(X_1)+\text{TVaR}_\kappa(X_2)
+\end{align*}</div>\EndKnitrBlock{proof}
 
 ##Biais moyenne échantillonale (voir \@ref(stats:criteres:biais))
 \label{preuves:biais:xn}

@@ -47,7 +47,8 @@ $$
 
 \begin{gather*}
 \begin{align*}
-f_X(kh) =& P(X-kh),\, k\in \mathrm{N},\, h > 0,\, d =k_0 h\\
+f_X(kh) =& P(X=kh),\, k\in \mathrm{N},\, h > 0,\, d =k_0 h\\
+\\
 \Pi_X(k_0 h) =& E[\max(X-k_0 h, 0)]\\
 =&\sum_{k=0}^\infty \max(kh-k_0 h, 0) P(X=kh)\\
 =&\sum_{k_0=k+1}^\infty (kh-k_0 h) P(X=kh)\\
@@ -59,9 +60,9 @@ f_X(kh) =& P(X-kh),\, k\in \mathrm{N},\, h > 0,\, d =k_0 h\\
 
 \begin{gather*}
 \begin{align*}
-    \Pi_X(0) =& \lim_{d \to 0} \Pi_X(d)\\
-     =& \lim_{d \to 0} E[\max(X-d, 0)]\\
-     =& E[X] \\
+\Pi_X(0) =& \lim_{d \to 0} \Pi_X(d)\\
+=& \lim_{d \to 0} E[\max(X-d, 0)]\\
+=& E[X] \\
 \end{align*}
 \end{gather*}
 
@@ -124,6 +125,16 @@ $$
 \text{TVaR}_k(X)= \frac{P(X\ge \text{VaR}_k(X))}{(1-k)} \times E[X|X \ge \text{VaR}_k(X)]+(1-\frac{P(X\ge \text{VaR}_k(X))}{(1-k)})\times\text{VaR}_k(X),\quad k\in (0,1)
 $$
 Voir preuve \@ref(preuves:tvar:3)
+
+###Propriété {-}
+
+####Sous-additivité {-}
+\label{intro:tvar:prop:sousadd}
+Soit $S=X_1+X_2$,
+$$
+\text{TVaR}_{\kappa}(S)\le \text{TVaR}_{\kappa}(X_1)+\text{TVaR}_{\kappa}(X_2)
+$$
+Voir \autoref{preuves:tvar:prop:sousadd}
 
 ##Transformée de Laplace
 

@@ -355,6 +355,7 @@ Pour un échantillon aléatoire $X_1,\dots,X_n$ le quantile empirique de niveau 
 $$
 \hat{\pi}_{\kappa,n}=(1-h)X_{(j)}+hX_{(j+1)}\quad j=\lfloor(n+1)\kappa\rfloor\;et \; h=(n+1)\kappa-j 
 $$
+
 ##Fonction de vraissemblance
 
 Soit $X_1,\dots,X_n$ un échantillon aléatoire d'une distribution avec fmp ou fdd:
@@ -365,6 +366,7 @@ où $\Theta$ est l'ensemble des valeurs possibles du paramêtre. Si $x_1,\dots,x
 $$
 L(\theta)=f(x_1;\theta)\times\dots\times f(x_n;\theta)
 $$
+
 ###Observation
 
 - $X$ est discrète: vraisemblance de $\theta$ basée sur $x_1,\dots,x_n$ est exactement la probabilité d'observer $x_1,\dots,x_n$.
