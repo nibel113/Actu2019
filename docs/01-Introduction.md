@@ -32,14 +32,14 @@ E[X \times \mathrm{1}_{ \{ X \ge x \} }]& =\int_{-\infty}^\infty y \times \mathr
 ##Fonction Stop-Loss {#intro:fn-stop}
 
 $$
-    \Pi_X(d) = E[\max(X-d,0)]\quad\text{pour}\,d \,\in \mathbb{R}
+    \Pi_X(d) = E\left[\max(X-d,0)\right],\quad\text{pour}\,d \,\in \mathbb{R}
 $$
 Voir preuve \ref{preuves:fn-stop}
 
 ###Variable continue
 
 $$
-    \Pi_X(d) = \int_0^\infty \max(X-d, 0)f_X(x)\,dx
+    \Pi_X(d) = \int_0^\infty \max(X-d, 0)\,f_X(x)\,dx
 $$
 
 
@@ -70,21 +70,21 @@ f_X(kh) =& P(X=kh),\, k\in \mathrm{N},\, h > 0,\, d =k_0 h\\
 ###Première forme {#intro:fn-quantile:1}
 \begin{gather*}
 \begin{align*}
-\int_k^1 F_X^{-1}(u)\,du& =\int_k^1 [F_X^{-1}(u)-F_X^{-1}(k)+F_X^{-1}(k)]\,du\\
-& =\int_k^1(F_X^{-1}(u)-F_X^{-1}(k))\,du + F_X^{-1}(k)\int_k^1 (1)\,du\\
-& =\int_0^1\max(F_X^{-1}(u)-F_X^{-1}(k),\, 0)\, du + F_X^{-1}(k)(1-k)\\
-& = E[\max(F_X^{-1}(u)-F_X^{-1}(k),\, 0)]+(1-k)F_X^{-1}(k)\\
-& = E[\max(X-F_X^{-1}(k),\, 0)]+(1-k)F_X^{-1}(k)
+\int_k^1 F_X^{-1}(u)\,du& =\int_k^1 \left[F_X^{-1}(u)-F_X^{-1}(k)+F_X^{-1}(k)\right]\,du\\
+& =\int_k^1\left(F_X^{-1}(u)-F_X^{-1}(k)\right)\,du + F_X^{-1}(k)\int_k^1 (1)\,du\\
+& =\int_0^1\max\left(F_X^{-1}(u)-F_X^{-1}(k),\, 0\right)\, du + F_X^{-1}(k)(1-k)\\
+& = E\left[\max(F_X^{-1}(u)-F_X^{-1}(k),\, 0)\right]+(1-k)F_X^{-1}(k)\\
+& = E\left[\max(X-F_X^{-1}(k),\, 0)\right]+(1-k)F_X^{-1}(k)
 \end{align*}
 \end{gather*}
 
 ###Deuxième forme {#intro:fn-quantile:2}
 \begin{gather*}
 \begin{align*}
-\int_k^1 F_X^{-1}(u)\, du& =\Pi_X(F_X^{-1}(k))+(1-k)F_X^{-1}(k)\\
+\int_k^1 F_X^{-1}(u)\, du& =\Pi_X\left(F_X^{-1}(k)\right)+(1-k)F_X^{-1}(k)\\
 \text{En remplaçant $\Pi_X(F_X^{-1}(k))$ par}\; \ref{preuves:fn-stop}\;\text{on obtient:}\\
-& =E[X \times \mathrm{1}_{\{X > F_X^{-1}(k)\}}]-F_X^{-1}(k)\bar{F}_X(F_X^{-1}(k))+(1-k)F_X^{-1}(k)\\
-& =E[X \times \mathrm{1}_{\{X > F_X^{-1}(k)\}}]+F_X^{-1}(k)(F_X(F_X^{-1}(k))-k)
+& =E\left[X \times \mathrm{1}_{\{X > F_X^{-1}(k)\}}\right]-F_X^{-1}(k)\bar{F}_X\left(F_X^{-1}(k)\right)+(1-k)F_X^{-1}(k)\\
+& =E\left[X \times \mathrm{1}_{\{X > F_X^{-1}(k)\}}\right]+F_X^{-1}(k)\left(F_X(F_X^{-1}(k))-k\right)
 \end{align*}
 \end{gather*}
 
@@ -92,7 +92,7 @@ f_X(kh) =& P(X=kh),\, k\in \mathrm{N},\, h > 0,\, d =k_0 h\\
 
 
 \begin{gather*}
-\int_0^1 F_X^{-1}(u)\,du =E[F_X^{-1}(x)]\\
+\int_0^1 F_X^{-1}(u)\,du =E\left[F_X^{-1}(x)\right]\\
 \int_0^1 F_X^{-1} (u)(1)\,du = E[X]\\
 \intertext{Généralisation:}\\
 \int_0^1 \phi(F_X^{-1}(u))\,du =E[\phi(F_X^{-1}(u))] =E[\phi(X)]
@@ -110,19 +110,19 @@ $$
 
 ###Expression alternative 1 {#intro:tvar:alt1}
 $$
-\text{TVaR}_k(X)= \frac{1}{1-k}\Pi_X(\text{VaR}_k(X))+\text{VaR}_k(X)
+\text{TVaR}_k(X)= \frac{1}{1-k}\Pi_X\left(\text{VaR}_k(X)\right)+\text{VaR}_k(X)
 $$
 Voir preuve \@ref(preuves:tvar:1)
 
 ###Expression alternative 2 {#intro:tvar:alt2}
 $$
-\text{TVaR}_k(X)= \frac{1}{1-k}(E[X\times\mathrm{1}_{\{X>{\text{VaR}_k(X)}\}}]+\text{VaR}_k(X)\times(F_X[\text{VaR}_k(X)]-k))
+\text{TVaR}_k(X)= \frac{1}{1-k}\left(E\left[X\times\mathrm{1}_{\{X>{\text{VaR}_k(X)}\}}\right]+\text{VaR}_k(X)\times\left(F_X\left[\text{VaR}_k(X)\right]-k\right)\right)
 $$
 Voir preuve \@ref(preuves:tvar:2)
 
 ###Expression alternative 3 {#intro:tvar:alt3}
 $$
-\text{TVaR}_k(X)= \frac{P(X\ge \text{VaR}_k(X))}{(1-k)} \times E[X|X \ge \text{VaR}_k(X)]+(1-\frac{P(X\ge \text{VaR}_k(X))}{(1-k)})\times\text{VaR}_k(X),\quad k\in (0,1)
+\text{TVaR}_k(X)= \frac{P\left(X\ge \text{VaR}_k(X)\right)}{(1-k)} \times E\left[X|X \ge \text{VaR}_k(X)\right]+\left(1-\frac{P\left(X\ge \text{VaR}_k(X)\right)}{(1-k)}\right)\times\text{VaR}_k(X),\quad k\in (0,1)
 $$
 Voir preuve \@ref(preuves:tvar:3)
 
@@ -143,16 +143,36 @@ Existe pour toute loi de X.
 Lien avec $E[X]$: 
 \begin{align*}
 \text{V.A. X positive tel que}\; E[X]<\infty& \\ 
-(-1)\frac{d}{dt}\mathcal{L}_X(t)\vert_{t=0}& =(-1)\frac{d}{dt}E[e^{-tX}]\vert_{t=0}\\
-& =(-1)E[\frac{d}{dt}e^{-tX}]\vert_{t=0}\\
-& =(-1)E[-Xe^{-tX}]\vert_{t=0}\\
+(-1)\frac{d}{dt}\mathcal{L}_X(t)\vert_{t=0}& =(-1)\frac{d}{dt}E\left[e^{-tX}\right]\vert_{t=0}\\
+& =(-1)E\left[\frac{d}{dt}e^{-tX}\right]\vert_{t=0}\\
+& =(-1)E\left[-Xe^{-tX}\right]\vert_{t=0}\\
 & =(-1)E[-X] = E[X]
 \end{align*}  
 
-Lien avec$E[X^m]$:
+Lien avec $E[X^m]$:
 $$
 E[X^m]=(-1)^m\frac{d^m}{dt^m}\mathcal{L}_X(t)\vert_{t=0}
+$$  
+
+##Bénéfice de mutualisation à mutualiser les risques en utilisant la $TVaR$:  
 $$
+\text{BM}^{\text{TVaR}}_\kappa(X_1,\dots,X_n)=\sum^n_{i=1}\text{TVaR}_\kappa(X_i) -\text{TVaR}_\kappa(S_n)\geq0\;\kappa\in(0,1)
+$$
+
+Soit $S_n=\sum^n_{i=1}(X_i)$, un portefeuille de risques identiquement distribués(indep. ou pas), et $W_n=\frac{1}{n}S_n$, la part des coûts totaux par risque.  
+Soit $\rho$, une mesure de risque qui satisfait les propriétés de sous-additivité et d'homogénéité.  
+On déduit que 
+\begin{align*}
+\rho(W_n)& = \rho\left(\frac{1}{n}S_n\right)\\
+& =\rho\left(\frac{1}{n}\sum_{i=1}^n (X_i)\right)\\
+\text{Par homogénéité:}\\
+& =\frac{1}{n}\rho(S_n)\\
+\text{Par sous-additivité:}\\
+& \leq\frac{1}{n} \sum^n_{i=1}\rho(X_i)\\
+& =\frac{1}{n} \sum_{i=1^n}\rho(X)\\
+& =\frac{n}{n}\rho(X)\\
+& =\rho(X)
+\end{align*}
 
 
 

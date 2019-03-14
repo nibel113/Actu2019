@@ -12,19 +12,19 @@ output:
 Contrat entre 2 partis qui fixe les flux monétaires futurs fondés sur ceux de l'actif sous-jacent(SJ).
 
 ###Étapes d'une transaction {-}
-1. Acheteur et vendeur se trouve.Facilité par la bourse.
-2. Obligations pour les deux partis définis (prix, produits, conditions). Si transaction à la bourse: intermédiaire, et donc, dépôts de garantie possible.
+1. Acheteur et vendeur se trouve. Facilité par la bourse.
+2. Obligations pour les deux partis définis (prix, produits, conditions). Si transaction à la bourse: intermédiaire, et donc, dépôts de garantie possibles.
 3. Transaction
 4. Mise à jour du registre de propriété.
 
-###Mesure d'évaluation taille/activité de la bourse/marché {-}
-- Volume de transaction: nombre de titres transigés/périodes
+###Mesure d'évaluation taille(activité) de la bourse(marché) {-}
+- Volume de transaction: nombre de titres transigés parpériodes
 - Valeur marchande: Valeur d'une action/cie/indice boursier
 - Positions ouvertes: quantité de contrats qui ne sont pas arrivés à échéance
 
 ###Rôle des marchés financiers {-}
-- Partage du risque:compagnie partage le risque et les profits avec les actionnaires
-- Diversification du risque: risque diversifiable $\rightarrow$ théoriquement possible de diluer le risquepour qu'il devienne nul. Risque non-diversifiable $\rightarrow$ possible de transférer le risque via des produits dérivés.
+- Partage du risque: compagnie partage le risque et les profits avec les actionnaires
+- Diversification du risque: risque diversifiable $\rightarrow$ théoriquement possible de diluer le risque pour qu'il devienne nul. Risque non-diversifiable $\rightarrow$ possible de transférer le risque via des produits dérivés.
 
 ###Utilité des produits dérivés {-}
 - Gestion des risques
@@ -40,7 +40,7 @@ Contrat entre 2 partis qui fixe les flux monétaires futurs fondés sur ceux de 
 ###Définitions {-}
 - Ordre au cours du marché: quantité de l'actif visé à acheter(vendre) au prix du marché, au moment où l'ordre est passée.
 - Ordre à cours limité: quantité d'actions à acheter/vendre dans une tranche spécifique de prix.
-- Ordre de vente «stop»: prix en -dessous duquel on vend automatiquement.
+- Ordre de vente «stop»: prix en dessous duquel on vend automatiquement.
 - Position longue: qui profitera de l'augmentation de la valeur du SJ.
 - Position courte: qui profitera de la diminution de la valeur du SJ.
 - Vente à découvert: vente d'un actif qu'on ne possède pas. L'actif est livré à une date ultérieur, mais paiement à t=0 au prix de l'actif à t=0.
@@ -61,7 +61,7 @@ Contrat entre 2 partis qui fixe les flux monétaires futurs fondés sur ceux de 
 $$
 \rightarrow\; \frac{E[R_p- r_f]}{\sigma_p}
 $$
-3. Attentes et espérances homogênes
+3. Attentes et espérances homogènes
     
 
 
@@ -72,11 +72,11 @@ R_i =r_f+a_i+\beta_i(R_{mkt}-r_f)+\epsilon\\
 $$
 Cela implique:  
 $$
-\frac{\mathrm{d}R_i}{\mathrm{d}R_{mkt}}=\beta_i=\frac{Cov(R_i,R_{mkt})}{Var(R_{mkt})}\\    
+\frac{dR_i}{d R_{mkt}}=\beta_i=\frac{Cov(R_i,R_{mkt})}{Var(R_{mkt})}\\    
 $$
 Pour un portefeuille p:  
 $$
-\frac{\mathrm{d}R_p}{\mathrm{d}R_{mkt}}=\beta_p=\frac{Cov(\sum x_i R_i,R_{mkt})}{Var(R_{mkt})}=\sum x_i \frac{Cov(R_i,R_{mkt})}{Var(R_{mkt})}=\sum x_i \beta_i
+\frac{dR_p}{d R_{mkt}}=\beta_p=\frac{Cov(\sum x_i R_i,R_{mkt})}{Var(R_{mkt})}=\sum x_i \frac{Cov(R_i,R_{mkt})}{Var(R_{mkt})}=\sum x_i \beta_i
 $$
 
 ####Incohérences du modèle {-}
@@ -99,14 +99,14 @@ Comportements avec effet plus systémique:
 Trois types d'actifs avec des alphas strictement positifs qui contredisent le CAPM:
 
 - Petites capitalisations: on observe des rendements supérieurs à ce que le CAPM prédit
-- Book to market ratio: titre "value" avec une valeur au livre supérieur à la valeur marchande verront la valeur marchande rejoindre la valeur au livre avec le temps
+- Book to market ratio: titres "value" avec une valeur au livre supérieur à la valeur marchande verront la valeur marchande rejoindre la valeur au livre avec le temps
 - Momemtum: les compagnies qui ont connues un bon rendement dernièrement auront tendance à avoir un rendement supérieur à la moyenne
 
 ####APT
 $$
 E[R_s]-r_f= \sum_{i=1}^N \beta_s^{Fi}(E[R_{Fi}]-r_f)
 $$
-Les "F" sont des facteurs. Il est possible de créer des modèles avec n'importe quels facteurs comme des indices boursiers, par exemple.
+Les "F" sont des facteurs. Il est possible de créer des modèles avec n'importe quels facteurs comme des indices boursiers.
 
 ##Chapitre 2
 
@@ -131,7 +131,7 @@ abline(h=0)
 
 ###Foward prépayé
 
-Dans certian cas, l'acheteur voudra payé à $t=0$. Le coût initial sera $F_{0,T}^P$. On achète immédiatemment sans avoir l'actif à la date de transaction. La position de l'acheteur est *capitalisée*. Dans un achat ferme, la position de l'acheteur est pleinement capitalisée. Le contrat foward, lui, implique une position non capitalisée.  
+Dans certain cas, l'acheteur voudra payé à $t=0$. Le coût initial sera $F_{0,T}^P$. On achète immédiatemment sans avoir l'actif à la date de transaction. La position de l'acheteur est *capitalisée*. Dans un achat ferme, la position de l'acheteur est pleinement capitalisée. Le contrat foward, lui, implique une position non capitalisée.  
 
 \begin{tabularx}{0.5\textwidth}{Xrr}
 \toprule
@@ -196,6 +196,7 @@ $S_T<K$ & $- C(K,T)(1+r_f)^T$ & $C(K,T)(1+r_f)^T$\\
 \end{tabular}
 
 ```{r,echo=FALSE,cache=TRUE}
+op <- par(mfrow = c(1, 2))
 x <- c(0,4)
 y <- c(-2,2)
 fx <- function(x) pmax(0,x-2) 
@@ -203,11 +204,9 @@ fy <- function(x) pmax(0,x-2)-2
 plot(x,y,xlim=c(0,5),ylim=c(-3,3),xlab="Valeur à l'échéance",type='l',col='red',main="Option d'achat(long)",lwd=2)
 curve(fx,col='blue',add=TRUE,lty=2,lwd=2)
 curve(fy,col="green",add=TRUE,lty=3,lwd=2)
-legend("bottomright",c('Foward',"Valeur échéance","Profit"),col=c("red","blue","green"),lty=c(1,2,3),lwd=2)
+legend("topleft",c('Foward',"Valeur échéance","Profit"),col=c("red","blue","green"),lty=c(1,2,3),lwd=2)
 abline(h=0)
-```
-
-```{r,echo=FALSE,cache=TRUE}
+points(2,0,pch=19)
 x <- c(0,4)
 y <- c(2,-2)
 fx <- function(x) -pmax(0,x-2) 
@@ -215,10 +214,12 @@ fy <- function(x) -pmax(0,x-2)+2
 plot(x,y,xlim=c(0,5),ylim=c(-3,3),xlab="Valeur à l'échéance",type='l',col='red',main="Option d'achat (courte)",lwd=2)
 curve(fx,col='blue',add=TRUE,lty=2,lwd=2)
 curve(fy,col="green",add=TRUE,lty=3,lwd=2)
-legend("topright",c('Foward',"Valeur échéance","Profit","Stike price(K)"),col=c("red","blue","green",1),lty=c(1,2,3,NA),pch=c(NA,NA,NA,19),lwd=2)
+legend("bottomleft",c('Foward',"Valeur échéance","Profit","Stike price(K)"),col=c("red","blue","green",1),lty=c(1,2,3,NA),pch=c(NA,NA,NA,19),lwd=2)
 abline(h=0)
 points(2,0,pch=19)
+par(op)
 ```
+
 
 \begin{tabularx}{0.5\textwidth}{Xr}
 \toprule
@@ -248,6 +249,7 @@ Vendeur & $P(1+r_f)^T-max(0;K-S_T)$ & $-max(0;K-S_T)$\\
 \end{tabular}
 
 ```{r,echo=FALSE,cache=TRUE}
+op <- par(mfrow=c(1,2))
 x <- c(0,4)
 y <- c(2,-2)
 fx <- function(x) pmax(0,2-x) 
@@ -258,8 +260,6 @@ curve(fy,col="green",add=TRUE,lty=3,lwd=2)
 legend("topright",c('Foward',"Valeur échéance","Profit","Stike price(K)"),col=c("red","blue","green",1),lty=c(1,2,3,NA),pch=c(NA,NA,NA,19),lwd=2)
 abline(h=0)
 points(2,0,pch=19)
-```
-```{r,echo=FALSE,cache=TRUE}
 x <- c(0,4)
 y <- c(-2,2)
 fx <- function(x) -pmax(0,2-x) 
@@ -267,10 +267,11 @@ fy <- function(x) -pmax(0,2-x)+0.5
 plot(x,y,xlim=c(0,5),ylim=c(-3,3),xlab="Valeur à l'échéance",type='l',col='red',main="Option de vente (long)",lwd=2)
 curve(fx,col='blue',add=TRUE,lty=2,lwd=2)
 curve(fy,col="green",add=TRUE,lty=3,lwd=2)
-legend("topleft",c('Foward',"Valeur échéance","Profit","Stike price(K)"),col=c("red","blue","green",1),lty=c(1,2,3,NA),pch=c(NA,NA,NA,19),lwd=2)
+legend("bottomright",c('Foward',"Valeur échéance","Profit","Stike price(K)"),col=c("red","blue","green",1),lty=c(1,2,3,NA),pch=c(NA,NA,NA,19),lwd=2)
 abline(h=0)
 points(2,0,pch=19)
 ```
+
 
 
 

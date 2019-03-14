@@ -18,9 +18,9 @@ Observation: réalisation d'une variable aléatoire
 Statistiques: fonction d'un échantillon aléatoire et de constantes connues  
 
 
-Paramêtres: quantité d'intérêt($E[X],\;Var(x),\;etc$) ou le paramêtre $\theta$ d'un modèle paramétrique.  
+Paramètres: quantité d'intérêt($E[X],\;Var(x),\;etc$) ou le paramètre $\theta$ d'un modèle paramétrique.  
 
-Statistique exhaustive: statistique qui contient toue l'informatiin pertinente sur le paramèetre visé. 
+Statistique exhaustive: statistique qui contient toute l'information pertinente sur le paramètre visé. 
 
 
 Estimateur: Statistique $S(X_1,\dots,X_n)$ qui prend des valeurs qu'on espère proche de $\theta$ noté $\hat{\theta}_n$(Variable aléatoire)  
@@ -37,7 +37,7 @@ $$
 ##Variance échantillonale:
 
 $$
-S^2_n= \frac{1}{n-1}\sum^n_{i=1}(X_i-\bar{X}_n)^2
+S^2_n= \frac{1}{n-1}\sum^n_{i=1}\left(X_i-\bar{X}_n\right)^2
 $$  
 
 ##Loi faible des grands nombres:  
@@ -47,7 +47,7 @@ Soit $X_1,X_2,...,$ une suite de V.A. iid. On suppose $var(X_i)< \infty$ et $E[X
 
 
 $$ 
-P(|(\bar{X}_n-\mu)|>\epsilon)\to 0\quad \forall\epsilon>0
+P\left(|\left(\bar{X}_n-\mu\right)|>\epsilon\right)\to 0\quad \forall\epsilon>0
 $$
 $\bar{X}_n$ converge en probabilité vers $\mu$
 $$
@@ -55,7 +55,7 @@ $$
 $$
 Preuve par Tchebycheff:
 $$
-P(|\bar{X}_n-\mu|>\epsilon)\leq\frac{var(X_i)}{n\epsilon^2}
+P\left(|\bar{X}_n-\mu|>\epsilon\right)\leq\frac{var(X_i)}{n\epsilon^2}
 $$
 
 ##Statistiques d'ordre d'un échantillon:
@@ -75,7 +75,7 @@ $$
 Soit $X_1,\dots,X_n$, un échantillon de $N(\mu,\frac{\sigma^2}{n})$,
 
 \begin{gather*}
-    \bar{X}_n=\frac{1}{n}\sum_{i=1}^n X_i\, \sim N(\mu,\frac{\sigma^2}{n})\\
+    \bar{X}_n=\frac{1}{n}\sum_{i=1}^n X_i\, \sim N\left(\mu,\frac{\sigma^2}{n}\right)\\
     \\
     Z_n=\frac{\bar{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\,\sim N(0,1)
 \end{gather*}
@@ -99,7 +99,7 @@ $$
 $$
 $S^2_n\bot\,\bar{X}_n$ 
 $$
-E[S^2_n]= \frac{\sigma^2}{(n-1)}E[\frac{(n-1)}{\sigma^2}S^2_n]=\frac{\sigma^2}{(n-1)}(n-1)=\sigma^2
+E[S^2_n]= \frac{\sigma^2}{(n-1)}E\left[\frac{(n-1)}{\sigma^2}S^2_n\right]=\frac{\sigma^2}{(n-1)}(n-1)=\sigma^2
 $$
 
 ##Statistique Student {#stats:stats:student}
@@ -110,14 +110,14 @@ $$
 
 ## Distribution de la Statistique Student {#stats:dist:student}
 
-\begin{gather*}
-    \text{T}_n =\sqrt{n} \frac{\bar{X}_n -\mu}{\sqrt{S^2_n}}\sim t(n-1)\\
-    \text{T}_n=\frac{\bar{X}_n-\mu}{\sqrt{\frac{\sigma^2}{n}}}\times\sqrt{\frac{\sigma^2}{S^2_n}}\\
-    =\underbrace{\frac{\bar{X}_n-\mu}{\sqrt{\frac{\sigma^2}{n}}}}_{\sim N(0,1)}\times\underbrace{\sqrt{\frac{(n-1)}{(n-1)\frac{S^2_n}{\sigma^2}}}}_{\sim \chi_{(n-1)}^2}
-\end{gather*}
+\begin{align*}
+    \text{T}_n& =\sqrt{n} \frac{\bar{X}_n -\mu}{\sqrt{S^2_n}}\sim t(n-1)\\
+    \text{T}_n& =\frac{\bar{X}_n-\mu}{\sqrt{\frac{\sigma^2}{n}}}\times\sqrt{\frac{\sigma^2}{S^2_n}}\\
+    & =\underbrace{\frac{\bar{X}_n-\mu}{\sqrt{\frac{\sigma^2}{n}}}}_{\sim N(0,1)}\times\underbrace{\sqrt{\frac{(n-1)}{(n-1)\frac{S^2_n}{\sigma^2}}}}_{\sim \chi_{(n-1)}^2}
+\end{align*}
 
 ## Distribution Student
-Soit $Z\sim N(0,1)$ et $W\sim \chi^2_(v)$ 
+Soit $Z\sim N(0,1)$ et $W\sim \chi^2_{(v)}$ 
 $Z\bot W$
 $$
 T=\frac{Z}{\sqrt{\frac{W}{n}}}\sim t(v)
@@ -145,18 +145,18 @@ Soit $W_1\sim\chi^2_{(v_1)},\;W_2\sim\chi^2_{(v_2)}$
 $W_1 \bot\, W_2$ 
 
 $$
-F=\frac{\dfrac{W_1}{v_1}}{\dfrac{W_2}{v_2}}\quad
+F=\dfrac{W_1}{v_1}\div\dfrac{W_2}{v_2}\quad
 F\sim F(v_1,v_2)
 $$
 
 Si $X \sim F(v_1,v_2)$ et $v_2>2$ 
-$E[X =\frac{v_2}{v_2-2}]$
+$E\left[X =\frac{v_2}{v_2-2}\right]$
 
 ##Comparer variance échantionnale {#stats:stats:f:varéchan}
 
 Soit $X_1,\dots,X_n\sim N(\mu_1,\sigma^2_1)$ et $Y_1,\dots,Y_m\sim N(\mu_2,\sigma^2_2)$ 
 $$
-\frac{\dfrac{S^2_n}{\sigma^2_1}}{\dfrac{S_m^2}{\sigma^2_2}}\sim F(n-1,m-1)
+\dfrac{S^2_n}{\sigma^2_1}\div\dfrac{S_m^2}{\sigma^2_2}\sim F(n-1,m-1)
 $$
 
 ##Lemme de Slutsky
@@ -171,7 +171,7 @@ Lorsque $n \rightarrow \infty$ et $X_n \rightsquigarrow X$ et $Y_n \rightsquigar
 ##Théorème Central Limite {#stats:tcl}
 
 ```{theorem}
-Soit $X_1,\dots,X_n$, un échantillon de V.A. quelconque:
+Soit $X_1,\dots,X_n$, un échantillon d'une V.A. quelconque:
 $$
 Z_n=\sqrt{n}\times\frac{\bar{X}_n-\mu}{\sigma}
 $$
@@ -211,7 +211,7 @@ $$
 ###Critère 1: Biais {#stats:criteres:biais}
 
 \begin{gather*}
-B(\hat{\theta}_n)= E[\hat{\theta}_n-\theta]=E[\hat{\theta}_n]-\theta\\
+B(\hat{\theta}_n)= E\left[\hat{\theta}_n-\theta\right]=E\left[\hat{\theta}_n\right]-\theta\\
 \intertext{Estimateur sans biais:}\\
 B(\hat{\theta}_n)=0\\
 \intertext{Estimateur asymptotiquement sans biais:}\\
@@ -226,7 +226,7 @@ Parmi 2 estimateurs sans biais, on préfère celui avec une plus petite variance
 
 Pour deux estimateur avec biais, on préfère celui avec la plus petite Erreur quadratique moyenne(EQM):
 $$
-EQM(\hat{\theta}_n)= E[(\hat{\theta}_n-\theta)^2]= Var(\hat{\theta}_n)+[B(\hat{\theta}_n)]^2
+EQM\left(\hat{\theta}_n\right)= E\left[(\hat{\theta}_n-\theta)^2\right]= Var\left(\hat{\theta}_n\right)+\left[B(\hat{\theta}_n)\right]^2
 $$
 
 ###Critère 3: Convergence  {#stats:convergence}
@@ -248,17 +248,17 @@ Voir \@ref(preuves:convergence) pour prouver la convergence
 Soit $\hat{\theta}_n$ et $\tilde{\theta}_n$, 2 estimateurs sans biais et convergent.
 
 $$
-eff(\hat{\theta}_n,\tilde{\theta}_n)= \frac{Var(\tilde{\theta}_n)}{Var(\hat{\theta}_n)}
+\text{eff}(\hat{\theta}_n,\tilde{\theta}_n)= \frac{Var(\tilde{\theta}_n)}{Var(\hat{\theta}_n)}
 $$
-Si $eff(\hat{\theta}_n,\tilde{\theta}_n)>1$, $\hat{\theta}_n$ est préférable, sinon $\tilde{\theta}_n$ est préférable.
+Si $\text{eff}(\hat{\theta}_n,\tilde{\theta}_n)>1$, $\hat{\theta}_n$ est préférable, sinon $\tilde{\theta}_n$ est préférable.
  
 
 
 ##Définition formelle statistique exhaustive
 
-Une statistique exhaustive est une statistique qui contient toute l'information pertinente sur le paramêtre visé.
+Une statistique exhaustive est une statistique qui contient toute l'information pertinente sur le paramètre visé.
 
-Soit $X_1,\dots,X_n$ un échantillon aléatoire d'une distribution avec paramêtre $\theta$ inconnu.Alors, la statistique
+Soit $X_1,\dots,X_n$ un échantillon aléatoire d'une distribution avec paramètre $\theta$ inconnu. Alors, la statistique
 $$
 T=T(X_1,\dots,X_n)
 $$
@@ -266,7 +266,7 @@ est exhaustive pour $\theta$ ssi la distribution conditionnelle de $X_1,\dots,X_
 
 ##Théoreme de factorisation de Fischer-Neyman
 
-Soit $X_1,\dots,X_n$ un échantillon aléatoire d'une distribution avec densité $f(\bullet;\theta)$ et paramêtre $\theta$ inconnu.Alors, la statistique
+Soit $X_1,\dots,X_n$ un échantillon aléatoire d'une distribution avec densité $f(\cdot;\theta)$ et paramètre $\theta$ inconnu. Alors, la statistique
 $$
 T=T(X_1,\dots,X_n)
 $$
@@ -279,9 +279,9 @@ où
 - $g(t;\theta)$ ne dépend de $x_1,\dots,x_n$ qu'à travers $t$.
 - $h(x_1,\dots,x_n)$ ne dépend pas de $\theta$.  
 
-Avec plus d'un paramêtre: 
+Avec plus d'un paramètre: 
 
-Soit $X_1,\dots,X_n$ un échantillon aléatoire d'une distribution avec densité $f(\bullet;\theta)$ et paramêtres $\theta=\theta_1,\dots,\theta_n$ inconnus.Alors, les statistiques
+Soit $X_1,\dots,X_n$ un échantillon aléatoire d'une distribution avec densité $f(\cdot;\theta)$ et paramètres $\theta=\theta_1,\dots,\theta_n$ inconnus. Alors, les statistiques
 $$
 T_1=T_1(X_1,\dots,X_n),\dots,T_k=T_k(X_1,\dots,X_n)
 $$
@@ -296,7 +296,7 @@ où
 
 ##Critère de Lehmann-Scheffé
 
-Soit $X_1,\dots,X_n$ un échantillon aléatoire d'une distribution avec densité $f(\bullet;\theta)$ et paramêtre $\theta$ inconnu.Alors, la statistique
+Soit $X_1,\dots,X_n$ un échantillon aléatoire d'une distribution avec densité $f(\cdot;\theta)$ et paramètre $\theta$ inconnu. Alors, la statistique
 $$
 T=T(X_1,\dots,X_n)
 $$
@@ -323,28 +323,28 @@ Voir \autoref{preuves:rao}.
 
 ##Estimateur sans biais et de variance minimale(MVUE)
 
-Un estimateur $\hat{\theta_n}$ est sans biais et de variance minimale si:
+Un estimateur $\hat{\theta}_n$ est sans biais et de variance minimale si:
 
-1. $\hat{\theta_n}$ est sans biais.
-2. $\hat{\theta_n}=g(T)$, où $T$ est une statistique exhaustive (minimale) obtenue avec le théorème Fischer-Neymann.
+1. $\hat{\theta}_n$ est sans biais.
+2. $\hat{\theta}_n=g(T)$, où $T$ est une statistique exhaustive (minimale) obtenue avec le théorème Fischer-Neymann.
 
 ###Construire un MVUE
 
 1. Trouver une statistique exhaustive (minimale) $T$ avec le théorème Fischer-Neymann.
 2. Trouver une fonction $g$ tel que: $E[g(T)]=\theta$
-3. Poser $\hat{\theta_n}=g(T)$.
+3. Poser $\hat{\theta}_n=g(T)$.
 
 ##Méthode des moments
 
-Si $t$ paramêtres sont inconnus, on résout le système à $t$ équations:
+Si $t$ paramètres sont inconnus, on résout le système à $t$ équations:
 $$
-m_k=E[X^k],\quad k=1,\dots,t
+m_k=E\left[X^k\right],\quad k=1,\dots,t
 $$
 Les estimateurs obtenus sont appelés les estimateurs des moments.
 
 ##Méthode des quantiles
 
-Pour certaine loi, les moments n'existent pas. Pour estimer $t$ paramêtres inconnu, on pourrait résoudre le système à $t$ équations:
+Pour certaine loi, les moments n'existent pas. Pour estimer $t$ paramètres inconnus, on pourrait résoudre le système à $t$ équations:
 $$
 \hat{\pi}_{\kappa j}=VaR_{\kappa j}(X)\quad j=1,\dots,t
 $$
@@ -362,7 +362,7 @@ Soit $X_1,\dots,X_n$ un échantillon aléatoire d'une distribution avec fmp ou f
 $$
 f(x;\theta),\quad \theta \in \Theta
 $$
-où $\Theta$ est l'ensemble des valeurs possibles du paramêtre. Si $x_1,\dots,x_n$ sont des valeurs observées de l'échantillon, la vraissemblance de $\theta$ basée sur $x_1,\dots,x_n$ est définie comme:
+où $\Theta$ est l'ensemble des valeurs possibles du paramètre. Si $x_1,\dots,x_n$ sont des valeurs observées de l'échantillon, la vraissemblance de $\theta$ basée sur $x_1,\dots,x_n$ est définie comme:
 $$
 L(\theta)=f(x_1;\theta)\times\dots\times f(x_n;\theta)
 $$
@@ -374,9 +374,9 @@ $$
 - la vraisemblance est vue comme une fonction réelle déterministe de $\theta$ 
 - La vraisemblance est l'objet dans le théorème de factorisation de Fischer-Neymann
 - la vraisemblance $L(\theta)$ devrait être plus grande pour des valeurs de $\theta$ proche de celle du mécanisme générateur de données.
-- on estimme donc $\theta$ par la valeur $\hat{\theta_n}$ qui maximise $L(\theta)$:
+- on estime donc $\theta$ par la valeur $\hat{\theta}_n$ qui maximise $L(\theta)$:
 $$
-\hat{\theta_n}=\underset{\theta\in\Theta}{arg\,max}L(\theta)
+\hat{\theta}_n=\underset{\theta\in\Theta}{arg\,max}L(\theta)
 $$
 
 
