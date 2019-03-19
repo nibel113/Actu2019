@@ -2,7 +2,7 @@ Ce document est un outil d'étude pour le bac en actuariat de l'université Lava
 
 L'idée est de regrouper toute notion utile dans un même document.
 
-Je fais un chapitre par cours et je regroupe les preuves dans un autre chapitre en insérant un hyperlien pour se promener entre la preuce et la formule.
+Je fais un chapitre par cours et je regroupe les preuves dans un autre chapitre en insérant un hyperlien pour se promener entre la preuve et la formule.
 
 J'utilise bookdown, rmarkdown. voir https://bookdown.org/yihui/bookdown/ pour de la doumentation de bookdown.
 
