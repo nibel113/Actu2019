@@ -163,7 +163,8 @@ $t=T$ & $S_T$ & $F_{0,T}$ & $S_T - F_{0,T}$ \\
 \bottomrule
 \end{tabular}
 
-On peut aussi recréer les cashflows d'un achat ferme avec un foward et en investissant la valeur actualisée de $F_{0,T}$. $F_{0,T}(1+r_f)^{-T}=S_0(1+r_f)^{T}(1+r_f)^{-T}=S_0$.
+On peut aussi recréer les cashflows d'un achat ferme avec un foward et en investissant la valeur actualisée de $F_{0,T}$.      
+$F_{0,T}(1+r_f)^{-T}=S_0(1+r_f)^{T}(1+r_f)^{-T}=S_0$.
 
 \begin{tabular}{lrrr}
 \toprule
@@ -179,6 +180,7 @@ $t=T$ & $F_{0,T}$ & $S_T - F_{0,T}$ & $S_T$ \\
 Contrat qui permet au détenteur(position longue) d'acheter un actif sous-jacent à un prix prédéterminé, strike price $=K$, à une date d'échéance ou d'içi cette date, s'il le désire.
 
 3 types de levées:
+
 1. Européenne (à la date T)
 2. Américaine (d'içi la date T)
 3. Bermudienne (à certains moments d'içi T)
@@ -204,7 +206,7 @@ fy <- function(x) pmax(0,x-2)-2
 plot(x,y,xlim=c(0,5),ylim=c(-3,3),xlab="Valeur à l'échéance",type='l',col='red',main="Option d'achat(long)",lwd=2)
 curve(fx,col='blue',add=TRUE,lty=2,lwd=2)
 curve(fy,col="green",add=TRUE,lty=3,lwd=2)
-legend("topleft",c('Foward',"Valeur échéance","Profit"),col=c("red","blue","green"),lty=c(1,2,3),lwd=2)
+legend("topleft",c('Foward',"Valeur échéance","Profit"),col=c("red","blue","green"),lty=c(1,2,3),lwd=2,cex=0.5)
 abline(h=0)
 points(2,0,pch=19)
 x <- c(0,4)
@@ -214,7 +216,7 @@ fy <- function(x) -pmax(0,x-2)+2
 plot(x,y,xlim=c(0,5),ylim=c(-3,3),xlab="Valeur à l'échéance",type='l',col='red',main="Option d'achat (courte)",lwd=2)
 curve(fx,col='blue',add=TRUE,lty=2,lwd=2)
 curve(fy,col="green",add=TRUE,lty=3,lwd=2)
-legend("bottomleft",c('Foward',"Valeur échéance","Profit","Stike price(K)"),col=c("red","blue","green",1),lty=c(1,2,3,NA),pch=c(NA,NA,NA,19),lwd=2)
+legend("bottomleft",c('Foward',"Valeur échéance","Profit","Stike price(K)"),col=c("red","blue","green",1),lty=c(1,2,3,NA),pch=c(NA,NA,NA,19),lwd=2,cex=0.5)
 abline(h=0)
 points(2,0,pch=19)
 par(op)
@@ -223,10 +225,9 @@ par(op)
 
 \begin{tabularx}{0.5\textwidth}{Xr}
 \toprule
-\multicolumn{2}{c}{Valeur à l'échéance} \\
+\multicolumn{2}{c}{Valeur à l'échéance}\\
 \midrule
-Acheteur & $max(0;S_T-K)$ \\
-&\\
+Acheteur & $max(0;S_T-K)$\\
 Vendeur & $-max(0;S_T-K)$\\
 \bottomrule
 \end{tabularx}
@@ -257,7 +258,7 @@ fy <- function(x) pmax(0,2-x)-0.5
 plot(x,y,xlim=c(0,5),ylim=c(-3,3),xlab="Valeur à l'échéance",type='l',col='red',main="Option de vente (courte)",lwd=2)
 curve(fx,col='blue',add=TRUE,lty=2,lwd=2)
 curve(fy,col="green",add=TRUE,lty=3,lwd=2)
-legend("topright",c('Foward',"Valeur échéance","Profit","Stike price(K)"),col=c("red","blue","green",1),lty=c(1,2,3,NA),pch=c(NA,NA,NA,19),lwd=2)
+legend("topright",c('Foward',"Valeur échéance","Profit","Stike price(K)"),col=c("red","blue","green",1),lty=c(1,2,3,NA),pch=c(NA,NA,NA,19),lwd=2,cex=0.5)
 abline(h=0)
 points(2,0,pch=19)
 x <- c(0,4)
@@ -267,11 +268,149 @@ fy <- function(x) -pmax(0,2-x)+0.5
 plot(x,y,xlim=c(0,5),ylim=c(-3,3),xlab="Valeur à l'échéance",type='l',col='red',main="Option de vente (long)",lwd=2)
 curve(fx,col='blue',add=TRUE,lty=2,lwd=2)
 curve(fy,col="green",add=TRUE,lty=3,lwd=2)
-legend("bottomright",c('Foward',"Valeur échéance","Profit","Stike price(K)"),col=c("red","blue","green",1),lty=c(1,2,3,NA),pch=c(NA,NA,NA,19),lwd=2)
+legend("bottomright",c('Foward',"Valeur échéance","Profit","Stike price(K)"),col=c("red","blue","green",1),lty=c(1,2,3,NA),pch=c(NA,NA,NA,19),lwd=2,cex=0.5)
 abline(h=0)
 points(2,0,pch=19)
-```
+```     
 
+##Floor
+Combinaison d'une postion longue dans le SJ(on le possède) et une position courte dans une option de vente(achat). Permet de se couvrir contre une baisse du prix du SJ.
+\begin{tabular}{|c|c|}
+\hline 
+\rule[-1ex]{0pt}{2.5ex} Valeur à l'échéance & $=S_T+\max(0;K-S_T)=\max(S_T;K)$ \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} Profit & $=\max(S_T,K)-(S_0+P(T,K))(1+r_f)^T$ \\ 
+\hline 
+\end{tabular} 
+##Vente de couverture:vendre un floor(option de vente couverte)
+Combinaison d'une position longue dans l'option de vente(vente) et d'une position courte dans le SJ(vente à découvert)
+\begin{tabular}{|c|c|}
+\hline 
+\rule[-1ex]{0pt}{2.5ex} Valeur à l'échéance & $=-S_T-\max(0;K-S_T)=-\max(S_T;K))$ \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} Profit & $=-\max(S_T,K)+(S_0+P(T,K))(1+r_f)^T$ \\ 
+\hline 
+\end{tabular}
+##Cap
+Combinaison d'une position courte dans le SJ(vente à découvert)et d'une position longue dans une option d'achat(achat).
+\begin{tabular}{|c|c|}
+\hline 
+\rule[-1ex]{0pt}{2.5ex} Valeur à l'échéance & $=S_T+\max(0;S_T-K)=\max(-S_T;-K)=-\min(S_T;K)$ \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} Profit & $=-\min(S_T,K)+(S_0-C(T,K))(1+r_f)^T$ \\ 
+\hline 
+\end{tabular} 
+##Vente de couverture:vendre un cap(option d'achat couverte)
+Combinaison d'une position courte dans l'option d'achat(vente) et d'une position longue dans le SJ(achat).
+\begin{tabular}{|c|c|}
+\hline 
+\rule[-1ex]{0pt}{2.5ex} Valeur à l'échéance & $=S_T-\max(0;S_T-K)=-\max(-S_T;-K)=\min(S_T;K)$ \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} Profit & $=\min(S_T,K)-(S_0-C(T,K))(1+r_f)^T$ \\ 
+\hline 
+\end{tabular}  
+##Foward synthétique
+On fait un foward en combinant une position longue dans une option d'achat et une position longue dans une option de vente avec la même échéance et le même strike price.
+\begin{tabular}{|c|c|}
+\hline 
+Foward synthétique & $=Call(K,T)-Put(K,T)$ \\ 
+\hline 
+Coût initial & $C(K,T)-P(K,T)$ \\ 
+\hline 
+Valeur à l'échéance & $=\max(0;S_T-K)-\max(0;K-S_T)=S_T-K$ \\ 
+\hline 
+Profit & $(S_T-K)-(C(K,T)-P(K,T))(1+r_f)^T$ \\ 
+\hline 
+\end{tabular} 
+Si on remplace $K$ par $F_{0,T}$, le prix d'exercice sera le même qu'avec un foward standard. La différence avec un foward synthétique est que $K\not=F_{0,T}$ est possible et, ainsi, le coût initial ne sera pas nul. Si $K<F_{0,T}$, on payera le SJ moins cher, mais on payeune prime initiale. Si $K>F_{0,T}$, on payera plus cher le SJ, mais on recevra une prime initiale. 
+
+##Parité des options d'achat et de vente
+\begin{align*}
+E\left [S_T-K-(C(K,T)-P(K,T)(1+r_f)^T\right ]& =E\left [\text{Profit}\right ]=0\\
+E\left [S_T\right ]-K& =(C(K,T)-P(K,T))(1+r_f)^T\\
+C(K,T)-P(K,T)& = (F_{0,T}-k)(1+r_f)^{-T}
+\end{align*} 
+
+##Bull spread 
+###Première façon:
+Combinaison d'une position longue dans une option d'achat à un prix d'exercice $K_1$ et d'une position courte dans une option d'achcat à un prix d'exercice $K_2,\;K_1<K_2$, avec la même date d'échéance. 
+\begin{tabular}{|c|c|}
+\hline 
+Bull spread(call)& $=Call(K_2,T)-Call(K_1,T)$ \\ 
+\hline 
+Coût initial & $C(K_1,T)-C(K_2,T)$ \\ 
+\hline 
+Valeur à l'échéance & $=\max(0;S_T-K_1)-\max(0;S_T-K_2)$ \\ 
+\hline 
+Profit & $\max(0;S_T-K_1)-\max(0;S_T-K_2)-(C(K_1,T)-C(K_2,T))(1+r_f)^T$ \\ 
+\hline 
+\end{tabular} 
+###Deuxième façon:
+Combinaison d'une position courte(achat) dans une option de vente à un prix d'exercice $K_1$ et d'une position longue(vente) dans une option de vente à un prix d'exercice $K_2,\;K_1<K_2$, avec la même date d'échéance.
+\begin{tabular}{|c|c|}
+\hline 
+Bull spread(Put)& $=Put(K_2,T)-Put(K_1,T)$ \\ 
+\hline 
+Coût initial & $P(K_1,T)-P(K_2,T)$ \\ 
+\hline 
+Valeur à l'échéance & $=\max(0;K_1-S_T)-\max(0;K_2-S_T)$ \\ 
+\hline 
+Profit & $\max(0;K_1-S_T)-\max(0;K_2-S_T)-(P(K_1,T)-P(K_2,T))(1+r_f)^T$ \\ 
+\hline 
+\end{tabular} 
+##Bear Spread(-Bull spread)
+###Première façon:
+Combinaison d'une position courte(vente) dans une option d'achat à un prix d'exercice $K_1$ et d'une position longue(achat) dans une option d'achcat à un prix d'exercice $K_2,\;K_1<K_2$, avec la même date d'échéance. 
+\begin{tabular}{|c|c|}
+\hline 
+Bear spread(call)& $=Call(K_1,T)-Call(K_2,T)$ \\ 
+\hline 
+Coût initial & $C(K_2,T)-C(K_1,T)$ \\ 
+\hline 
+Valeur à l'échéance & $=\max(0;S_T-K_2)-\max(0;S_T-K_1)$ \\ 
+\hline 
+Profit & $\max(0;S_T-K_2)-\max(0;S_T-K_1)-(C(K_2,T)-C(K_1,T))(1+r_f)^T$ \\ 
+\hline 
+\end{tabular} 
+###Deuxième façon:
+Combinaison d'une position longue(vente) dans une option de vente à un prix d'exercice $K_1$ et d'une position courte(achat) dans une option de vente à un prix d'exercice $K_2,\;K_1<K_2$, avec la même date d'échéance. 
+\begin{tabular}{|c|c|}
+\hline 
+Bull spread(Put)& $=Put(K_1,T)-Put(K_2,T)$ \\ 
+\hline 
+Coût initial & $P(K_2,T)-P(K_1,T)$ \\ 
+\hline 
+Valeur à l'échéance & $=\max(0;K_2-S_T)-\max(0;K_1-S_T)$ \\ 
+\hline 
+Profit & $\max(0;K_2-S_T)-\max(0;K_1-S_T)-(P(K_2,T)-P(K_1,T))(1+r_f)^T$ \\ 
+\hline 
+\end{tabular}
+
+##Ratio spread
+Combinaison de n position longue(achat) dans les options d'achat à un prix d'exercice $K_1$ et m position courte(vente) dans les options d'achat à un prix d'exercice $K_2$, avec la m^me date d'échéance. Permet la possibilité de créer une combinaison quirésulte en un coût initial nul.  
+
+##Box spread
+Combinaison de positions longue dans une option d'achat(achat) et de vente(vente) à un prix d'exercice $K_1$ et de positions courtes dans une option d'achat(vente) et d'une option de vente(achat) à un prix d'exercice $K_2$, avec toutes les options de mêmes dates d'échéance.  
+
+\begin{tabular}{|c|c|c|}
+    \hline 
+    Box spread &  $=Call(K_1,T)+Put(K_2,T)$ & $-Call(K_2,T)-Put(K_1,T)$ \\ 
+    \hline 
+    Box spread & Bull spread(call) & + Bear spread(put) \\ 
+    \hline 
+    Box spread & $=Call(K_1,T)-Call(K_2,T)$ & $+Put(K_2,T)-Put(K_1,T)$ \\ 
+    \hline 
+    Box spread & Foward synthétique $K_1$ & - Foward synthétique $K_2$  \\ 
+    \hline 
+    Box spread & $=Call(K_1,T)-Put(K_1,T)$ & $-(Call(K_2,T)-Put(K_2,T))$ \\ 
+    \hline 
+    Coût initial & $=C(K_1,T)+P(K_2,T)$ & $-C(K_2,T)-P(K_1,T)>0$ \\ 
+    \hline 
+    Valeur à l'échéance & $=\max(0;S_T-K_1)+\max(0;K_2-S_T)$ & $-\max(0;S_t-K_2)-\max(0;K_1-S_T)$ \\ 
+    \hline 
+    Profit & \multicolumn{2}{c|}{=0} \\
+    \hline
+\end{tabular}
 
 
 

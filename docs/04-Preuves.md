@@ -94,15 +94,15 @@ $$\text{TVaR}_{\kappa}(S) =\frac{\lim_{m\to\infty} \left(\sum^n_{j=\lfloor m\kap
 On développe $\sum^m_{j=\lfloor m\kappa\rfloor +1} S^{[j]}$ en utilisant le 2e lemme et on pose $\kappa_0=\lfloor m\kappa \rfloor$
 
 \begin{align*}
-\sum^m_{j = \lfloor m \kappa\rfloor +1} S^{[j]}& = \sup\{S^{(j_1)}+\dots+S^{(j_{m-\lfloor m\kappa \rfloor})},1\le j_1\le \dots\le j_{m-\lfloor m\kappa \rfloor}\le m\}\\
-& = \sup\{\left(X^{(j_1)}_1+X^{(j_1)}_2\right)+\left(X^{(j_2)}_1+X^{(j_2)}_2\right)+\dots+\left(X^{(j_{m-\kappa_0})}_1+X^{(j_m-\kappa_0)}_2\right)\\
-,1\le j_1\le \dots\le j_{m-\kappa_0}\le m\}\\
-& = \sup\{\left( X_1^{(j_1)}+X_1^{(j_2)}+\dots+X_1^{(j_{m-\kappa_0})}\right)+\left( X_2^{(j_1)}+X_2^{(j_2)}+\dots+X_2^{(j_{m-\kappa_0})}\right)\\
-,1\le j_1\le \dots\le j_{m-\kappa_0}\le m\}\\
-& \le sup\{\left( X_1^{(j_1)}+X_1^{(j_2)}+\dots+X_1^{(j_{m-\kappa_0})}\right),1\le j_1\le \dots\le j_{m-\kappa_0}\le m\}\\
-& + sup\{\left( X_2^{(j_1)}+X_2^{(j_2)}+\dots+X_2^{(j_{m-\kappa_0})}\right),1 \le j_1 \le \dots\le j_{m - {\kappa_0}} \le m\}\\
-& =\sum^m_{j=\kappa_0 +1} X_1^{[j]}+\sum^m_{j=\kappa_0 +1} X_2^{[j]}
-\end{align*}  
+\sum^m_{ j =  \lfloor m \kappa \rfloor +1 } S^{ [j] } & = \sup \{ S^{ (j_1) } + \dots + S^{ ( j_{ m-\lfloor m \kappa \rfloor } ) } ,1 \le j_1 \le \dots \le j_{ m- \lfloor m \kappa \rfloor } \le m \} \\
+& = \sup \{ \left( X^{ (j_1) }_1 + X^{ (j_1) }_2 \right) +\left( X^{ (j_2) }_1 + X^{ (j_2) }_2 \right) + \dots + \left( X^{ ( j_{ m - \kappa_0 } ) }_1 + X^{ ( j_{ m-\kappa_0} ) }_2 \right) \\ 
+& ,1 \le j_1 \le \dots \le j_{ m-\kappa_0 }\le m \} \\
+& = \sup \{ \left( X_1^{ (j_1) } + X_1^{ (j_2) } + \dots + X_1^{ ( j_{ m-\kappa_0 } ) } \right) +\left( X_2^{ (j_1) } + X_2^{ (j_2) } + \dots + X_2^{ ( j_{ m-\kappa_0 } ) } \right) \\
+& ,1 \le j_1 \le \dots \le j_{ m-\kappa_0 } \le m \}\\ 
+& \le \sup \{ \left( X_1^{ (j_1) } + X_1^{ (j_2) } + \dots + X_1^{ ( j_{ m-\kappa_0 } ) } \right) ,1 \le j_1 \le  \dots \le j_{ m-\kappa_0 } \le m \}\\
+& + \sup \{ \left( X_2^{ (j_1) } + X_2^{ (j_2) } + \dots +X_2^{ ( j_{ m-\kappa_0 } ) } \right) ,1 \le j_1 \le \dots \le j_{ m -\kappa_0 } \le m \} \\
+& = \sum^m_{ j=\kappa_0 +1 } X_1^{ [j] } + \sum^m_{ j=\kappa_0 +1 } X_2^{ [j] }
+\end{align*}
 
 
 
@@ -123,43 +123,44 @@ $\sum^m_{j=\kappa_0 +1} S^{[j]}\le\sum^m_{j=\kappa_0 +1} X_1^{[j]}+\sum^m_{j=\ka
 \end{align*}   
 Donc,
 $$
-\text{TVaR}_\kappa(X)= \inf \phi(X),\; \text{où}\;\phi(X) \text{est une fonction convexe}   
+\text{TVaR}_\kappa(X)= \inf \phi(X),\; \text{où}\;\phi(X) \text{ est une fonction convexe}   
 \\
-\text{le minimum est atteint à}\; \text{VaR}_\kappa(X)
+\text{ le minimum est atteint à}\; \text{VaR}_\kappa(X)
 $$
 ![](04-Preuves_files/figure-latex/unnamed-chunk-7-1.pdf)<!-- --> 
 Vérification que $\phi(X)$ ext convexe en $x$:   
 Supposons que $X$est continue:
 \begin{align*}
 \phi(X)& =x + \frac{1}{1-\kappa} \int^{\infty}_x \bar{F}_X(y)dy,\;x\geq 0\\
-\text{Dérivée première de }\phi(X)\:\\
+\\
+\text{Dérivée première de }\phi(X):\\
 \frac{d\phi(X)}{dx}& =1+\frac{1}{1-\kappa}(-\bar{F}_X(x))\\
-\text{Dérivée seconde de }\phi(X)\:\\
-\frac{d^2\phi(x)}{d^2x}& =\frac{1}{1-\kappa}f_X(x)\geq 0,\quad x\geq 0
-\end{align*}  
-Valeur qui minimise $\phi(X$):
+\\
+\text{Dérivée seconde de }\phi(X):\\
+\frac{d^2\phi(X)}{d^2x}& =\frac{1}{1-\kappa}f_X(x)\geq 0,\quad x\geq 0
+\end{align*}
+Valeur qui minimise $\phi(X)$:
 \begin{align*}
 \frac{d\phi(X)}{dx}& = 1+\frac{1}{1-\kappa}(-\bar{F}_X(x))=0\\
-\bar(F_X(x))& =1-\kappa\\
+\bar{F}_X(x)& =1-\kappa\\
 F_X(x)& =\kappa
-\end{align*}  
+\end{align*}
 Alors,
 \begin{align*}
-\text{TVaR}_\kappa(X)& =\phi_X(\text{VaR}_\kappa(X))
-& \leq \phi_X(x),\quad x\in \mathrm{R}
-\end{align*}  
+\text{TVaR}_\kappa(X)& =\phi_X(\text{VaR}_\kappa(X)) \leq \phi_X(x),\quad x\in \mathrm{R}
+\end{align*}
 Soit $X_1$ et $X_2$ tel que $E[X_i]\le\infty$, pour $i=1,2$  
 $S=X_1+X_2$, $\kappa\in(0,1)$.  
 On développe $\text{TVaR}_\kappa((1-\alpha)X_1+\alpha X_2)$, où $\alpha\in(0,1)$
 \begin{align*}
-\text{TVaR}_\kappa((1-\alpha)X_1+\alpha X_2)& = \phi_((1-\alpha)X_1+\alpha X_2)(x)\\
+\text{TVaR}_\kappa((1-\alpha)X_1+\alpha X_2)& = \phi_{((1-\alpha)X_1+\alpha X_2)}(\text{VaR}_\kappa((1-\alpha)X_1+\alpha X_2))\\
 & \leq x\frac{1}{1-\kappa}\Pi_{((1-\alpha)X_1+\alpha X_2)}(x),\quad x\in\mathrm{R}\\
 & =x+\frac{1}{1-\kappa}E\left[ \max\left((1-\alpha)X_1+\alpha X_2;0\right)\right],\quad x\in\mathrm{R}\\
 \text{On fixe }x=(1-\alpha)\text{VaR}_\kappa(X_1)+\alpha \text{VaR}_\kappa(X_2)\\
 \\
 \text{TVaR}_\kappa((1-\alpha)X_1+\alpha X_2)& \leq (1-\alpha)\text{VaR}_\kappa(X_1)+\alpha \text{VaR}_\kappa(X_2)\\
 & +\frac{1}{1-\kappa}E\left[ \max((1-\alpha)X_1+\alpha X_2-(1-\alpha)\text{VaR}_\kappa(X_1)-\alpha \text{VaR}_\kappa(X_2);0)\right],\\
-\;\text{vrai pour }\alpha\in(0,1)\\
+&\;\text{vrai pour }\alpha\in(0,1)\\
 & =(1-\alpha)\text{VaR}_\kappa(X_1)+\alpha \text{VaR}_\kappa(X_2)\\
 & +\frac{1}{1-\kappa}E\left[ \max((1-\alpha)(X_1-\text{VaR}_\kappa(X_1))\alpha (X_2-\text{VaR}_\kappa(X_2));0)\right]\\
 & \leq (1-\alpha)\text{VaR}_\kappa(X_1)+\alpha \text{VaR}_\kappa(X_2)\\
@@ -188,7 +189,7 @@ B(\hat{\theta}_n)& =E[\bar{X}_n]-E[X]\\
 \label{preuves:biais:sn}
 \BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{}\begin{align*}
 S_n^2& =\frac{1}{n-1}\left(\sum_{i=1}^n {(X_i-\bar{X}_n)}^2\right)\\
-=\frac{1}{n-1}\left(\sum_{i=1}^n (X_i^2-2X_i\bar{X}_n+\bar{X}_n^2)\right)\\
+& =\frac{1}{n-1}\left(\sum_{i=1}^n (X_i^2-2X_i\bar{X}_n+\bar{X}_n^2)\right)\\
 & =\frac{1}{n-1}\left[\left(\sum_{i=1}^n X_i^2\right)  -\frac{2}{n-1}\left(\bar{X}_n\sum_{i=1}^n X_i\right) +\frac{n}{(n-1)}\bar{X}_n^2\right]\\
 & =\frac{1}{n-1}\left(\sum_{i=1}^n X_i^2\right) - \frac{n}{(n-1)}\bar{X}_n^2
 \end{align*}

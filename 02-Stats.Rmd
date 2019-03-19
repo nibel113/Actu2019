@@ -376,13 +376,125 @@ $$
 - la vraisemblance $L(\theta)$ devrait être plus grande pour des valeurs de $\theta$ proche de celle du mécanisme générateur de données.
 - on estime donc $\theta$ par la valeur $\hat{\theta}_n$ qui maximise $L(\theta)$:
 $$
-\hat{\theta}_n=\underset{\theta\in\Theta}{arg\,max}L(\theta)
+\hat{\theta}_n=\underset{\theta\in\Theta}{arg\,max}\,L(\theta) 
 $$
 
+##Estimateur du maximum de vraissemblance
 
+Soit $x_1,\dots,x_n$, les valeurs observées d'un échantillon aléatoire de $f(x;\theta)$, où $\theta=(\theta_1,\dots,\theta_k)$ sont des paramètres inconnus ($\in \Theta$, l'espace des paramètres). La valeur observée de l'EMV de $\theta$ est la valeur $\hat{\theta}$ qui maximise la vraisemblance de $\theta$ basée sur $x_1,\dots,x_n$
+$$
+\hat{\theta}_n=\underset{\theta\in\Theta}{argmax}\,L(\theta)
+$$
+On suppose que le max est unique.	
 
+Les EMVs sont basés sur des statistiques exhaustives, sont souvent biaisés, mais habituellement asymptotiquement sans biais. On obtient souvent des MVUEs lorsqu'on corrige le biais.
 
+##Log-vraisemblance
 
+$$
+\ell(\theta)=ln\left (L(\theta)\right )=\sum^n_{i=1} ln\left (f(x_i;\theta)\right )
+$$
+Cette fonction est strictement croissante. Ainsi, l'EMV peut être obtenu en maximisant la log-vraisemblance.
+$$
+\hat{\theta}=\underset{\theta\in\Theta}{argmax}\,\ell(\theta)
+$$
 
+###EMV et exhaustivité
 
+Avec le théorème de Fischer-Neymann
+$$
+L(\theta)=g(t,\theta)\,h(x_1,\dots,x_n)
+$$	
+et la log-vraisemblance
+$$
+\ell(\theta)=ln(g(t,\theta))+ln(h(x_1,\dots,x_n))
+$$
 
+Ainsi, puisque $h(x_1,\dots,x_n)$ ne dépend pas de $\theta$, l'estimation du MV est
+$$
+\underset{\theta\in\Theta}{argmax}\, ln(g(t,\theta))
+$$
+une fonction de la valeur $t$ de la statistique exhaustive $T$.
+
+##Propriété de l'EMV pour de grands échantillons
+
+Sous certaines conditions de régularité sur la fonction de masse de probabilté ou de la densité, l'EMV $\hat{\theta}$ existe et est unique avec probabilité convergeant vers 1 lorsque $n\rightarrow \infty$
+$$
+\dfrac{\hat{\theta}_n-\theta}{\sqrt{\dfrac{1}{nI(\theta)}}}\leadsto N(0,1)
+$$
+quand,$n\rightarrow\infty$.		
+
+####Information de Fischer {-}
+$$
+I(\theta)=\text{E}\left [\left (\dfrac{\partial}{\partial \theta}ln f(X;\theta)\right )^2\right ]
+$$
+
+On peut aussi formuler l'EMV pour les grandes valeurs de n comme
+$$
+\hat{\theta}\approx N\left(\theta,\dfrac{1}{nI(\theta)}\right)
+$$
+et 
+\begin{align*}
+I(\theta)& =\text{E}\left [\left (\dfrac{\partial}{\partial \theta}ln f(X;\theta)\right )^2\right ]\\
+& =\text{E}\left [-\dfrac{{\partial}^2}{\partial {\theta}^2}ln f(X;\theta)\right ]
+\end{align*}
+
+Si les conditions de régularité sont vérifées, l'EMV est convergent
+$$
+\hat{\theta}_n\leadsto \theta
+$$
+et
+$$
+\lim_{n\rightarrow\infty} var(\hat{\theta}_n)=0
+$$
+
+On peut montrer que tout estimateur sans biais $\hat{\theta}$ satisfait l'inégalité de Cramer-Rao:
+$$
+var(\hat{\theta}) \geq \dfrac{1}{nI(\theta)}
+$$  
+
+L'EMV est donc asymptotiquement efficace. Il a la plus petite variance possible, asymptotiquement.
+On retrouve des formes fermées pour les EMVs dans les cas simples seulement. On doit obtenir les autres par des techniques d'optimisation numérique. La fonction de log-vraisemblance est convexe et lisse, ce qui facilite l'optimisation. On utilise les estimateurs des moments comme valeurs de départs dans les fonctions d'optimisation.
+
+##Propriété d'invariance de l'EMV
+
+Supposons que le paramètre d'intérèt est $\lambda=g(\theta)$, où $g$ est une fonction bijective sur $\Theta$. Puisque
+$$
+L(\theta)=L(g^{-1}(\lambda))
+$$
+le maximum est atteint à
+$$
+\hat{\theta}_n=g^{-1}(\hat{\lambda}_n)\Leftrightarrow \hat{\lambda}_n=g(\hat{\theta}_n)
+$$
+où $\hat{\theta}_n$ est l'EMV de $\theta$.
+
+##Diagramme quantile-quantile
+
+Outil pour vérifier l'ajustement d'un modèle.   
+
+Si $x_1,\dots,x_n$ sont les données d'un modèle paramétrique qu'on a ajusté avec fonction de répartition $F(\cdot;\theta)$. Le diagramme Q-Q comprend les points 
+$$
+\left (F^{-1}\left(\dfrac{1}{n+1};\hat{\theta}_n\right),x_{(i)}\right ),\;i=1,\dots,n
+$$
+où $x_{(1)} \leq \dots \leq x_{(n)}$ sont les observations ordonnées de $x_1,\dots,x_n$.    
+
+Avec ce diagramme, on compare les quantiles empiriques avec les quantiles théoriques. Si le modèle est bien ajusté, les points devraient formés une droite. S'ils forment une courbe vers le haut/bas, les quantiles théoriques sont trop petits/grands.
+
+##Critère d'information d'Akaike
+
+Soit un modèle paramétrique pour les données, avec paramètre
+$$
+\theta=(\theta_1,\dots,\theta_k) 
+$$ 	
+$\hat{\theta}_n$ est l'EMV de $\theta$.	
+Le critère d'information d'Akaike est 
+$$
+AIC = 2(-\ell(\hat{\theta}_n)+k)
+$$
+On préfère le modèle avec le plus petit $AIC$
+
+##Critère d'information bayésien de Schwartz
+
+$$
+BIC = -2\ell(\hat{\theta}_n)+k ln(n)
+$$
