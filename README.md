@@ -4,9 +4,7 @@ L'idée est de regrouper toute notion utile dans un même document.
 
 Je fais un chapitre par cours et je regroupe les preuves dans un autre chapitre en insérant un hyperlien pour se promener entre la preuve et la formule.
 
-J'utilise bookdown, rmarkdown. voir https://bookdown.org/yihui/bookdown/ pour de la doumentation de bookdown.
-
-Contributions bienvenues.Les fichiers à modifier sont les .Rmd. 
+Contributions bienvenues.Les fichiers à modifier sont les .tex. 
 
 Voici des liens que j'utilise pour l'écriture de formules mathématiques:
 https://fr.wikipedia.org/wiki/Table_de_symboles_math%C3%A9matiques
