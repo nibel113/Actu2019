@@ -1,0 +1,707 @@
+\chapter{Introduction actuariat 2}\label{introduction-actuariat-2}
+\section{Probabilités}
+\subsection{Théorème de la fonction quantile}\label{theoreme-de-la-fonction-quantile}
+
+
+\label{Théorème de la fonctions quantile}
+\begin{align*}
+U &\sim Unif(0,1)\\
+Y &=F_x^{-1}(u) \Rightarrow Y \sim X\\
+F_Y(x) &=F_{F_X^{-1}(u)}(x)=F_X(x)\, \text{pour}\, x \in \mathbb{R}\\
+\intertext{ainsi:}\\
+X &=F_X^{-1}(u)
+\end{align*}
+
+
+
+
+\subsection{Espérance tronqué}\label{intro:espuxe9tron}
+
+
+\begin{align*}
+	E[X \times \mathrm{1}_{ \{ X \ge x \} }]& =\int_{-\infty}^\infty y \times \mathrm{1}_{ \{ y \ge x			\}}f_X(y)\, dy \notag \\ 
+	& =\int_{-\infty}^x 0\times f_X(y) dy + \int_x^\infty y f_X(y)\,dy \notag \\
+	& =\int_x^\infty y f_X(y)\,dy 
+\end{align*}
+
+
+\subsection{Fonction Stop-Loss}\label{intro:fn-stop}
+
+\[
+    \Pi_X(d) = E\left[\max(X-d,0)\right],\quad\text{pour}\,d \,\in \mathbb{R}
+\] Voir preuve \ref{preuves:fn-stop}
+
+\subsubsection*{Variable continue}\label{variable-continue}
+
+\[
+    \Pi_X(d) = \int_0^\infty \max(X-d, 0)\,f_X(x)\,dx
+\]
+
+\subsubsection*{Variable discrète sur ${0,1h,2h,\dots}$}\label{variable-discrete-sur-01h2hdots}
+
+\begin{gather*}
+\begin{align*}
+f_X(kh) =& P(X=kh),\, k\in \mathrm{N},\, h > 0,\, d =k_0 h\\
+\\
+\Pi_X(k_0 h) =& E[\max(X-k_0 h, 0)]\\
+=&\sum_{k=0}^\infty \max(kh-k_0 h, 0) P(X=kh)\\
+=&\sum_{k_0=k+1}^\infty (kh-k_0 h) P(X=kh)\\
+\end{align*}
+\end{gather*}
+
+\subsubsection*{Propriété}\label{propriete}
+
+\begin{gather*}
+\begin{align*}
+\Pi_X(0) =& \lim_{d \to 0} \Pi_X(d)\\
+=& \lim_{d \to 0} E[\max(X-d, 0)]\\
+=& E[X] \\
+\end{align*}
+\end{gather*}
+
+\subsection{Fonction quantile}\label{intro:fn-quantile}
+
+\subsubsection*{Première forme}\label{intro:fn-quantile:1}
+
+\begin{align*}
+\int_k^1 F_X^{-1}(u)\,du& =\int_k^1 \left[F_X^{-1}(u)-F_X^{-1}(k)+F_X^{-1}(k)\right]\,du\\
+& =\int_k^1\left(F_X^{-1}(u)-F_X^{-1}(k)\right)\,du + F_X^{-1}(k)\int_k^1 (1)\,du\\
+& =\int_0^1\max\left(F_X^{-1}(u)-F_X^{-1}(k),\, 0\right)\, du + F_X^{-1}(k)(1-k)\\
+& = E\left[\max(F_X^{-1}(u)-F_X^{-1}(k),\, 0)\right]+(1-k)F_X^{-1}(k)\\
+& = E\left[\max(X-F_X^{-1}(k),\, 0)\right]+(1-k)F_X^{-1}(k)
+\end{align*}
+
+\subsubsection*{Deuxième forme}\label{intro:fn-quantile:2}
+
+\begin{align*}
+\int_k^1 F_X^{-1}(u)\, du& =\Pi_X\left(F_X^{-1}(k)\right)+(1-k)F_X^{-1}(k)\\
+\text{En remplaçant $\Pi_X(F_X^{-1}(k))$ par}\; \ref{preuves:fn-stop}\;\text{on obtient:}\\
+& =E\left[X \times \mathrm{1}_{\{X > F_X^{-1}(k)\}}\right]-F_X^{-1}(k)\bar{F}_X\left(F_X^{-1}(k)\right)\\ & +(1-k)F_X^{-1}(k)\\
+& =E\left[X \times \mathrm{1}_{\{X > F_X^{-1}(k)\}}\right]+F_X^{-1}(k)\left(F_X(F_X^{-1}(k))-k\right)
+\end{align*}
+
+\subsection{Fonction quantile et espérance}\label{fn-et-Ex}
+
+\begin{gather*}
+\int_0^1 F_X^{-1}(u)\,du =E\left[F_X^{-1}(x)\right]\\
+\int_0^1 F_X^{-1} (u)(1)\,du = E[X]\\
+\intertext{Généralisation:}\\
+\int_0^1 \phi(F_X^{-1}(u))\,du =E[\phi(F_X^{-1}(u))] =E[\phi(X)]
+\end{gather*}
+
+\subsection{TVaR}\label{intro:tvar}
+
+\[
+\text{VaR}_k(X)= F_X^{-1}(k)
+\]
+
+\[
+\text{TVaR}_k(X)= \frac{1}{1-k}\int_k^1\text{VaR}_u(X)\,du
+\]
+
+\subsubsection*{Expression alternative 1}\label{intro:tvar:alt1}
+
+\[
+\text{TVaR}_k(X)= \frac{1}{1-k}\Pi_X\left(\text{VaR}_k(X)\right)+\text{VaR}_k(X)
+\] Voir preuve \ref{preuves:tvar:1}
+
+\subsubsection*{Expression alternative 2}\label{intro:tvar:alt2}
+
+\[
+\text{TVaR}_k(X)= \frac{1}{1-k}\left(E\left[X\times\mathrm{1}_{\{X>{\text{VaR}_k(X)}\}}\right]+\text{VaR}_k(X)\times\left(F_X\left[\text{VaR}_k(X)\right]-k\right)\right)
+\] Voir preuve \ref{preuves:tvar:2}
+
+\subsubsection*{Expression alternative 3}\label{intro:tvar:alt3}
+
+\[
+\text{TVaR}_k(X)= \frac{P\left(X\ge \text{VaR}_k(X)\right)}{(1-k)} \times E\left[X|X \ge \text{VaR}_k(X)\right]+\left(1-\frac{P\left(X\ge \text{VaR}_k(X)\right)}{(1-k)}\right)\times\text{VaR}_k(X),\\
+\quad k\in (0,1)
+\] Voir preuve \ref{preuves:tvar:3}
+
+\subsubsection*{Propriété}\label{propriete-1}
+
+
+\subsubsection*{Sous-additivité}\label{sous-additivite}
+
+\label{intro:tvar:prop:sousadd} Soit \(S=X_1+X_2\), \[
+\text{TVaR}_{\kappa}(S)\le \text{TVaR}_{\kappa}(X_1)+\text{TVaR}_{\kappa}(X_2)
+\] Voir \autoref{preuves:tvar:prop:sousadd}
+
+\subsection{Transformée de Laplace}\label{transformee-de-laplace}
+
+Existe pour toute loi de X.
+
+Lien avec \(E[X]\):
+
+\begin{align*}
+\text{V.A. X positive tel que}\; E[X]<\infty& \\ 
+(-1)\frac{d}{dt}\mathcal{L}_X(t)\vert_{t=0}& =(-1)\frac{d}{dt}E\left[e^{-tX}\right]\vert_{t=0}\\
+& =(-1)E\left[\frac{d}{dt}e^{-tX}\right]\vert_{t=0}\\
+& =(-1)E\left[-Xe^{-tX}\right]\vert_{t=0}\\
+& =(-1)E[-X] = E[X]
+\end{align*}
+
+Lien avec \(E[X^m]\): \[
+E[X^m]=(-1)^m\frac{d^m}{dt^m}\mathcal{L}_X(t)\vert_{t=0}
+\]
+
+\subsection{Bénéfice de mutualisation à mutualiser les risques en utilisant la \(TVaR\):}
+
+\[
+\text{BM}^{\text{TVaR}}_\kappa(X_1,\dots,X_n)=\sum^n_{i=1}\text{TVaR}_\kappa(X_i) -\text{TVaR}_\kappa(S_n)\geq0\;\kappa\in(0,1)
+\]
+
+Soit \(S_n=\sum^n_{i=1}(X_i)\), un portefeuille de risques identiquement
+distribués(indep. ou pas), et \(W_n=\frac{1}{n}S_n\), la part des coûts
+totaux par risque.\\
+Soit \(\rho\), une mesure de risque qui satisfait les propriétés de
+sous-additivité et d'homogénéité.\\
+On déduit que
+
+\begin{align*}
+\rho(W_n)& = \rho\left(\frac{1}{n}S_n\right)\\
+& =\rho\left(\frac{1}{n}\sum_{i=1}^n (X_i)\right)\\
+\text{Par homogénéité:}\\
+& =\frac{1}{n}\rho(S_n)\\
+\text{Par sous-additivité:}\\
+& \leq\frac{1}{n} \sum^n_{i=1}\rho(X_i)\\
+& =\frac{1}{n} \sum_{i=1^n}\rho(X)\\
+& =\frac{n}{n}\rho(X)\\
+& =\rho(X)
+\end{align*}
+
+Cette relation est intéressante si on utilise
+\(\rho=\text{TVaR}_\kappa (X)\) et si on utilise \(\rho_\kappa(W_n)\)
+pour calculer la prime pour un risque d'un portefeuille homogène.
+
+Soit une mesure de risque qui satisfait la propriété de convexité,ie \[
+\rho(\alpha_1 X_1+\dots + \alpha_n X_n) \leq \sum^n_{i=1} \alpha_i\rho\left (X_i\right ),
+\] pour
+\(\alpha \geq 0,\;i=1,2,\dots,n\;\text{et}\;\sum^n_{i=1} \alpha_i=1\)
+
+Posons \(\alpha_i=\dfrac{1}{n},\;i=1,\dots,n\)\\
+Donc,
+
+\begin{align*}
+\rho(W_n)& = \rho(\dfrac{1}{n}X_1+\dots+\dfrac{1}{n} X_n)\\
+& \leq \dfrac{1}{n} \rho(X_1)+\dots+\dfrac{1}{n}\rho(X_n)\\
+& =\dfrac{1}{n}(\rho(X)+\dots+\rho(X))\\
+& =\dfrac{1}{n}n \rho(X) = \rho(X)
+\end{align*}
+
+\(\rho(W_n)\leq \rho(X)\) si \(\rho\) satisfait la propriété de
+convexité.
+
+\section{Modèles de risque non-vie}\label{modeles-de-risque-non-vie}
+
+
+\subsection{Modèle de base pour \(X\)}\label{modele-de-base-pour-x}
+
+\begin{enumerate}
+\item V.A. $M=$ nombre de sinistres pour un risque  
+\item V.A. $B_k=$ montant du sinistre $k,<;k<in\mathrm{N}^+$
+\end{enumerate}
+
+Modèle fréquence sévérité pour \(X\) où \(X=\) coûts pour un risque
+
+\[
+X=\begin{cases}
+0,& M=0\\
+B_1,& M=1\\
+B_1+B_2,& M=2\\
+B_1+B_2+B_3,& M=3\\
+\quad\cdots\\
+\end{cases}
+\]\\
+\[
+X=\begin{cases}
+0,& M=0\\
+\sum^M_{k=1}B_k,& M > 0\\
+\end{cases}
+\] \(X\) est un somme de nombre aléatoire de V.A.
+
+\subsubsection*{Hypothèses traditionnelles}\label{hypotheses-traditionnelles}
+
+\begin{enumerate}
+\item $\underline{B}=B_k,\;k\in \mathrm{N}^+$ forme une suite de V.A. indépendantes    
+\item $\underline{B}:$ forme une suite de V.A. identiquement distribuées.   
+\item Convention $B_k \sim B,\; k \in \mathrm{N}$   
+\item $\underline{B}$ est indépendante du nombre de sinistre $M$    
+\end{enumerate}
+
+\subsubsection*{Précisions}\label{precisions}
+
+\begin{enumerate}
+\item H1: Les montants des sinistres sont supposés mutuellement indépendants    
+\item H2: Le montant de sinistre $k_1$ se comporte comme le montant de sinitre $k_2,\;k_1 \not{=} k_2$  
+\item H3: LE nombre de sinistre n'a pas d'impact sur les montants de sinistres  
+\end{enumerate}
+
+\subsection{Espérance de \(X\)}\label{esperance-de-x}
+
+\(\text{E}[M]<\infty,\; \text{E}[B]<\infty\)
+
+\[\text{E}[X]=\text{E}[M]\text{E}[B]\]\\
+On conditionne sur le nombre \(M\) de sinistres \[
+\text{E}[X]=\text{E}_M\left[\text{E}[X|M]\right]
+\]\\
+Où \(\text{E}[X|M]=\) V.A.= espérance des coûts pour le risque \(X\)
+conditionnelle au nombre \(M\) de sinistres.
+
+\begin{align*}
+\text{E}[X|M=0]& =0\\
+\text{E}[X|M=1]& = \text{E}[B_1]=\text{E}[B]\\
+\text{E}[X|M=2]& = \text{E}[B_1+B_2]=\text{E}[B_1]+\text{E}[B_2]=2\text{E}[B]\\
+\text{E}[X|M=k]& = \text{E}[B_1+\dots+B_k]=\text{E}[B_1]+\dots+\text{E}[B_k]=k\text{E}[B]\\
+\text{Donc,}\\
+\text{E}[X|M]& =M\text{E}[B]
+\end{align*}
+
+Alors,
+
+\begin{align*}
+\text{E}[X]& =\text{E}_M\left[\text{E}[X|M]\right]\\
+\text{E}\left[M\text{E}[B]\right]& =\text{E}[M]\text{E}[B]
+\end{align*}
+
+Coûts espérés pour un risque \(X=\) (nombre espéré de sinistres)(montant
+espéré d'un sinistre). Cette relation est valide que si H3 est posée.
+
+\subsection{Variance de \(X\)}\label{variance-de-x}
+
+\(\text{E}[B^M]<\infty,\; m=1,2\; \text{et}\; \text{E}[M^m]<\infty,\;m=1,2\)
+
+On conditionne sur \(M\)\\
+\[
+Var(X)=\text{E}_M\left[Var(X|M)\right]+Var\left (\text{E}[X|M]\right )
+\]
+
+\begin{align*}
+Var(X|M=0)& =0\\
+Var(X|M=1)& =Var(B_1)=Var(B)\\
+Var(X|M=2)& =Var(B_1+B_2)=Var(B_1)+Var(B_2)=2Var(B)\\
+\text{Donc,}\\
+Var(X|M)& =M\times Var(B)
+\end{align*}
+
+Alors,
+
+\begin{align*}
+Var(X)& =\text{E}\left [M\times Var(B)\right ]+ Var\left (M\times \text{E}[B]\right )\\
+& =\text{E}[M]Var(B)+Var(M)\text{E}^2[B]
+\end{align*}
+
+La variance de \(X\) est expliquée par 2 sources:
+
+\begin{enumerate}
+\item Variabilité associée à la fréquence 
+\item Variabilité asssociée au montant de sinistre
+\end{enumerate}
+
+La loi d'une V.A. \(X\) définie par une somme aléatoire de V.A. est
+appelée une loi composée.\\
+Les lois de bases pour \(M\):
+
+\begin{enumerate}
+\item Loi de Poisson
+\item Loi binomiale négative 
+\item Loi binomiale
+\end{enumerate}
+
+Loi de base pour \(B\):
+
+\begin{enumerate}
+\item Loi Gamma
+\item Loi lognormale
+\item Loi Pareto
+\end{enumerate}
+
+\subsection{Fonction de répartition}\label{fonction-de-repartition}
+
+On suppose que \(B\) est une V.A. positive. On conditionne sur \(M\).
+
+\begin{align*}
+F_X(x)& = P(X\leq x)\\
+& = \sum^\infty_{k=0} P(X \leq x|M=k) \times P(M=k)\\
+& =P(M=0) + P(B_1 \leq x) \times P(M=1)\\
+& +P(B_1+B_2 \leq x) \times P(M=2)+ \dots\\
+& =P(M=0) + \sum^\infty_{k=1} P(M=k) \times P(B_1+ \dots + B_k \leq x)\\
+& =P(M=0) + \sum^\infty_{k=1} P(M=k) \times F_{B_1+ \dots +B_k} (x)   
+\end{align*}
+
+\begin{enumerate}
+\item ${F}_X$ est intéressante si on connait l'expression de $F_{B_1+ \dots +B_k} (x)$
+\item Si $B_1 \sim \dots \sim B_k \sim Gamma$, on sait que $B_1+ \dots +B_k \sim Gamma(k\alpha,\beta)$
+\item Si $B \sim LN$ ou Pareto, on ne sait pas l'expression de $F_{B_1+ \dots +B_k} (x)$
+\item Pour la somme de 1 à l'$\infty$, on fixe $k_0$ tel que $\bar{F}_M(k_0)<\epsilon$,ex:$(10^{-7})$.
+\end{enumerate}
+
+\subsection{FGP de \(M\)}\label{fgp-de-m}
+
+\[
+P_M(S)=\text{E}[S^M]=\sum^\infty_{k=0} P(M=k)S^k 
+\] où \(S\in [0,1]\):les valeurs de \(S\) où la somme converge.
+
+\subsection{TLS de \(B\)}\label{tls-de-b}
+
+\[
+\mathcal{L}_B(t)=\text{E}[e^{-tB}],\;\text{pour}\;t\geq 0
+\]
+
+\subsection{TLS de \(X\)}\label{tls-de-x}
+
+\[
+\mathcal{L}_X(t)=\text{E}[e^{-tX}]
+\] On conditionne sur \(M\): \[
+\mathcal{L}_X(t)= \text{E}_M\left [\text{E}[e^{-tX}|M]\right ]
+\]
+
+\begin{align*}
+\text{E}[e^{-tX}|M=0]& =1\\
+\text{E}[e^{-tX}|M=1]& =\text{E}[e^{-tB_1}|M=1]\\
+& = \text{E}[e^{-tB_1}] \rightarrow \text{indépendante de }M\\
+& = \text{E}[e^{-tB}] \rightarrow B_1 \sim B\\
+& = \mathcal{L}_B(t)\\
+\text{E}[e^{-tX}|M=2]& = \text{E}[e^{-t(B_1+B_2)}|M=2]\\
+& = \text{E}[e^{-t(B_1+B_2)}]\\
+& =\text{E}[e^{-tB_1} e^{-tB_2}]\\
+& =\text{E}[e^{-tB_1}]\text{E}[e^{-tB_2}]\\
+& =\text{E}^2[e^{-tB}]\\
+& = \mathcal{L}_B^2(t)\\
+\end{align*}
+
+Donc,
+
+\begin{align*}
+\text{E}[e^{-tX}|M]& =\left (\mathcal{L}_B(t)\right )^M
+\end{align*}
+
+Alors,
+
+\begin{align*}
+\mathcal{L}_X(t)& =\text{E}\left [\left (\mathcal{L}_B(t)\right )^M \right ]\\
+& = P_M\left (\mathcal{L}_B(t)\right ),\;t \geq 0
+\end{align*}
+
+\subsection{VaR de X}\label{var-de-x}
+
+Supposons, \[F_{B_1}(0)=F_{B_2}(0)=\dots=F_B(0)=0\]
+
+Alors, \[
+F_X(0) = P(M=0)+\sum^\infty_{k=1} P(M=k)F_{B_1+\dots+B_k}(0)=P(M=0) 
+\]
+
+Ainsi, \[
+F_X^{-1}(u)=0,\;u\in(0,F_X(0)]
+\]\\
+Pour \(u\in(F_X(0),1)\) et si \(P(M>1)>0\), il faut un outil
+d'optimisation pour la majorité des V.A. de \(M\) pour inverser \(F_X\).
+Généralement, on peut évaluer \(F_X\) quand \(B \sim Gamma\) ou
+\(B \sim invGauss\).
+
+\subsection{Espérance tronquée}\label{esperance-tronquee}
+
+\begin{align*}
+\text{E}\left [X \times 1_{\{X>b\}}\right ]& =\text{E}\left [\text{E}\left [X \times 1_{\{X>b\}}|M\right ]\right ]\\
+& =\sum^\infty_{k=0} \text{E}\left [X \times  1_{\{X>b\}}|M=k\right ]P(M=k),\;b\geq 0\\
+& =P(M=0)(0)+P(M=1)\text{E}\left [B_1 \times   1_{\{B_1>b\}}|M=1\right ]\\
+& +P(M=2)\text{E}\left [B_1+B_2 \times   1_{\{(B_1+B_2)>b\}}|M=2\right ]\\
+& +P(M=3)\text{E}\left [(B_1+B_2+B_3) \times   1_{\{(B_1+B_2+B_3)>b\}}|M=3\right ]\\
+&+ \dots\\
+&+ \sum^\infty_{k=1} P(M=k) \text{E}\left [(B_1+ \dots +B_k) \times  1_{\{(B_1+\dots+B_k)>b\}}\right ]
+\end{align*}\\
+
+
+Cette expression est intéressante si on connait la loi de
+\(B_1+ \dots +B_k\) ou si on peut évaluer
+\(\text{E}\left [(B_1+ \dots +B_k) \times 1_{\{(B_1+\dots+B_k)>b\}}\right ]\).
+On peut utiliser l'expression quand \(B \sim Gamma\) ou
+\(B \sim invGauss\), mais on ne peut pas l'utiliser si \(B \sim Pareto\)
+ou \(B \sim LNorm\) et quand \(P(M>1)>0\).
+
+\subsection{TVaR de \(X\)}\label{tvar-de-x}
+
+\begin{align*}
+\text{TVaR}_\kappa (X)& = \dfrac{1}{1-\kappa}\text{E}\left [X\times 1_{\{X>\text{VaR}_\kappa (X) \}}\right ]\\
+& + \dfrac{1}{1-\kappa}\text{VaR}_\kappa (X) \left (F_X(\text{VaR}_\kappa (X) )-\kappa\right )
+\end{align*}\\
+
+
+On suppose que \(B\) suit une loi continue avec \(F_B(0)=0\).\\
+On fixe \(\kappa \in (0,F_{X}(0))\), \(\text{VaR}_\kappa (X) =0\).\\
+Ainsi,
+
+\begin{align*}
+\text{TVaR}_\kappa (X)& =\dfrac{1}{1-\kappa}\text{E}\left [X\times 1_{\{X>0\}}\right ]\\
+& =\dfrac{1}{1-\kappa}\text{E}[X]
+\end{align*}
+
+On fixe \(\kappa \in (F_{X}(0),1)\). Donc, \(\text{VaR}_\kappa (X) >0\)
+et ses valeurs se trouvent dans la partie continue de \(X\).\\
+Alors, \[
+F_X\left (\text{VaR}_\kappa (X) \right )=\kappa
+\]
+
+On déduit
+
+\begin{align*}
+\text{TVaR}_\kappa (X)&=\dfrac{1}{1-\kappa} \text{E}\big [X\times 1_{\{X>\underbrace{\text{VaR}_\kappa(X) }_{\text{constante}}\}}\big ]\\
+& =\dfrac{1}{1-\kappa}\sum^\infty_{k=1} P|(M=k) \text{E}\left [(B_1+ \dots+ B_k)\times 1_{\{(B_1+ \dots+ B_k)> \text{VaR}_\kappa(X) \}}\right ]
+\end{align*}
+
+\subsection{Cas particulier \(M \sim Bern(q)\)}\label{cas-particulier-m-sim-bernq}
+
+\[X=\begin{cases}
+B,& M=1\\
+0,& M=0
+\end{cases}
+\]
+\\
+
+On peut noter \[
+X =M_X B
+\] où \(M \sim Bern(q), \; ie\; P(M=1)=q\; \text{et}\; P(M=0)=1-q\)
+
+\subsubsection*{Espérance de \(X\)}\label{esperance-de-x-1}
+
+\[
+\text{E}[X]=q\text{E}[B]
+\]
+
+\subsubsection*{Variance de \(X\)}\label{variance-de-x-1}
+
+\begin{align*}
+Var(X)& = Var(M)\text{E}[B]^2+\text{E}[M]Var(B)\\
+& =q(1-q)\text{E}[B]^2+qVar(B)
+\end{align*}
+
+\subsubsection*{Fonction de répartition}\label{fonction-de-repartition-1}
+
+\begin{align*}
+F_X(x)& =P(M=0)+P(M=1)F_B(x),\;x\geq 0\\
+& =1-q+q F_B(x)
+\end{align*}
+
+\subsubsection*{TLS de \(X\)}\label{tls-de-x-1}
+
+\begin{align*}
+\mathcal{L}_X(t)& = P_M(\mathcal{L}_B(t)),\; \text{où}\; P_M(S)=1-q+qS,\; S\in (0,1)\\
+& =1-q+q\mathcal{L}_B(t),\;t \geq 0
+\end{align*}
+
+\subsubsection*{VaR}\label{var}
+
+Soit \(B\) tel que \(F_B(0)=0\). Alors, \[
+F_X(0)=1-q+ qF_B(0)=1-q=P(M=0)=P(X=0)
+\] On fixe \(\kappa \in (0,F_X(0)] \in (0,1-q]\) \[
+\text{VaR}_\kappa (X) =F_X^{-1}(\kappa)=0
+\]
+
+On suppose que \(B\) est continue.\\
+On fixe \(\kappa \in (F_X(0),1)\). Alors,
+
+\[
+F_X^{-1}(u), u \in (F_X(0),1)
+\] est la solution de \[
+F_X(x) =1-q+qF_B(x)=u
+\] On déduit \[
+F_B(x) =\dfrac{u-(1-q)}{q}
+\] On obtient \[
+F_X^{-1}(u) =F_B^{-1} \left( \dfrac{u-(1-q)}{q} \right),\;u\in(\underbrace{1-q}_{F_X(0)},1)
+\] Puisque \(u\in(1-q,1)\Rightarrow \dfrac{u-(1-q)}{q}\in(0,1)\) et
+\(F_X^{-1}{\dfrac{u-(1-q)}{q}}\) existe.\\
+Ainsi, \[
+\text{VaR}_\kappa (X) = 
+\begin{cases}
+0,& 0<u\leq 1-q\\
+\text{VaR}_{\left({\dfrac{u-(1-q)}{q}}\right)} (B),& 1-q<u<1
+\end{cases}
+\]
+
+\includegraphics{_bookdown_files/01-Introduction_files/figure-latex/unnamed-chunk-1-1.pdf}
+
+\subsubsection*{Esprance tronquée}\label{esprance-tronquee}
+
+\[
+\text{E}\left [X\times 1_{\{X>b\}}\right ]=P(M=1)\text{E}\left [B\times 1_{\{B>b\}}\right ],\; \text{pour}\;b\geq 0
+\]
+
+\subsubsection*{TVaR}\label{tvar}
+
+\[
+\text{TVaR}_\kappa (X)=\dfrac{1}{1-\kappa}\text{E}\left [X\times 1_{\{X>\text{VaR}_\kappa (X) \}}\right ]+\dfrac{1}{1-\kappa}\text{VaR}_\kappa (X) \left (F_X(\text{VaR}_\kappa (X) )-\kappa\right )
+\] On suppose \(F_B(0)=0\). \[
+\text{Pour la partie:}\; \text{VaR}_\kappa (X) \left (F_X(\text{VaR}_\kappa (X) )-\kappa\right )\begin{cases}
+\text{VaR}_\kappa (X) =0,& \text{si}\;\kappa \in(0,F_X(0)]\\
+F_X(\text{VaR}_\kappa (X) )=\kappa,& \text{si}\;\kappa\in(F_X(0),1)
+\end{cases}
+\] Donc, dans les deux cas, \[
+\dfrac{1}{1-\kappa}\text{VaR}_\kappa (X) \left (F_X(\text{VaR}_\kappa (X) )-\kappa\right )=0
+\]
+
+On suppose que \(B\) est continue.
+
+\begin{align*}
+\text{TVaR}_\kappa (X)& =\dfrac{1}{1-\kappa}\text{E}\left [X\times 1_{\{X>\text{VaR}_\kappa (X) \}}\right ]\\
+& = \dfrac{1}{1-\kappa} P(M=1)\text{E}\left [B\times 1_{\{B>\text{VaR}_\kappa (X) \}}\right ]
+\end{align*}
+
+\subsection{Lois de fréquence}\label{lois-de-frequence}
+
+La loi de Poisson est fondamentale en actuariat. On l`utilise pour
+modeliser le nombre de sinistres pour le contrat.
+
+\subsubsection*{Caractéristiques \(M \sim Pois(\lambda)\)}\label{caracteristiques-m-sim-poislambda}
+
+
+\begin{enumerate}
+\item $\text{E}[M]=\lambda$
+\item $Var(M)=\lambda$
+\end{enumerate}
+
+\subsubsection*{Loi de \(X\): loi Poisson composée}\label{loi-de-x-loi-poisson-composee}
+
+\paragraph*{Fgp de \(M\)}\label{fgp-de-m-1}
+
+\[P_M(S)=e^{\lambda(S-1)},\;s \in (0,1)\]
+
+\paragraph*{TLS de \(X\)}\label{tls-de-x-2}
+
+\[\mathcal{L}_X(t)=P_M\left (\mathcal{L}_B(t)\right )= e^{\lambda\left (\mathcal{L}_B(t)-1\right )}\]
+
+\subsubsection*{Espérance de \(X\)}\label{esperance-de-x-2}
+
+Supposons \(\text{E}[B]<\infty\) \[
+\text{E}[X]=\lambda\text{E}[B]
+\]
+
+\subsubsection*{Variance de \(X\)}\label{variance-de-x-2}
+
+Supposons \(Var(B)<\infty\)\\
+Alors,
+
+\begin{align*}
+Var(X) &= \lambda\text{E}[B]^2+\lambda Var(B)\\
+& =\lambda\text{E}[B^2]
+\end{align*}
+
+\subsubsection{Loi de Tweedie}\label{loi-de-tweedie}
+
+Est utilisée dans la tarification en assurance dommages.\\
+Soit \(B \sim Gamma(\alpha,\beta)\)
+
+\begin{align*}
+F_X(x)& = P(M=0)+\sum^\infty_{k=1} P(M=k) H(x;\alpha k,\beta),\;x \geq 0\\
+& = e^{-\lambda} +\sum^\infty_{k=1} \dfrac{e^{-\lambda}\lambda^k}{k!}H(x;\alpha k,\beta) 
+\end{align*}
+
+Note:\\
+En actuariat, une loi de fréquence où \(Var(M)=\text{E}[M]\) pose un
+problème, car cette propriété n'est pas toujours observé en pratique. On
+observe plutôt \(Var(X) \geq \text{E}[M]\).
+
+\subsubsection{Loi binomiale négative}\label{loi-binomiale-negative}
+
+Elle présente une alternative à la loi de Poisson en IARD. Elle est un
+loi ``Poisson mélange''.\\
+Caractéristiques:
+
+\begin{enumerate}
+\item $M \sim BinNeg(r,q),\;r \in (0,\infty),\; q\in (0,1)$
+\item Loi de $X \sim BinNeg(r,q,F_B)$
+\item $\text{E}[M]=\dfrac{r(1-q)}{q}$
+\item $Var(M)=\dfrac{r(1-q)}{q^2}=\dfrac{\text{E}[M]}{q} \geq \text{E}[M],\; \text{pour}\; q\in(0,1)$
+\end{enumerate}
+
+\subsubsection{Loi Poisson mélange}\label{loi-poisson-melange}
+
+La famille de lois Poisson mélange est importante en assurances de
+dommages. Elles sont utilisées pour modéliser le nombre, ou le montant,
+de sinistres pour un portefeuille hétérogène de risque.
+
+Soit \(\Theta\) une V.A. de mélange tel que\\
+\[\text{E}[\Theta]=1\] On suppose que
+\(M|\Theta=\theta \sim Pois(\theta \lambda)\), une loi Poisson mélange.
+
+\paragraph*{Espérance de \(M\)}\label{esperance-de-m}
+
+\begin{align*}
+\text{E}[M]& =\text{E}_{\Theta}\left [\text{E}[M|\Theta]\right ]\\
+& =\text{E}[\Theta \lambda] = \lambda\text{E}[\Theta]=\lambda
+\end{align*}
+
+Car, \(\text{E}[M|\Theta]=\theta\lambda\)
+
+\paragraph*{Variance de \(M\)}\label{variance-de-m}
+
+\(Var(\Theta)<\infty\)
+
+\begin{align*}
+Var(M)& = \text{E}_{\Theta}\left [Var(M|\Theta)\right ]+Var\left (\text{E}[M|\Theta]\right )\\
+& =\text{E}[\lambda\Theta] + Var(\lambda\Theta)\\
+& =\lambda\text{E}[\Theta]+\lambda^2 Var(\Theta)\\
+& =\lambda +\lambda^2 Var(\Theta)=\lambda(1+Var(\Theta))>\lambda=\text{E}[M]
+\end{align*}
+
+Le V.A. \(\Theta\) représente ainsi l'incertitude liée aux
+caractéristiques cachées des assurés. Cette variable permet de tenir
+compte de l'hétérogénéité souvent présente dans un portefeuille de
+contrat d'assurance de dommages.
+
+\paragraph*{Fgp de \(M\)}\label{fgp-de-m-2}
+
+On suppose que la fgm de \(\Theta\) existe.
+
+\begin{align*}
+P_M(S)& =\text{E}[S^M]\\
+& =\text{E}_{\Theta}\big [\underbrace{\text{E}[S^M|\Theta]}_{P_{M|\Theta}(S)}\big ]\\
+& =\text{E}[e^{\lambda \Theta(S-1)}]\\
+& =M_\Theta\left (\lambda(S-1)\right )
+\end{align*}
+
+Si \(\Theta\) est une V.A. discrète: \[
+P(\Theta=\theta_j)=\alpha_j,\;j=1,2,\dots,\;\text{et}\;0<\theta_1<\dots<\theta_k
+\]\\
+Ainsi,
+
+\begin{align*}
+P(M=k)& = \sum^\infty_{j=1} P(\Theta=\theta_j)P(M=k|\Theta=\theta_j)\\
+& = \sum^\infty_{j=1} \alpha_j \dfrac{e^{-\lambda \theta_j}(\lambda\theta_j)^k}{k!}  
+\end{align*}
+
+Si \(\Theta\) est une V.A. continue strictement positive:
+
+\begin{align*}
+P(M=k)& = \int^\infty_0 P(M=k|\Theta=\theta)f_\Theta(\theta)d\theta\\
+& =\int_0^\infty e^{-\lambda \theta} \dfrac{(\lambda\theta)^k}{k!}f_\Theta(\theta)d\theta
+\end{align*}
+
+Si \(\Theta \sim Gamma(\alpha=r,\beta=r)\), \[
+\text{E}[\Theta]=\dfrac{\alpha}{\beta}=\dfrac{r}{r}=1
+\]\\
+On veut identifier la loi de \(M\) à partir de sa fgp
+
+\begin{align*}
+P_M(S)& =M_\Theta\left (\lambda(S-1)\right )\\
+& =\left (\dfrac{\beta}{\beta-\lambda(S-1)}\right )^\alpha\\
+& =\left (\dfrac{r}{r-\lambda(S-1)}\right )^r
+\end{align*}
+
+Cela ressemble à une fgp d'une loi binomiale négative.\\
+On sait que \[
+\text{E}[M]=\dfrac{r(1-q)}{q}=\dfrac{r}{r}\lambda
+\] Donc, \[
+\dfrac{\lambda}{r}=\dfrac{(1-q)}{q}
+\] Ainsi,
+
+\begin{align*}
+P_M(S)& =\left (\dfrac{1}{1-\dfrac{\lambda}{r}(S-1)}\right )^r\\
+& =\left (\dfrac{1}{1-\dfrac{(1-q)}{q}(S-1)}\right )^r\\
+& =\left (\dfrac{q}{q-(1-q)(S-1)}\right )^r\\
+& =\left (\dfrac{q}{1-(1-q)S}\right )^r\\
+& =\text{la fgp d'une BinNeg}
+\end{align*}
+
+\[
+M \sim BinNeg(r,q),\;\text{où}\;r \in \Re^+\;\text{et}\; q \in (0,1)
+\]

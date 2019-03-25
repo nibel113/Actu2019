@@ -1,0 +1,628 @@
+\chapter{GRF-2}\label{grf-2}
+
+\section{Bases}
+
+
+\subsection*{Produit dérivé}\label{produit-derive}
+\addcontentsline{toc}{subsection}{Produit dérivé}
+
+Contrat entre 2 partis qui fixe les flux monétaires futurs fondés sur
+ceux de l'actif sous-jacent(SJ).
+
+\subsection*{Étapes d'une transaction}\label{etapes-dune-transaction}
+\addcontentsline{toc}{subsection}{Étapes d'une transaction}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Acheteur et vendeur se trouve. Facilité par la bourse.
+\item
+  Obligations pour les deux partis définis (prix, produits, conditions).
+  Si transaction à la bourse: intermédiaire, et donc, dépôts de garantie
+  possibles.
+\item
+  Transaction
+\item
+  Mise à jour du registre de propriété.
+\end{enumerate}
+
+\subsection*{Mesure d'évaluation taille(activité) de la bourse(marché)}\label{mesure-devaluation-tailleactivite-de-la-boursemarche}
+\addcontentsline{toc}{subsection}{Mesure d'évaluation taille(activité) de la bourse(marché)}
+
+\begin{itemize}
+
+\item
+  Volume de transaction: nombre de titres transigés parpériodes
+\item
+  Valeur marchande: Valeur d'une action/cie/indice boursier
+\item
+  Positions ouvertes: quantité de contrats qui ne sont pas arrivés à
+  échéance
+\end{itemize}
+
+\subsection*{Rôle des marchés financiers}\label{role-des-marches-financiers}
+\addcontentsline{toc}{subsection}{Rôle des marchés financiers}
+
+\begin{itemize}
+
+\item
+  Partage du risque: compagnie partage le risque et les profits avec les
+  actionnaires
+\item
+  Diversification du risque: risque diversifiable \(\rightarrow\)
+  théoriquement possible de diluer le risque pour qu'il devienne nul.
+  Risque non-diversifiable \(\rightarrow\) possible de transférer le
+  risque via des produits dérivés.
+\end{itemize}
+
+\subsection*{Utilité des produits dérivés}\label{utilite-des-produits-derives}
+\addcontentsline{toc}{subsection}{Utilité des produits dérivés}
+
+\begin{itemize}
+
+\item
+  Gestion des risques
+\item
+  Spéculation
+\item
+  Réduction des frais de transaction
+\item
+  arbitrage réglementaire
+\end{itemize}
+
+\subsection*{3 types d'acteurs}\label{types-dacteurs}
+\addcontentsline{toc}{subsection}{3 types d'acteurs}
+
+\begin{itemize}
+
+\item
+  Uilisateurs(acheteur/vendeurs)
+\item
+  Teneur de marché(intermédiaire)
+\item
+  Observateur(analyste/autorité)
+\end{itemize}
+
+\subsection*{Définitions}\label{definitions-1}
+\addcontentsline{toc}{subsection}{Définitions}
+
+\begin{itemize}
+
+\item
+  Ordre au cours du marché: quantité de l'actif visé à acheter(vendre)
+  au prix du marché, au moment où l'ordre est passée.
+\item
+  Ordre à cours limité: quantité d'actions à acheter/vendre dans une
+  tranche spécifique de prix.
+\item
+  Ordre de vente «stop»: prix en dessous duquel on vend automatiquement.
+\item
+  Position longue: qui profitera de l'augmentation de la valeur du SJ.
+\item
+  Position courte: qui profitera de la diminution de la valeur du SJ.
+\item
+  Vente à découvert: vente d'un actif qu'on ne possède pas. L'actif est
+  livré à une date ultérieur, mais paiement à t=0 au prix de l'actif à
+  t=0.
+
+  \begin{itemize}
+  
+  \item
+    Utilité:
+
+    \begin{itemize}
+    
+    \item
+      Spéculation
+    \item
+      Financement
+    \item
+      Couverture contre la baisse de valeur
+    \end{itemize}
+  \item
+    Risque:
+
+    \begin{itemize}
+    
+    \item
+      de défaut
+    \item
+      de rareté
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\section{CAPM(Capital asset pricing management)}\label{capmcapital-asset-pricing-management}
+
+\subsection*{3 postulats:}\label{postulats}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Transactions efficaces et sans friction: pas de frais de transaction,
+  emprunt au taux sans risque.
+\item
+  Rationnalité des investisseurs: maximise leur ratio de Sharpe \[
+  \rightarrow\; \frac{E[R_p- r_f]}{\sigma_p}
+  \]
+\item
+  Attentes et espérances homogènes
+\end{enumerate}
+
+L'équation du CAPM pour un actif \(\mathrm{i}\):
+
+\[
+R_i =r_f+a_i+\beta_i(R_{mkt}-r_f)+\epsilon\\  
+\] Cela implique:\\
+\[
+\frac{dR_i}{d R_{mkt}}=\beta_i=\frac{Cov(R_i,R_{mkt})}{Var(R_{mkt})}\\    
+\] Pour un portefeuille p:\\
+\[
+\frac{dR_p}{d R_{mkt}}=\beta_p=\frac{Cov(\sum x_i R_i,R_{mkt})}{Var(R_{mkt})}=\sum x_i \frac{Cov(R_i,R_{mkt})}{Var(R_{mkt})}=\sum x_i \beta_i
+\]
+
+\subsection*{Incohérences du modèle}\label{incoherences-du-modele}
+
+\begin{itemize}
+
+\item
+  Investisseurs non rationnels et pas informés sur leur portefeuille
+\item
+  Certains ne veulent pas nécessairement maximiser leur ratio de Sharpe,
+  ont d'autres objectifs
+\item
+  Il y a des investisseurs qui ne diversifient pas leur portefeuille de
+  manière optimale
+\item
+  Il y en a qui sont ultra-actif, malgré le fait que le CAPM suppose une
+  gestion passive
+\end{itemize}
+
+Comportements avec effet plus systémique:
+
+\begin{itemize}
+
+\item
+  Peur du regret: garder un titre qui est en train de baisser ou vendre
+  un titre avant qu'il remonte
+\item
+  Les investisseurs sont influençables; ils achèteront les titres
+  médiatisés,etc.
+\item
+  Effet de trouppeau: on fait comme ceux qu'on connait
+\end{itemize}
+
+\subsection*{Modèle multifactoriel et l'APT(arbitrage pricing theory)}\label{modele-multifactoriel-et-laptarbitrage-pricing-theory}
+
+Trois types d'actifs avec des alphas strictement positifs qui
+contredisent le CAPM:
+
+\begin{itemize}
+
+\item
+  Petites capitalisations: on observe des rendements supérieurs à ce que
+  le CAPM prédit
+\item
+  Book to market ratio: titres ``value'' avec une valeur au livre
+  supérieur à la valeur marchande verront la valeur marchande rejoindre
+  la valeur au livre avec le temps
+\item
+  Momemtum: les compagnies qui ont connues un bon rendement dernièrement
+  auront tendance à avoir un rendement supérieur à la moyenne
+\end{itemize}
+
+\subsubsection*{APT}\label{apt}
+
+\[
+E[R_s]-r_f= \sum_{i=1}^N \beta_s^{Fi}(E[R_{Fi}]-r_f)
+\] Les ``F'' sont des facteurs. Il est possible de créer des modèles
+avec n'importe quels facteurs comme des indices boursiers.
+
+\section{Foward et options}\label{fowardetopt}
+
+\subsection{Contrat Foward}\label{contrat-foward}
+
+Achat d'un actif prédeterminé à une valeur initiale \(S_0\), à une date
+de livraison \(T\) et à un prix \(F_{0,T}\). Le coût initial est nul.
+\(F_{0,T}\) est le prix anticipé de l'acftif sous-jacent rendu à la date
+\(T\). \(S_0(1+r_f)^T=F_{0,T}\)
+
+\begin{itemize}
+
+\item
+  Valeur à l'échéance:
+
+  \begin{itemize}
+  
+  \item
+    Pour l'acheteur(position longue): \(F_{0,T} - S_T\)
+  \item
+    Pour le vendeur(position courte): \(S_t - F_{0,T}\)
+  \end{itemize}
+\end{itemize}
+
+
+\includegraphics{_bookdown_files/03-GRF-2_files/figure-latex/unnamed-chunk-1-1.pdf} 
+
+
+\subsection{Foward prépayé}\label{foward-prepaye}
+
+Dans certain cas, l'acheteur voudra payé à \(t=0\). Le coût initial sera
+\(F_{0,T}^P\). On achète immédiatemment sans avoir l'actif à la date de
+transaction. La position de l'acheteur est \emph{capitalisée}. Dans un
+achat ferme, la position de l'acheteur est pleinement capitalisée. Le
+contrat foward, lui, implique une position non capitalisée.\\
+\\
+
+
+\begin{tabularx}{0.5\textwidth}{Xrr}
+\hline
+Temps & Acheteur & Vendeur \\
+\hline
+$t=0$ & $-F_{0,T}^P$ & $F_{0,T}^P$ \\
+$t=T$ & $S_T$ & $-S_T$ \\
+\hline
+\end{tabularx}
+
+\includegraphics[scale=1]{_bookdown_files/03-GRF-2_files/figure-latex/unnamed-chunk-3-1.pdf} 
+
+Pour recréer les cashflows d'un contrat foward avec un achat ferme, on
+finance l'achat ferme avec un emprunt au taux sans risque.\\
+\\
+
+
+\begin{tabular}{lrrr}
+\hline
+Temps & Achat ferme & + Emprunt & = Foward \\
+\hline
+$t=0$ & $-S_0$ & $S_0$ & $\varnothing$ \\
+$t=T$ & $S_T$ & $F_{0,T}$ & $S_T - F_{0,T}$ \\
+\hline
+\end{tabular}\\
+\\
+
+
+
+On peut aussi recréer les cashflows d'un achat ferme avec un foward et
+en investissant la valeur actualisée de \(F_{0,T}\).\\
+\(F_{0,T}(1+r_f)^{-T}=S_0(1+r_f)^{T}(1+r_f)^{-T}=S_0\).\\
+\\
+
+
+\begin{tabular}{lrrr}
+\hline
+Temps & Dépot & + Foward & = Achat ferme \\
+\hline
+$t=0$ & $-S_0$ & $\varnothing$ & $-S_0$ \\
+$t=T$ & $F_{0,T}$ & $S_T - F_{0,T}$ & $S_T$ \\
+\hline
+\end{tabular}
+
+\subsection{Option d'achat(call)}\label{option-dachatcall}
+
+Contrat qui permet au détenteur(position longue) d'acheter un actif
+sous-jacent à un prix prédéterminé, strike price \(=K\), à une date
+d'échéance ou d'içi cette date, s'il le désire.\\
+\\
+
+
+3 types de levées:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Européenne (à la date T)
+\item
+  Américaine (d'içi la date T)
+\item
+  Bermudienne (à certains moments d'içi T)
+\end{enumerate}
+
+\begin{tabular}{lrr}
+\hline
+\multicolumn{3}{c}{Profit} \\
+\hline
+Actif SJ & Acheteur & Vendeur \\
+\hline
+$S_T > K$ & $S_T - K - C(K,T)(1+r_f)^T$ & $K-S_T+C(K,T)(1+r_f)^T$\\
+$S_T<K$ & $- C(K,T)(1+r_f)^T$ & $C(K,T)(1+r_f)^T$\\
+\hline
+\end{tabular}		
+
+
+\includegraphics[scale=1]{_bookdown_files/03-GRF-2_files/figure-latex/unnamed-chunk-4-1.pdf}		
+
+
+\begin{tabularx}{0.5\textwidth}{Xr}
+\hline
+\multicolumn{2}{c}{Valeur à l'échéance}\\
+\hline
+Acheteur & $max(0;S_T-K)$\\
+Vendeur & $-max(0;S_T-K)$\\
+\hline
+\end{tabularx}
+
+\subsection{Option de vente(put)}\label{option-de-venteput}
+
+Contrat qui permet au détenteur(position courte) de vendre un actif
+sous-jacent à un prix prédéterminé, strike price \(=K\), à une date
+d'échéance ou d'içi cette date, s'il le désire. Le vendeur(position
+longue) de l'option devra acheter le SJ à ce prix si le
+détenteur(acheteur) le désire.\\
+\\
+
+
+\begin{tabular}{ccc}
+\hline
+\multicolumn{3}{c}{Option de vente} \\  
+\hline
+Position & Profit & Valeur à l'échéance \\
+\hline
+Acheteur & $max(0;K-S_T)-P(K,T)(1+r_f)^T$ & $max(0;K-S_T)$ \\
+\\
+Vendeur & $P(1+r_f)^T-max(0;K-S_T)$ & $-max(0;K-S_T)$\\
+\hline
+\end{tabular}		
+
+
+\includegraphics[scale=1]{_bookdown_files/03-GRF-2_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+
+\section{Stratégies de couverture et spéculation sur volatilité}
+
+\subsection{Floor}\label{floor}
+
+Combinaison d'une postion longue dans le SJ(on le possède) et une
+position courte dans une option de vente(achat). Permet de se couvrir
+contre une baisse du prix du SJ.\\
+\\
+	
+
+
+\begin{tabular}{|c|c|}
+\hline 
+\rule[-1ex]{0pt}{2.5ex} Valeur à l'échéance & $=S_T+\max(0;K-S_T)=\max(S_T;K)$ \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} Profit & $=\max(S_T,K)-(S_0+P(T,K))(1+r_f)^T$ \\ 
+\hline 
+\end{tabular}
+
+\subsection{Vente de couverture:vendre un floor(option de vente couverte)}\label{vente-de-couverturevendre-un-flooroption-de-vente-couverte}
+
+Combinaison d'une position longue dans l'option de vente(vente) et d'une
+position courte dans le SJ(vente à découvert)\\
+\\
+
+
+\begin{tabular}{|c|c|}
+\hline 
+\rule[-1ex]{0pt}{2.5ex} Valeur à l'échéance & $=-S_T-\max(0;K-S_T)=-\max(S_T;K))$ \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} Profit & $=-\max(S_T,K)+(S_0+P(T,K))(1+r_f)^T$ \\ 
+\hline 
+\end{tabular}
+
+\subsection{Cap}\label{cap}
+
+Combinaison d'une position courte dans le SJ(vente à découvert)et d'une
+position longue dans une option d'achat(achat).\\
+\\
+
+\begin{tabular}{|c|c|}
+\hline 
+\rule[-1ex]{0pt}{2.5ex} Valeur à l'échéance & $=S_T+\max(0;S_T-K)=\max(-S_T;-K)=-\min(S_T;K)$ \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} Profit & $=-\min(S_T,K)+(S_0-C(T,K))(1+r_f)^T$ \\ 
+\hline 
+\end{tabular}
+
+\subsection{Vente de couverture:vendre un cap(option d'achat couverte)}\label{vente-de-couverturevendre-un-capoption-dachat-couverte}
+
+Combinaison d'une position courte dans l'option d'achat(vente) et d'une
+position longue dans le SJ(achat).\\
+\\
+
+\begin{tabular}{|c|c|}
+\hline 
+\rule[-1ex]{0pt}{2.5ex} Valeur à l'échéance & $=S_T-\max(0;S_T-K)=-\max(-S_T;-K)=\min(S_T;K)$ \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} Profit & $=\min(S_T,K)-(S_0-C(T,K))(1+r_f)^T$ \\ 
+\hline 
+\end{tabular}
+
+\subsection{Foward synthétique}\label{foward-synthetique}
+
+On fait un foward en combinant une position longue dans une option
+d'achat et une position longue dans une option de vente avec la même
+échéance et le même strike price.\\
+\\
+
+\begin{tabular}{|c|c|}
+\hline 
+Foward synthétique & $=Call(K,T)-Put(K,T)$ \\ 
+\hline 
+Coût initial & $C(K,T)-P(K,T)$ \\ 
+\hline 
+Valeur à l'échéance & $=\max(0;S_T-K)-\max(0;K-S_T)=S_T-K$ \\ 
+\hline 
+Profit & $(S_T-K)-(C(K,T)-P(K,T))(1+r_f)^T$ \\ 
+\hline 
+\end{tabular}\\
+\\
+
+Si on remplace \(K\) par \(F_{0,T}\), le prix d'exercice sera le même
+qu'avec un foward standard. La différence avec un foward synthétique est
+que \(K\not=F_{0,T}\) est possible et, ainsi, le coût initial ne sera
+pas nul. Si \(K<F_{0,T}\), on payera le SJ moins cher, mais on payeune
+prime initiale. Si \(K>F_{0,T}\), on payera plus cher le SJ, mais on
+recevra une prime initiale.
+
+\subsection{Parité des options d'achat et de vente}\label{parite-des-options-dachat-et-de-vente}
+
+\begin{align*}
+E\left [S_T-K-(C(K,T)-P(K,T)(1+r_f)^T\right ]& =E\left [\text{Profit}\right ]=0\\
+E\left [S_T\right ]-K& =(C(K,T)-P(K,T))(1+r_f)^T\\
+C(K,T)-P(K,T)& = (F_{0,T}-k)(1+r_f)^{-T}
+\end{align*}
+
+\subsection{Bull spread}\label{bull-spread}
+
+\subsubsection*{Première façon:}\label{premiere-facon}
+
+Combinaison d'une position longue dans une option d'achat à un prix
+d'exercice \(K_1\) et d'une position courte dans une option d'achcat à
+un prix d'exercice \(K_2,\;K_1<K_2\), avec la même date d'échéance.\\
+\\
+
+\begin{tabular}{|c|c|}
+\hline 
+Bull spread(call)& $=Call(K_2,T)-Call(K_1,T)$ \\ 
+\hline 
+Coût initial & $C(K_1,T)-C(K_2,T)$ \\ 
+\hline 
+Valeur à l'échéance & $=\max(0;S_T-K_1)-\max(0;S_T-K_2)$ \\ 
+\hline 
+Profit & $\max(0;S_T-K_1)-\max(0;S_T-K_2)-(C(K_1,T)-C(K_2,T))(1+r_f)^T$ \\ 
+\hline 
+\end{tabular}
+
+\subsubsection*{Deuxième façon:}\label{deuxieme-facon}
+
+Combinaison d'une position courte(achat) dans une option de vente à un
+prix d'exercice \(K_1\) et d'une position longue(vente) dans une option
+de vente à un prix d'exercice \(K_2,\;K_1<K_2\), avec la même date
+d'échéance.\\
+\\
+
+\begin{tabular}{|c|c|}
+\hline 
+Bull spread(Put)& $=Put(K_2,T)-Put(K_1,T)$ \\ 
+\hline 
+Coût initial & $P(K_1,T)-P(K_2,T)$ \\ 
+\hline 
+Valeur à l'échéance & $=\max(0;K_1-S_T)-\max(0;K_2-S_T)$ \\ 
+\hline 
+Profit & $\max(0;K_1-S_T)-\max(0;K_2-S_T)-(P(K_1,T)-P(K_2,T))(1+r_f)^T$ \\ 
+\hline 
+\end{tabular}
+
+\subsection{Bear Spread(-Bull spread)}\label{bear-spread-bull-spread}
+
+\subsubsection*{Première façon:}\label{premiere-facon-1}
+
+Combinaison d'une position courte(vente) dans une option d'achat à un
+prix d'exercice \(K_1\) et d'une position longue(achat) dans une option
+d'achcat à un prix d'exercice \(K_2,\;K_1<K_2\), avec la même date
+d'échéance.\\
+\\
+
+\begin{tabular}{|c|c|}
+\hline 
+Bear spread(call)& $=Call(K_1,T)-Call(K_2,T)$ \\ 
+\hline 
+Coût initial & $C(K_2,T)-C(K_1,T)$ \\ 
+\hline 
+Valeur à l'échéance & $=\max(0;S_T-K_2)-\max(0;S_T-K_1)$ \\ 
+\hline 
+Profit & $\max(0;S_T-K_2)-\max(0;S_T-K_1)-(C(K_2,T)-C(K_1,T))(1+r_f)^T$ \\ 
+\hline 
+\end{tabular}
+
+\subsubsection*{Deuxième façon:}\label{deuxieme-facon-1}
+
+Combinaison d'une position longue(vente) dans une option de vente à un
+prix d'exercice \(K_1\) et d'une position courte(achat) dans une option
+de vente à un prix d'exercice \(K_2,\;K_1<K_2\), avec la même date
+d'échéance.\\
+\\
+
+\begin{tabular}{|c|c|}
+\hline 
+Bull spread(Put)& $=Put(K_1,T)-Put(K_2,T)$ \\ 
+\hline 
+Coût initial & $P(K_2,T)-P(K_1,T)$ \\ 
+\hline 
+Valeur à l'échéance & $=\max(0;K_2-S_T)-\max(0;K_1-S_T)$ \\ 
+\hline 
+Profit & $\max(0;K_2-S_T)-\max(0;K_1-S_T)-(P(K_2,T)-P(K_1,T))(1+r_f)^T$ \\ 
+\hline 
+\end{tabular}
+
+\subsection{Ratio spread}\label{ratio-spread}
+
+Combinaison de n position longue(achat) dans les options d'achat à un
+prix d'exercice \(K_1\) et m position courte(vente) dans les options
+d'achat à un prix d'exercice \(K_2\), avec la m\^{}me date d'échéance.
+Permet la possibilité de créer une combinaison quirésulte en un coût
+initial nul.
+
+\subsection{Box spread}\label{box-spread}
+
+Combinaison de positions longue dans une option d'achat(achat) et de
+vente(vente) à un prix d'exercice \(K_1\) et de positions courtes dans
+une option d'achat(vente) et d'une option de vente(achat) à un prix
+d'exercice \(K_2\), avec toutes les options de mêmes dates d'échéance.\\
+\\
+
+\begin{tabular}{|c|c|c|}
+    \hline 
+    Box spread &  $=Call(K_1,T)+Put(K_2,T)$ & $-Call(K_2,T)-Put(K_1,T)$ \\ 
+    \hline 
+    Box spread & Bull spread(call) & + Bear spread(put) \\ 
+    \hline 
+    Box spread & $=Call(K_1,T)-Call(K_2,T)$ & $+Put(K_2,T)-Put(K_1,T)$ \\ 
+    \hline 
+    Box spread & Foward synthétique $K_1$ & - Foward synthétique $K_2$  \\ 
+    \hline 
+    Box spread & $=Call(K_1,T)-Put(K_1,T)$ & $-(Call(K_2,T)-Put(K_2,T))$ \\ 
+    \hline 
+    Coût initial & $=C(K_1,T)+P(K_2,T)$ & $-C(K_2,T)-P(K_1,T)>0$ \\ 
+    \hline 
+    Valeur à l'échéance & $=\max(0;S_T-K_1)+\max(0;K_2-S_T)$ & $-\max(0;S_t-K_2)-\max(0;K_1-S_T)$ \\ 
+    \hline 
+    Profit & \multicolumn{2}{c|}{=0} \\
+    \hline
+\end{tabular}
+
+
+
+On spécule sur la volatilité du SJ, de l'amplitude des variations de sa valeur, peu importe le sens de la variation.
+
+\subsection{Straddles}
+
+On achète une option d'achat et une option de vente au même prix d'exercice.
+\[\text{Starddle}=\text{Call}(K)+\text{Put}(K)\]
+
+\begin{enumerate}
+\item Coût initial: $C(K,T) + P(K,T)>0$
+\item Valeur à l'échéance: $\max(0,S_T-K)+ \max(0, K-S_T)= \vert S_T-K \vert$
+\item Profit: $\vert S_T-K \vert - (C(K,T) + P(K,T))(1+r_f)^{T}$
+\end{enumerate}
+
+\subsection{Strangle}
+
+On achète une option d'achat et une option de vente, mais avec un prix d'exercice différent. $K_1<K_2$ et en général $K_1<S_T<K_2$
+
+
+\begin{enumerate}
+\item Coût initial: $C(K_2,T) + P(K_1,T)>0$
+\item Valeur à l'échéance: $\max(0,S_T-K_2)+ \max(0, K_1-S_T)$
+\item Profit: $\max(0,S_T-K_2)+ \max(0, K_1-S_T) - (C(K_@,T) + P(K_1,T))(1+r_f)^{T}$
+\end{enumerate}
+
+\subsection{Butterfly spread}
+Combinaison d'un straddle et d'un strangle. Le straddle est vendu au strike price $K_2$ et le strangle a des strikes prices de $K_1$ et $K_3$. Le but est de tirer profit d'une faible volatilité du SJ, mais en éliminant les risques liés aux pertes en cas de très forte volatilité.
+\[\text{Butterfly spread}= \underbrace{(C(K_3,T)+P(K_1,T))}_{\text{Strangle}(K_1,K_3)}-\underbrace{(C(K_2,T)+P(K_2,T))}_{\text{Written Straddle}(K_2)}\]
+
+\begin{enumerate}
+\item Coût initial: $C(K_3,T) + P(K_1,T)-(C(K_2,T) + P(K_2,T))<0$
+\item Valeur à l'échéance: $\max(0,S_T-K_3)+ \max(0, K_1-S_T)-(\max(0,S_T-K_2)+ \max(0, K_2-S_T))$
+\item Profit: $\max(0,S_T-K_3)+ \max(0, K_1-S_T)- \vert S_T-K_2 \vert -C(K_3,T) + P(K_1,T)-(C(K_2,T) + P(K_2,T))(1+r_f)^{T}$
+\end{enumerate}
+
+\subsection{Butterfly spread asymétrique}
+
+Combinaison de $n$ Bull spread($K_1,K_2$) et de $m$ Bear spread($K_2,K_3$). 
