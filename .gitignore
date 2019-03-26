@@ -13,3 +13,7 @@ _bookdown_files
 *.out
 *.toc
 *.bak
+*.Rmd
+*.yml
+*.gz
+*.md
