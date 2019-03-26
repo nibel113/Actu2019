@@ -507,3 +507,96 @@ AIC = 2(-\ell(\hat{\theta}_n)+k)
 \[
 BIC = -2\ell(\hat{\theta}_n)+k ln(n)
 \]
+
+
+\section{Inteval de confiance bilatéral}
+
+Définition:
+Pour $\alpha \in (0,1)$ et un paramètre $\theta \in \Theta \subset \mathrm{R}$, les stats $\hat{\theta}_L \text{ et } \hat{\theta}_U$ sont appelées les bornes inf. et sup. d'un intervalle de confiance, si 
+\[\Pr(\hat{\theta}_L \leq \theta \leq \hat{\theta}_U
+) = 1- \alpha\].
+
+On a donc un intervalle \emph{aléatoire}:
+\[ [\hat{\theta}_L,\hat{\theta}_U
+]\]
+
+appelé intervalle de confiance bilatéral,$1-\alpha$ est le miveau de confiance
+
+\section{Intervalle de confiance unilatéral}
+
+Intervalle de confiance unilatéral à gauche:
+\[\Pr(\hat{\theta}_{L} \leq \theta)=1-\alpha\]  
+
+Intervalle de confiance unilatéral à droite:
+\[\Pr(\theta \leq \hat{\theta}_{U})=1-\alpha\]
+
+Remarque sur les intervalles de confiance
+\begin{enumerate}
+\item si $n$ augmente, l'intervalledevient plus petit
+\item si $1- \alpha$ augmente, l'intervalle devient plus grand
+\end{enumerate}
+
+\section{Méthode du pivot}
+
+ \begin{enumerate}
+ \item Pivot: une fonction des obsevations et du paramètre inconnu qui nous intéresse
+ dont la distribution est entièrement connue et ne dépend pas de $\theta$. 
+ \item Trouver les quantiles appropriés de la distibution $W$ pour un intervalle bilatéral
+ \item On calcule l'intervalle:
+ 	\[w_{1-\alpha/2} \leq W(X_1, \dots X_n, \theta) \leq w_{\alpha/2}\]
+ \end{enumerate}
+ 
+\section{Intervalle de confiance pour échantillons de la loi normale}
+
+Soit $X_1, \dots X_n \sim N(\mu, \sigma^2)$ avec paramètres inconnus.
+
+\subsection*{Intervalle de confiance pour $\mu$}
+
+Voir \autoref{stats:dist:student} pour la distribution de la statistique T.
+
+$T_n$ est un pivot et on a 
+\[\Pr(-t_{n-1,\alpha/2} \leq \sqrt{n}\dfrac{\bar{X}_n- \mu}{S_n} \leq t_{n-1,\alpha/2}\].
+L'intervalle de confiance est:
+\[\left [ \bar{X}_n - t_{n-1,\alpha/2} \dfrac{S_n}{\sqrt{n}},\bar{X}_n + t_{n-1,\alpha/2} \dfrac{S_n}{\sqrt{n}}\right ] \]
+
+\subsection*{Différence entre 2 moyennes}
+
+Pour comparer 2 moyennes.
+
+On obtient facilement des intervalles de confiance lorsqu'on a les conditions suivantes:
+
+\begin{itemize}
+\item $X_1, \dots X_n \sim N(\mu, \sigma^2)$
+\item $Y_1, \dots Y_n \sim N(\mu, \sigma^2)$
+\item les 2 échantillons sont mutuellement indépendants
+\item $\sigma^2_1=\sigma^2_2 =\sigma^2$
+\end{itemize}
+
+Ainsi, on a,
+\begin{align*}
+\dfrac{(\bar{X}_n-\bar{Y}_n)-(\mu_1-\mu_2)}{\sqrt{\dfrac{\sigma^2}{n}+ \dfrac{\sigma^2}{m}}}& =\dfrac{(\bar{X}_n-\bar{Y}_n)-(\mu_1-\mu_2)}{\sigma \sqrt{\dfrac{1}{n}+\dfrac{1}{m}}}\sim N(0,1)\\
+\text{Il faut estimer la variance commune}\\
+S^2& = \dfrac{n-1}{n+m-2}S^2_n+\dfrac{m-1}{n+m-2}S^2_m\\
+& = \dfrac{1}{n+m-2} \left \{ \sum^n_{i=1} (X_i-\bar{X}_n)^2 + \sum^m_{j=1} (Y_j- \bar{Y}_n)^2 \right \} \\
+S^2_n \text{ et } S^2_m \text{ sont indépendantes}\\
+\dfrac{n+m-2}{\sigma^2}S^2& =\dfrac{n-1}{\sigma^2}S^2_n+ \dfrac{m-1}{\sigma^2} S_m^2 \sim \chi^2_{(n+m-2)}\\
+\text{Ainsi,}\\
+\dfrac{\bar{X}_n-\bar{Y}_n)-(\mu_1-\mu_2}{S \sqrt{\dfrac{1}{n} + \dfrac{1}{m}}} &\sim t_{(n+m-2)}
+\end{align*}
+
+L'intervalle de confiance pour la différence de moyennes:
+ 
+\[ \left [ (\bar{X}_n - \bar{Y}_n) -t_{(n+m-2,\alpha/2)} S \sqrt{\dfrac{1}{n} +\dfrac{1}{m}},(\bar{X}_n - \bar{Y}_n) -t_{(n+m-2,\alpha/2)} S \sqrt{\dfrac{1}{n} +\dfrac{1}{m}} \right ]  \]
+
+\subsection*{Intervalle de confiance pour la variance}\label{stats:intconfvar}
+
+ 
+Le pivot à utiliser:
+\[\dfrac{n-1}{\sigma^2}S^2_n=\dfrac{1}{\sigma^2}`\sum^n_{i=1} (X_i-\bar{X}_n)^2 \sim \chi^2(n-1)\]
+
+L'intervalle sera:
+
+\[\left [ \dfrac{n-1}{\chi^2_{n-1,\alpha/2}}S_n^2,\dfrac{n-1}{\chi^2_{n-1,1-\alpha/2}}S_n^2 \right ] \]
+
+
+ 
